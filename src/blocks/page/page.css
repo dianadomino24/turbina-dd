@@ -1,0 +1,12 @@
+.page{
+    background-image: url(../../images/IMG_1-min.png);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    position: fixed;
+    font-family: "Inter", "Arial", sans-serif;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    color: #FFFFFF;
+}

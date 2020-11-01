@@ -1,0 +1,12 @@
+.header__music-link {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    color: #FFFFFF;
+    text-decoration: none;
+    display: block;
+    padding: 8px 20px 10px 20px;    
+    border: 2px solid #FFFFFF;
+    box-sizing: border-box;
+    border-radius: 30px;
+    }
