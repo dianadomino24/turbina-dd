@@ -1,0 +1,11 @@
+.about__subtitle {
+    font-weight: normal;
+    font-size: 18px;
+    line-height: 22px;
+    max-width: 716px;
+    margin-top: 18px;
+}
+
+.about__subtitle:first-of-type {
+    margin-top: 0;
+}
