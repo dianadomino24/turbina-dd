@@ -1,6 +1,7 @@
 .form__label {
     font-weight: normal;
-font-size: 18px;
-line-height: 22px;
-margin-top: 35px;
+    font-size: 18px;
+    line-height: 22px;
+    margin-top: 35px;
+    text-align: center;
 }
