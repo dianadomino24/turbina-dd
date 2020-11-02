@@ -88,8 +88,23 @@
                         </ul>
                     </li>
                 </ul>
-                <form>
-                    <h2 class="about__title">Форма</h2>
+                <form class="form">
+                    <h2 class="form__title">Форма</h2>
+                    <input type="text" placeholder="Имя и фамилия автора" class="form__input" id="" required />
+                    <span class="form__error" id=""></span>
+                    <input type="e-mail" placeholder="Почта" class="form__input" id="" required />
+                    <span class="form__error" id=""></span>
+                    <input type="tel" placeholder="Телефон" class="form__input" id="" required />
+                    <span class="form__error" id=""></span>
+                    <input type="text" placeholder="Стихи" class="form__input" id="" required />
+                    <span class="form__error" id=""></span>
+                    <label for="offer" class="form__label">
+                        <input type="radio" class="form__input-radio" id="offer" required />Согласен с
+                        <a href="#" class="form__link form__label">офертой</a>
+                    </label>
+                    <button type="submit" class="form__submit">
+                        Отправить
+                    </button>
                 </form>
 
             </section>
