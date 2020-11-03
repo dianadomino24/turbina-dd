@@ -1,12 +1,19 @@
 .turbina__music-link {
     font-weight: normal;
-    font-size: 15px;
-    line-height: 18px;
+    font-size: 16px;
+    line-height: 19px;
     color: #FFFFFF;
     text-decoration: none;
     display: block;
-    padding: 8px 18px 8px 18px;    
+    padding: 8px 15px 8px 15px;    
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 30px;
+    }
+
+    @media all and (max-width: 1024px) {
+        .turbina__image {
+            font-size: 15px;
+            line-height: 18px;
+        }
     }

@@ -4,3 +4,17 @@
     align-items: flex-start;
     padding-left: 51px;
 }
+
+@media screen and (max-width: 1024px) {
+    .form {
+        padding-left: 50px;
+        padding-right: 50px;
+    }
+}
+
+@media all and (max-width: 400px) {
+    .form {
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+}

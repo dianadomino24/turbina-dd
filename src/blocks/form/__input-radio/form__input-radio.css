@@ -4,7 +4,13 @@
     background-image: url(../../../images/Ellipse.svg);
     height: 28px;
     width: 28px;
-    margin-right: 14px;
+    margin-right: 20px;
+}
+
+@media all and (max-width: 320px) {
+    .form__input-radio {
+        margin-right: 12px;
+    }
 }
 
 .form__input-radio:focus {

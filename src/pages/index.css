@@ -10,7 +10,7 @@
 @import url(../blocks/content/content.css);
 @import url(../blocks/turbina/__image/turbina__image.css);
 @import url(../blocks/information/information.css);
-@import url(../blocks/description/description.css);
+@import url(../blocks/description/description.css);    
 @import url(../blocks/description/__element/description__element.css);
 @import url(../blocks/proposition/proposition.css);
 @import url(../blocks/proposition/__element/proposition__element.css);
