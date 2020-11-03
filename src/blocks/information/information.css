@@ -1,0 +1,11 @@
+.information {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-size: cover;
+    background-color: #FFFFFF;
+    color: #000000;
+    border-radius: 10px;
+    margin-left: 10px;
+    margin-right: 10px;
+}

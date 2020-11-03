@@ -1,0 +1,13 @@
+.description__title {
+    font-weight: normal;
+    font-size: 50px;
+    line-height: 61px;
+    font-style:  italic;
+    text-transform: uppercase;
+    padding: 90px 0 40px 0;
+    margin: 0;
+}
+
+.description__title:first-of-type {
+    padding-top: 110px;
+}

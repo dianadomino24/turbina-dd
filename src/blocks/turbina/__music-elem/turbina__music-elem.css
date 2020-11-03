@@ -1,4 +1,4 @@
-.header__music-elem {
+.turbina__music-elem {
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
@@ -7,6 +7,6 @@
     margin-top: 10px;
 }
 
-.header__music-elem:first-of-type {
+.turbina__music-elem:first-of-type {
     margin-top: 0;
 }

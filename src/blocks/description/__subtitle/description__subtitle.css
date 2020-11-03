@@ -1,0 +1,11 @@
+.description__subtitle {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 716px;
+    margin-top: 14px;
+}
+
+.description__subtitle:first-of-type {
+    margin-top: 0;
+}

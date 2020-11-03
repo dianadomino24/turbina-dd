@@ -1,11 +1,11 @@
-.header__music-link {
+.turbina__music-link {
     font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
+    font-size: 15px;
+    line-height: 18px;
     color: #FFFFFF;
     text-decoration: none;
     display: block;
-    padding: 8px 20px 10px 20px;    
+    padding: 8px 18px 8px 18px;    
     border: 2px solid #FFFFFF;
     box-sizing: border-box;
     border-radius: 30px;
