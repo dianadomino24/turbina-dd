@@ -1,7 +1,7 @@
-.form__label {
+.form__subtitle {
     font-weight: normal;
     font-size: 16px;
     line-height: 22px;
-    margin-top: 43px;
-    justify-items: center;
+    max-width: 716px;
+    padding-bottom: 60px;
 }
