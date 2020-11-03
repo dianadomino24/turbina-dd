@@ -1,8 +1,10 @@
 .page {
     background-image: url(../../images/IMG_1-min.png);
     background-repeat: no-repeat;
-    background-size: cover;
-    background-position: center;
+    background-position: top;
+    background-size: 1653px 1158px;
+    overflow: hidden;
+    background-attachment: fixed;
     font-family: "Inter", "Arial", sans-serif;
     display: flex;
     flex-direction: column;
