@@ -101,14 +101,14 @@ body {
     cursor: pointer;
     position: relative;
 }
-.song-item__timeline:hover > .hover-playhead {
+.song-item__timeline:hover > .song-item__timeline-hover-playhead {
     opacity: 1;
 }
-.song-item__timeline:hover > .hover-playhead::before {
+.song-item__timeline:hover > .song-item__timeline-hover-playhead::before {
     opacity: 1;
 }
 /* пройденное время ползунка */
-#playhead {
+song-item__timeline-playhead {
     position: relative;
     z-index: 2;
     width: 120px;
@@ -116,7 +116,7 @@ body {
     background-color: #ffffff;
 }
 /* при наведении на ползунок */
-.hover-playhead {
+.song-item__timeline-hover-playhead {
     position: absolute;
     z-index: 1;
     top: 0;
