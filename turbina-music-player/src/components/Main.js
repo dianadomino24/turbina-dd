@@ -1,5 +1,7 @@
 import React from 'react'
 import Player from './Player'
+import headerLogo from '../images/logo.svg'
+import turbina from '../images/Турбина.svg'
 
 function Main() {
   return (
@@ -7,11 +9,7 @@ function Main() {
       <section className="turbina">
         <div className="turbina__links">
           <a href="https://marshakbooks.ru/" target="_blank">
-            <img
-              src="./images/logo.svg"
-              alt="Маршак"
-              className="turbina__logo"
-            />
+            <img src={headerLogo} alt="Маршак" className="turbina__logo" />
           </a>
           <div className="turbina__dropdown-menu">
             <button className="turbina__dropbtn">Стриминги</button>
@@ -57,11 +55,7 @@ function Main() {
           </div>
         </div>
         <h1 className="turbina__title">
-          <img
-            src="images/Турбина.svg"
-            alt="Турбина"
-            className="turbina__image"
-          />
+          <img src={turbina} alt="Турбина" className="turbina__image" />
         </h1>
       </section>
       <section className="pleer">

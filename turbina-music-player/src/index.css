@@ -36,11 +36,6 @@
 @import url(./blocks/footer/__link/footer__link.css);
 @import url(./blocks/opened/opened.css);
 
-body {
-  background-color: darkseagreen;
-  padding-top: 20px;
-}
-
 .audio {
   display: none;
 }
