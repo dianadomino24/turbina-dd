@@ -1,0 +1,6 @@
+.turbina__dropdown-menu {
+    margin: 13px 13px 0 0;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-end;
+}
