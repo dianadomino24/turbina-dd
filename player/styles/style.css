@@ -2,7 +2,7 @@
 @import url('../vendor/fonts/fonts.css');
 
 body {
-    background-color: darkseagreen;
+    background-color: lightsteelblue;
     padding-top: 20px;
 }
 
@@ -15,16 +15,19 @@ body {
     font-family: 'Inter', Arial, sans-serif;
     color: #ffffff;
     min-width: 300px;
-    box-sizing: border-box;
     margin: 0 auto;
+    width: 100%;
+    box-sizing: border-box;
+    max-width: 1280px;
 }
 
 .player__controls {
     display: flex;
     width: 100%;
     flex-wrap: nowrap;
-    justify-content: space-between;
+    justify-content: flex-start;
     align-items: flex-start;
+    box-sizing: border-box;
 }
 .controls__play-button {
     padding: 0;
@@ -72,8 +75,9 @@ body {
 
 .song-item {
     width: 100%;
-    padding: 0 20px 0 21px;
+    padding: 0 20px 0 20px;
     box-sizing: border-box;
+    flex-shrink: -1;
 }
 .song-item__time-progress {
     width: 100%;
@@ -146,6 +150,9 @@ body {
 .details__song-item {
     list-style: none;
     margin-bottom: 16px;
+    overflow-x: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .song-item__name-wrap {
     font-weight: 500;
@@ -154,7 +161,8 @@ body {
     overflow: hidden;
     white-space: nowrap;
     text-overflow: ellipsis;
-    max-width: calc(100vw - 336px);
+    /* max-width: calc(100% - 24px); */
+    max-width: min(100vw - 336px, 944px);
 }
 .song-item__name-wrap_type_release {
     text-decoration: none;
@@ -168,7 +176,8 @@ body {
 }
 .player__details-container {
     padding-left: 35px;
-    height: 104px;
+    padding-right: 20px;
+    max-height: 104px;
     overflow-y: scroll;
     margin-right: 38px;
     margin-top: 30px;
@@ -194,6 +203,7 @@ body {
     line-height: 1.35;
     font-style: italic;
     margin: 0;
+    overflow-wrap: break-word;
 }
 
 @media screen and (max-width: 1024px) {
@@ -218,10 +228,9 @@ body {
     }
     .player__details-container {
         margin-top: 28px;
+        max-height: 96px;
     }
     .controls__play-button {
-    }
-    .controls__play-icon {
         width: 15px;
         height: 18px;
     }
@@ -252,7 +261,7 @@ body {
     .song-item__name-wrap {
         font-size: 14px;
         line-height: 1.36;
-        max-width: calc(100vw - 145px);
+        max-width: calc(100% - 48px);
     }
     .song-item__timer {
         font-size: 14px;
@@ -265,6 +274,9 @@ body {
         width: 16px;
         height: 16px;
         margin-left: 11px;
+    }
+    .player__details-container {
+        max-height: 80px;
     }
     .details__song-text {
         font-size: 14px;
@@ -279,11 +291,11 @@ body {
         order: 5;
         width: calc(100vw - 80px);
         margin: 0 auto;
-        box-sizing: border-box;
         margin-top: 21px;
     }
     .player__details-container {
         padding-left: 25px;
+
         margin-right: 27px;
     }
     .controls__play-button {
