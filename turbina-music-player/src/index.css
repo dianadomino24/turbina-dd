@@ -1,2 +1,242 @@
 @import url('./vendor/normalize.css');
 @import url('./vendor/fonts/fonts.css');
+
+body {
+  background-color: darkseagreen;
+  padding-top: 20px;
+}
+
+.audio {
+  display: none;
+}
+
+.player {
+  padding: 0 25px 20px;
+  font-family: 'Inter', Arial, sans-serif;
+  color: #ffffff;
+  border: red 1px solid;
+  min-width: 300px;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.player__controls {
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
+}
+.controls__play-button {
+  padding: 0;
+  border: none;
+  width: 20px;
+  height: 16px;
+  outline: none;
+  background: none;
+  transition: 0.2s linear;
+}
+.controls__lyrics-release-button {
+  min-width: 135px;
+  height: 35px;
+  outline: none;
+  background: none;
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  transition: 0.2s linear;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19px;
+  color: #ffffff;
+  box-sizing: border-box;
+  margin-right: 20px;
+}
+.controls__open-details-button {
+  padding: 0;
+  border: none;
+  width: 24px;
+  height: 24px;
+  outline: none;
+  background: none;
+  transition: 0.2s linear;
+  margin-top: 4px;
+}
+.controls__svg {
+  fill: #ffffff;
+}
+.controls__pause-icon {
+  margin-top: 4px;
+}
+
+.disabled {
+  display: none;
+}
+
+.song-item {
+  width: 100%;
+  margin: 0 20px 0 21px;
+}
+.song-item__time-progress {
+  width: 100%;
+}
+.song-item__timer {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-left: 10px;
+}
+
+.song-item__wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.song-item__timeline {
+  width: 100%;
+  border: 2px solid rgba(255, 255, 255, 0.3);
+  margin-top: 13px;
+  cursor: pointer;
+  position: relative;
+}
+.song-item__timeline:hover > .hover-playhead {
+  opacity: 1;
+}
+.song-item__timeline:hover > .hover-playhead::before {
+  opacity: 1;
+}
+/* пройденное время ползунка */
+#playhead {
+  position: relative;
+  z-index: 2;
+  width: 120px;
+  height: 2px;
+  background-color: #ffffff;
+}
+/* при наведении на ползунок */
+.hover-playhead {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 210px;
+  /* opacity: 0; */
+  height: 2px;
+  background-color: #fff;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+/* указатель времени перемотки
+.hover-playhead::before {
+  opacity: 0;
+  content: '';
+  /* content: attr(data-content); */
+/* display: block;
+  position: absolute;
+  top: -30px;
+  right: -23px;
+  width: 40px;
+  padding: 3px;
+  text-align: center;
+  color: white;
+  background: green;
+} */
+
+.details__songs-list {
+  padding: 0;
+  margin: 0;
+}
+.details__song-item {
+  list-style: none;
+  margin-bottom: 16px;
+}
+.song-item__name-wrap {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.2;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  max-width: calc(100vw - 336px);
+}
+
+.song-item__name-wrap_type_release:hover {
+  font-style: italic;
+}
+.player__details-container {
+  padding-left: 34px;
+  height: 104px;
+  overflow-y: scroll;
+  margin-right: 44px;
+  margin-top: 30px;
+  margin-bottom: 8px;
+}
+.player__details-container::-webkit-scrollbar {
+  width: 3px;
+  background: rgba(243, 243, 243, 0.1);
+}
+.player__details-container::-webkit-scrollbar-thumb {
+  background: rgba(255, 255, 255, 0.3);
+}
+.details__title {
+  font-style: italic;
+  margin: 0 0 16px;
+  font-size: 20px;
+  line-height: 1.2;
+  font-weight: 400;
+}
+.details__song-text {
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 1.35;
+  font-style: italic;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .song-item__name-wrap {
+    font-size: 18px;
+  }
+  .song-item__timer {
+    font-size: 18px;
+  }
+  .details__song-text {
+    font-size: 18px;
+    line-height: 1.44;
+  }
+  .controls__lyrics-release-button {
+    font-size: 15px;
+    min-width: 125px;
+    height: 34px;
+  }
+  .player__details-container {
+    margin-top: 28px;
+  }
+  .controls__play-icon {
+    width: 15px;
+    height: 18px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .song-item__timeline {
+    margin-top: 11px;
+  }
+}
+@media screen and (max-width: 320px) {
+  .song-item__name-wrap {
+    font-size: 14px;
+    line-height: 1.36;
+  }
+  .song-item__timer {
+    font-size: 14px;
+    line-height: 1.36;
+  }
+  .details__song-text {
+    font-size: 14px;
+    line-height: 1.36;
+  }
+  .controls__lyrics-release-button {
+    font-size: 12px;
+  }
+  .player__details-container {
+  }
+  .controls__play-icon {
+  }
+}
