@@ -1,6 +1,5 @@
 .head{
   position: relative;
   height: calc(100vh - 10px);
-  border: orchid 2px solid;
   width: 100%;
 }
