@@ -1,0 +1,34 @@
+.proposition__element {
+    list-style-type: disc;
+    list-style-position:inside;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 716px;
+    margin-top: 14px;
+}
+
+@media screen and (max-width: 1024px) {
+    .proposition__element {
+        font-size: 15px;
+        max-width: 680px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .proposition__element {
+        max-width: 648px;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .proposition__element {
+        font-size: 12px;
+        line-height: 16px;
+        max-width: 270px;
+    }
+}
+
+.proposition__element:first-of-type {
+    margin-top: 0;
+}
