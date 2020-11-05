@@ -1,5 +1,4 @@
-
-@media screen and (max-width: 580px) {
+@media all and (max-width: 600px) {
   .controls__cross-icon {
     width: 16px;
     height: 16px;

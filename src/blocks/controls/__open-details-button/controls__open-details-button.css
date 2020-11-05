@@ -8,10 +8,10 @@
   transition: 0.2s linear;
 }
 
-@media screen and (max-width: 580px) {
+@media all and (max-width: 600px) {
   .controls__open-details-button {
     width: 16px;
     height: 16px;
-    margin-left: 10px;
-}
+    margin-left: 11px;
+  }
 }

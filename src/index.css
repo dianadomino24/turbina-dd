@@ -1,5 +1,5 @@
-@import url('./vendor/normalize.css');
-@import url('./vendor/fonts/fonts.css');
+@import url(./vendor/normalize.css);
+@import url(./vendor/fonts/fonts.css);
 @import url(./blocks/page/page.css);
 @import url(./blocks/head/head.css);
 @import url(./blocks/turbina/turbina.css);
@@ -25,12 +25,13 @@
 @import url(./blocks/form/__title/form__title.css);
 @import url(./blocks/form/__subtitle/form__subtitle.css);
 @import url(./blocks/form/__input/form__input.css);
-@import url(./blocks/audio/audio.css);
 @import url(./blocks/player/player.css);
 @import url(./blocks/player/__container/player__container.css);
+@import url(./blocks/player/__audio/player__audio.css);
 @import url(./blocks/player/__controls/player__controls.css);
 @import url(./blocks/player/__details-container/player__details-container.css);
-@import url(./blocks/controls/__play-button/controls__play-button\ .css);
+@import url(./blocks/controls/controls.css);
+@import url(./blocks/controls/__play-button/controls__play-button.css);
 @import url(./blocks/controls/__lyrics-release-button/controls__lyrics-release-button.css);
 @import url(./blocks/controls/__open-details-button/controls__open-details-button.css);
 @import url(./blocks/controls/__svg/controls__svg.css);
@@ -38,7 +39,7 @@
 @import url(./blocks/controls/__arrow-icon/controls__arrow-icon.css);
 @import url(./blocks/controls/__cross-icon/controls__cross-icon.css);
 @import url(./blocks/controls/__play-icon/controls__play-icon.css);
-@import url(./blocks/disabeld/disabled.css);
+@import url(./blocks/disabled/disabled.css);
 @import url(./blocks/song-item/song-item.css);
 @import url(./blocks/song-item/__time-progress/song-item__time-progress.css);
 @import url(./blocks/song-item/__timer/song-item__timer.css);
@@ -61,5 +62,3 @@
 @import url(./blocks/footer/__subtitle/footer__subtitle.css);
 @import url(./blocks/footer/__link/footer__link.css);
 @import url(./blocks/opened/opened.css);
-
-

@@ -6,3 +6,8 @@
   height: 2px;
   background-color: #ffffff;
 }
+@media all and (max-width: 600px) {
+  .song-item__timeline-playhead {
+    height: 3px;
+  }
+}

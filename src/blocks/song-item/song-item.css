@@ -1,15 +1,20 @@
 .song-item {
-  width: 100%;
-  padding: 0 20px 0 20px;
-  box-sizing: border-box;
-  flex-shrink: -1;
+    width: 100%;
+    /* max-width: calc(100% - 195px); */
+    padding: 0 20px 0 20px;
+    box-sizing: border-box;
+}
+@media all and (max-width: 1024px) {
+    .song-item {
+        /* width: 100%; */
+        /* max-width: calc(100% - 185px); */
+    }
 }
 
-@media screen and (max-width: 580px) {
-   
-  .song-item {
-      padding: 0;
-      padding-left: 5px;
-      max-width: calc(100% - 42px);
-  }
+@media all and (max-width: 600px) {
+    .song-item {
+        padding: 0;
+        padding-left: 12px;
+        max-width: calc(100% - 40px);
+    }
 }

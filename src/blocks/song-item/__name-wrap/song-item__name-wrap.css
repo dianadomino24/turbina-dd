@@ -5,22 +5,19 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  /* max-width: calc(100% - 24px); */
   max-width: min(100vw - 336px, 944px);
 }
 
-
-@media screen and (max-width: 1024px) {
+@media all and (max-width: 1024px) {
   .song-item__name-wrap {
-      font-size: 18px;
-  } 
+    font-size: 18px;
+  }
 }
 
-@media screen and (max-width: 580px) {
-   
+@media all and (max-width: 600px) {
   .song-item__name-wrap {
-      font-size: 14px;
-      line-height: 1.36;
-      max-width: calc(100% - 48px);
+    font-size: 14px;
+    line-height: 1.36;
+    max-width: calc(100% - 48px);
   }
 }

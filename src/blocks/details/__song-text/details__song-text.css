@@ -7,16 +7,16 @@
   overflow-wrap: break-word;
 }
 
-@media screen and (max-width: 1024px) {
+@media all and (max-width: 1024px) {
   .details__song-text {
-      font-size: 18px;
-      line-height: 1.44;
+    font-size: 18px;
+    line-height: 1.44;
   }
 }
 
-@media screen and (max-width: 580px) {
+@media all and (max-width: 600px) {
   .details__song-text {
-      font-size: 14px;
-      line-height: 1.36;
+    font-size: 14px;
+    line-height: 1.36;
   }
 }
