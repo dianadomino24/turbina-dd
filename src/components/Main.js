@@ -1,5 +1,6 @@
 import React from 'react'
 import Player from './Player'
+import LinksMenu from './LinksMenu'
 import headerLogo from '../images/logo.svg'
 import turbina from '../images/Турбина.svg'
 
@@ -12,49 +13,8 @@ function Main() {
             <a href="https://marshakbooks.ru/" target="_blank">
               <img src={headerLogo} alt="Маршак" className="turbina__logo" />
             </a>
-            <div className="turbina__dropdown-menu">
-              <button className="turbina__dropbtn">Стриминги</button>
-
-              <ul className="turbina__music-links">
-                <li className="turbina__music-elem">
-                  <a
-                    href="https://music.yandex.ru/home"
-                    className="turbina__music-link"
-                    lang="ru"
-                  >
-                    Яндекс.Музыка ↗
-                  </a>
-                </li>
-                <li className="turbina__music-elem">
-                  <a
-                    href="https://www.spotify.com/ru-ru/"
-                    className="turbina__music-link"
-                    lang="en"
-                  >
-                    Spotify ↗
-                  </a>
-                </li>
-                <li className="turbina__music-elem">
-                  <a
-                    href="https://music.apple.com/us/browse"
-                    className="turbina__music-link"
-                    lang="en"
-                  >
-                    Apple Music ↗
-                  </a>
-                </li>
-                <li className="turbina__music-elem">
-                  <a
-                    href="https://mp3.vkmusic.me/"
-                    className="turbina__music-link"
-                    lang="en"
-                  >
-                    VK Music ↗
-                  </a>
-                </li>
-              </ul>
-            </div>
-          </div>
+            <LinksMenu/>
+          </div> 
           <h1 className="turbina__title">
             <img src={turbina} alt="Турбина" className="turbina__image" />
           </h1>
