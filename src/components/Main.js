@@ -66,7 +66,7 @@ function Main() {
       <section className="information">
         <ul className="description">
           <li className="description__element">
-            <h2 className="description__title">О ПРОЕКТЕ.</h2>
+            <h2 className="description__title">О ПРОЕКТЕ</h2>
             <p className="description__subtitle">
               Мы знаем, что наши дети постоянно существуют в режиме
               непрекращающегося творческого процесса. Мы видим это, когда
@@ -92,7 +92,7 @@ function Main() {
             </p>
           </li>
           <li className="description__element">
-            <h2 className="description__title">КАК ЭТО РАОТАЕТ?</h2>
+            <h2 className="description__title">КАК ЭТО РАБОТАЕТ?</h2>
             <p className="description__subtitle">
               Вы можете прислать нам тексты, родившиеся у ваших детей, которые
               вы записали и считаете, что это сильное высказывание. Мы собираем
@@ -103,7 +103,7 @@ function Main() {
             </p>
           </li>
           <li className="description__element">
-            <h2 className="description__title">ТЕЗИСЫ.</h2>
+            <h2 className="description__title">ТЕЗИСЫ</h2>
             <ul className="proposition">
               <li className="proposition__element">
                 Дети никогда не прекращают творить и круто стараться быть на них
@@ -125,7 +125,7 @@ function Main() {
           </li>
         </ul>
         <form className="form">
-          <h2 className="form__title">ФОРМА.</h2>
+          <h2 className="form__title">ФОРМА</h2>
           <p className="form__subtitle">
             Заполняя эту форму, вы становитесь частью проекта.
           </p>
@@ -176,9 +176,9 @@ function Main() {
               id="offer"
               required
             />
-            Согласен с
+            Согласен с&nbsp;
             <a href="#" className="form__link form__label">
-              офертой
+            офертой
             </a>
           </label>
           <button type="submit" className="form__submit">
