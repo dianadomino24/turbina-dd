@@ -3,7 +3,7 @@ import React from 'react'
 function Player() {
   return (
     // <div className="player">
-      <div className="player_container">
+      <div className="player__container">
         <audio className="audio" controls>
           <source
             src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
