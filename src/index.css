@@ -2,6 +2,7 @@
 @import url('./vendor/fonts/fonts.css');
 
 @import url(./blocks/page/page.css);
+@import url(./blocks/head/head.css);
 @import url(./blocks/turbina/turbina.css);
 @import url(./blocks/turbina/__links/turbina__links.css);
 @import url(./blocks/turbina/__logo/turbina__logo.css);
@@ -25,6 +26,34 @@
 @import url(./blocks/form/__title/form__title.css);
 @import url(./blocks/form/__subtitle/form__subtitle.css);
 @import url(./blocks/form/__input/form__input.css);
+@import url(./blocks/audio/audio.css);
+@import url(./blocks/player/player.css);
+@import url(./blocks/player/__container/player__container.css);
+@import url(./blocks/player/__controls/player__controls.css);
+@import url(./blocks/player/__details-container/player__details-container.css);
+@import url(./blocks/controls/__play-button/controls__play-button\ .css);
+@import url(./blocks/controls/__lyrics-release-button/controls__lyrics-release-button.css);
+@import url(./blocks/controls/__open-details-button/controls__open-details-button.css);
+@import url(./blocks/controls/__svg/controls__svg.css);
+@import url(./blocks/controls/__pause-icon/controls__pause-icon.css);
+@import url(./blocks/controls/__arrow-icon/controls__arrow-icon.css);
+@import url(./blocks/controls/__cross-icon/controls__cross-icon.css);
+@import url(./blocks/controls/__play-icon/controls__play-icon.css);
+@import url(./blocks/disabeld/disabled.css);
+@import url(./blocks/song-item/song-item.css);
+@import url(./blocks/song-item/__time-progress/song-item__time-progress.css);
+@import url(./blocks/song-item/__timer/song-item__timer.css);
+@import url(./blocks/song-item/__wrap/song-item__wrap.css);
+@import url(./blocks/song-item/__timeline-hover-playhead/song-item__timeline-hover-playhead.css);
+@import url(./blocks/song-item/__timeline-playhead/song-item__timeline-playhead.css);
+@import url(./blocks/song-item/__timeline/song-item__timeline.css);
+@import url(./blocks/song-item/__name-wrap/song-item__name-wrap.css);
+@import url(./blocks/song-item/__name-wrap/_type_release/song-item__name-wrap_type_release.css);
+@import url(./blocks/details/__song-item/details__song-item.css);
+@import url(./blocks/details/__songs-list/details__songs-list.css);
+@import url(./blocks/details/__song-text/details__song-text.css);
+@import url(./blocks/details/__title/details__title.css);
+
 
 @import url(./blocks/form/__input-radio/form__input-radio.css);
 @import url(./blocks/form/__label/form__label.css);
@@ -40,19 +69,12 @@
   display: none;
 }
 
-.player {
-  padding: 0 25px 20px;
-  font-family: 'Inter', Arial, sans-serif;
-  color: #ffffff;
-  border: red 1px solid;
-  min-width: 300px;
-  box-sizing: border-box;
-  margin: 0 auto;
-}
+
 
 .player__controls {
   display: flex;
   width: 100%;
+  box-sizing: border-box;
   flex-wrap: nowrap;
   justify-content: space-between;
   align-items: flex-start;
@@ -184,7 +206,9 @@
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  max-width: calc(100vw - 336px);
+  /* max-width: calc(100vw - 336px); */
+  max-width: 57vw;
+
 }
 
 .song-item__name-wrap_type_release:hover {

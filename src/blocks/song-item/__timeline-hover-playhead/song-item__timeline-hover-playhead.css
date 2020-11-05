@@ -1,0 +1,29 @@
+/* при наведении на ползунок */
+.song-item__timeline-hover-playhead {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 210px;
+  /* opacity: 0; */
+  height: 2px;
+  background-color: #fff;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+
+/* указатель времени перемотки
+.hover-playhead::before {
+    opacity: 0;
+    content: '';
+    /* content: attr(data-content); */
+/* display: block;
+    position: absolute;
+    top: -30px;
+    right: -23px;
+    width: 40px;
+    padding: 3px;
+    text-align: center;
+    color: white;
+    background: green;
+} */
+

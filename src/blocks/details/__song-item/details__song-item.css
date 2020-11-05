@@ -1,0 +1,14 @@
+.details__song-item {
+  list-style: none;
+  margin-bottom: 16px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+@media screen and (max-width: 768px) {
+    
+  .details__song-item {
+      margin-bottom: 10px;
+  }
+}

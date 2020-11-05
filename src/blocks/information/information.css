@@ -3,7 +3,8 @@
     flex-direction: column;
     width: 100%;
     background-size: cover;
-    background-color: #FFFFFF;
+    /* background-color: #FFFFFF; */
+    background-color: #000000;
     color: #000000;
     border-radius: 10px;
 }

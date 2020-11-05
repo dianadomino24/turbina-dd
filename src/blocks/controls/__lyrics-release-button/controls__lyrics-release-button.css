@@ -1,0 +1,33 @@
+.controls__lyrics-release-button {
+  min-width: 135px;
+  height: 35px;
+  outline: none;
+  background: none;
+  border: 2px solid #ffffff;
+  border-radius: 30px;
+  transition: 0.2s linear;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19px;
+  color: #ffffff;
+  box-sizing: border-box;
+  margin-right: 20px;
+}
+
+@media screen and (max-width: 1024px) {
+  .controls__lyrics-release-button {
+    font-size: 15px;
+    min-width: 125px;
+    height: 34px;
+  }
+}
+
+@media all and (max-width: 580px) {
+  .controls__lyrics-release-button {
+    font-size: 12px;
+    order: 5;
+    width: calc(100vw - 80px);
+    margin: 0 auto;
+    margin-top: 21px;
+  } 
+}
