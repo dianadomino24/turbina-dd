@@ -1,0 +1,23 @@
+.controls__play-button {
+  padding: 0;
+  border: none;
+  width: 16px;
+  height: 20px;
+  outline: none;
+  background: none;
+  transition: 0.2s linear;
+}
+
+@media all and (max-width: 1024px) {
+  .controls__play-button {
+    width: 15px;
+    height: 18px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .controls__play-button {
+    width: 13px;
+    height: 16px;
+  }
+}

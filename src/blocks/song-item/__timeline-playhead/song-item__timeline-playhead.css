@@ -1,0 +1,13 @@
+/* пройденное время ползунка */
+.song-item__timeline-playhead {
+  position: relative;
+  z-index: 2;
+  width: 120px;
+  height: 2px;
+  background-color: #ffffff;
+}
+@media all and (max-width: 600px) {
+  .song-item__timeline-playhead {
+    height: 3px;
+  }
+}

@@ -1,0 +1,10 @@
+.controls__pause-icon {
+  margin-top: 4px;
+}
+
+@media screen and (max-width: 600px) {
+  .controls__pause-icon {
+    width: 11px;
+    height: 12px;
+  }
+}

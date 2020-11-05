@@ -1,0 +1,19 @@
+.song-item__timer {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 1.2;
+  margin-left: 10px;
+}
+
+@media all and (max-width: 1024px) {
+  .song-item__timer {
+    font-size: 18px;
+  }
+}
+
+@media all and (max-width: 600px) {
+  .song-item__timer {
+    font-size: 14px;
+    line-height: 1.36;
+  }
+}

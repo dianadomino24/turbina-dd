@@ -1,0 +1,28 @@
+.form__subtitle {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    max-width: 716px;
+    padding-bottom: 60px;
+}
+
+@media screen and (max-width: 1024px) {
+    .form__subtitle {
+        font-size: 15px;
+        max-width: 680px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .form__subtitle {
+        max-width: 648px;
+    }
+}
+
+@media all and (max-width: 320px) {
+    .form__subtitle {
+        font-size: 12px;
+        line-height: 16px;
+        max-width: 270px;
+    }
+}
