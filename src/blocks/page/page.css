@@ -2,7 +2,7 @@
     background-image: url(../../images/IMG_1-min.png);
     background-repeat: no-repeat;
     background-position: top;
-    background-size: 1653px 1158px;
+    background-size: 1280px 780px;
     overflow: hidden;
     background-attachment: fixed;
     font-family: "Inter", "Arial", sans-serif;
@@ -13,7 +13,7 @@
     padding: 0 10px;
 }
 
-@media all and (max-width: 320px) {
+@media all and (max-width: 400px) {
     .page {
         padding: 0 5px;
     }

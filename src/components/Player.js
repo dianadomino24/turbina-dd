@@ -2,8 +2,8 @@ import React from 'react'
 
 function Player() {
   return (
-    <div className="player_container">
-      <div className="player">
+    // <div className="player">
+      <div className="player_container">
         <audio className="audio" controls>
           <source
             src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
@@ -165,7 +165,7 @@ function Player() {
           </p>
         </div>
       </div>
-    </div>
+    // </div>
   )
 }
 

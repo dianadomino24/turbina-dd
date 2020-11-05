@@ -6,61 +6,63 @@ import turbina from '../images/Турбина.svg'
 function Main() {
   return (
     <main className="content">
-      <section className="turbina">
-        <div className="turbina__links">
-          <a href="https://marshakbooks.ru/" target="_blank">
-            <img src={headerLogo} alt="Маршак" className="turbina__logo" />
-          </a>
-          <div className="turbina__dropdown-menu">
-            <button className="turbina__dropbtn">Стриминги</button>
+      <div className="head">
+        <section className="turbina">
+          <div className="turbina__links">
+            <a href="https://marshakbooks.ru/" target="_blank">
+              <img src={headerLogo} alt="Маршак" className="turbina__logo" />
+            </a>
+            <div className="turbina__dropdown-menu">
+              <button className="turbina__dropbtn">Стриминги</button>
 
-            <ul className="turbina__music-links">
-              <li className="turbina__music-elem">
-                <a
-                  href="https://music.yandex.ru/home"
-                  className="turbina__music-link"
-                  lang="ru"
-                >
-                  Яндекс.Музыка ↗
-                </a>
-              </li>
-              <li className="turbina__music-elem">
-                <a
-                  href="https://www.spotify.com/ru-ru/"
-                  className="turbina__music-link"
-                  lang="en"
-                >
-                  Spotify ↗
-                </a>
-              </li>
-              <li className="turbina__music-elem">
-                <a
-                  href="https://music.apple.com/us/browse"
-                  className="turbina__music-link"
-                  lang="en"
-                >
-                  Apple Music ↗
-                </a>
-              </li>
-              <li className="turbina__music-elem">
-                <a
-                  href="https://mp3.vkmusic.me/"
-                  className="turbina__music-link"
-                  lang="en"
-                >
-                  VK Music ↗
-                </a>
-              </li>
-            </ul>
+              <ul className="turbina__music-links">
+                <li className="turbina__music-elem">
+                  <a
+                    href="https://music.yandex.ru/home"
+                    className="turbina__music-link"
+                    lang="ru"
+                  >
+                    Яндекс.Музыка ↗
+                  </a>
+                </li>
+                <li className="turbina__music-elem">
+                  <a
+                    href="https://www.spotify.com/ru-ru/"
+                    className="turbina__music-link"
+                    lang="en"
+                  >
+                    Spotify ↗
+                  </a>
+                </li>
+                <li className="turbina__music-elem">
+                  <a
+                    href="https://music.apple.com/us/browse"
+                    className="turbina__music-link"
+                    lang="en"
+                  >
+                    Apple Music ↗
+                  </a>
+                </li>
+                <li className="turbina__music-elem">
+                  <a
+                    href="https://mp3.vkmusic.me/"
+                    className="turbina__music-link"
+                    lang="en"
+                  >
+                    VK Music ↗
+                  </a>
+                </li>
+              </ul>
+            </div>
           </div>
-        </div>
-        <h1 className="turbina__title">
-          <img src={turbina} alt="Турбина" className="turbina__image" />
-        </h1>
-      </section>
-      <section className="pleer">
-        <Player></Player>
-      </section>
+          <h1 className="turbina__title">
+            <img src={turbina} alt="Турбина" className="turbina__image" />
+          </h1>
+        </section>
+        <section className="player">
+          <Player></Player>
+        </section>
+      </div>
       <section className="information">
         <ul className="description">
           <li className="description__element">
