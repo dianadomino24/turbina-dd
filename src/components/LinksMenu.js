@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React from 'react'
 
 function LinksMenu(props) {
 
@@ -8,7 +8,7 @@ function LinksMenu(props) {
   const [buttonText, setButtonText] = React.useState("Стриминги");
   console.log(buttonText)
 
-  const changeText = (text) => setButtonText(text);
+  
 
   
   const onClick = () => {
@@ -23,7 +23,7 @@ function LinksMenu(props) {
     <div className="turbina__dropdown-menu">
     <button onClick={onClick} ref={dropdownMenuBtnRef} className={`turbina__dropbtn ${isLinksMenuOpened && 'turbina__dropbtn-active' }`}>{buttonText}</button>
 
-    <ul className="turbina__music-links" className={`turbina__music-links ${isLinksMenuOpened && 'opened'}`}>
+    <ul  className={`turbina__music-links ${isLinksMenuOpened && 'opened'}`}>
       <li className="turbina__music-elem">
         <a
           href="https://music.yandex.ru/home"
