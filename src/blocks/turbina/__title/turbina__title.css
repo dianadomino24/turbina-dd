@@ -1,20 +1,18 @@
-
 .turbina__title {
-
-  position: absolute;
-    top: 50%;
-    left: 50%;
-    margin-right: -50%;
-    transform: translate(-50%, -50%)
-}
-
-@media all and (max-width: 400px) {
-  .turbina__title {
-    /* margin: 0 auto; */
     position: absolute;
     top: 50%;
     left: 50%;
     margin-right: -50%;
-    transform: translate(-50%, -50%)
-  }
+    transform: translate(-50%, -50%);
+}
+
+@media all and (max-width: 400px) {
+    .turbina__title {
+        /* margin: 0 auto; */
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        margin-right: -50%;
+        transform: translate(-50%, -50%);
+    }
 }

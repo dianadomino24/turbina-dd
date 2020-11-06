@@ -18,10 +18,9 @@
         font-size: 12px;
         margin: 5px auto 20px auto;
     }
-    
+
     .footer__subtitle:first-of-type {
         margin-top: 20px;
         margin-bottom: 0;
-    }    
+    }
 }
-
