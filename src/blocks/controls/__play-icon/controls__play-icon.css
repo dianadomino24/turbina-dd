@@ -1,6 +1,6 @@
 @media all and (max-width: 600px) {
-  .controls__play-icon {
-    width: 13px;
-    height: 16px;
-  }
+    .controls__play-icon {
+        width: 13px;
+        height: 16px;
+    }
 }
