@@ -1,4 +1,5 @@
 .controls__cross-icon {
+    padding: 0;
     transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
         visibility 0.5s ease-in-out;
 }
@@ -11,11 +12,5 @@
 }
 
 .controls__cross-icon:hover {
-<<<<<<< HEAD
-    transform: scale(1.02);
-    transition: all 0.5s ease;
     cursor: pointer;
-=======
-  cursor: pointer;
->>>>>>> afb978eec61617987f919ea08f3f6516a9b709e1
 }

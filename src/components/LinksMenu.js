@@ -29,6 +29,7 @@ function LinksMenu(props) {
           href="https://music.yandex.ru/home"
           className="turbina__music-link"
           lang="ru"
+          target='blank'
         >
           Яндекс.Музыка ↗
         </a>
@@ -38,6 +39,7 @@ function LinksMenu(props) {
           href="https://www.spotify.com/ru-ru/"
           className="turbina__music-link"
           lang="en"
+          target='blank'
         >
           Spotify ↗
         </a>
@@ -47,6 +49,7 @@ function LinksMenu(props) {
           href="https://music.apple.com/us/browse"
           className="turbina__music-link"
           lang="en"
+          target='blank'
         >
           Apple Music ↗
         </a>
@@ -56,6 +59,7 @@ function LinksMenu(props) {
           href="https://mp3.vkmusic.me/"
           className="turbina__music-link"
           lang="en"
+          target='blank'
         >
           VK Music ↗
         </a>

@@ -9,6 +9,12 @@ function Player() {
     function handleDetailsClose() {
         setIsDetailsOpen(false)
     }
+    function handleTrackPlay(){
+        setIsTrackPlaying(true)
+    }
+     function handleTrackPause(){
+        setIsTrackPlaying(false)
+    }
 
     return (
         <div className="player">
@@ -25,14 +31,15 @@ function Player() {
                         className="controls__play-button"
                         data-icon="P"
                         aria-label="play pause toggle"
-                        // onClick={handlePlayTrack}
+                        // onClick={handleTrackPlay}
                     >
                         <svg
-                            className="controls__svg controls__play-icon"
+                            className={isTrackPlaying? "controls__svg controls__play-icon disabled" : "controls__svg controls__play-icon"}
                             width="16"
                             height="20"
                             viewBox="0 0 16 20"
                             xmlns="http://www.w3.org/2000/svg"
+                            onClick={handleTrackPlay}
                             
                         >
                             <path
@@ -41,11 +48,12 @@ function Player() {
                             />
                         </svg>
                         <svg
-                            className="controls__svg controls__pause-icon disabled"
+                            className={isTrackPlaying? "controls__svg controls__pause-icon" : "controls__svg controls__pause-icon disabled"}
                             width="16"
                             height="16"
                             viewBox="0 0 16 16"
                             xmlns="http://www.w3.org/2000/svg"
+                            onClick={handleTrackPause}
                         >
                             <rect
                                 x="2"
@@ -115,7 +123,7 @@ function Player() {
                     </button>
                 </div>
                 <div className={isDetailsOpen? 'player__details-container' : 'player__details-container disabled'}>
-                    <p className={isDetailsOpen? "details__title" : "details__title disabled"}>{isDetailsOpen? "Релизы": ''}</p>
+                    <p className={isDetailsOpen? "details__title" : "details__title disabled"}>{isDetailsOpen? "Релизы:": ''}</p>
                     <ul className="details__songs-list">
                         <li className="details__song-item">
                             <a
