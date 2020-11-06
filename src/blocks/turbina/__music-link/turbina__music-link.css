@@ -13,7 +13,7 @@
 }
 
 @media all and (max-width: 1024px) {
-  .turbina__image {
+  .turbina__music-link {
     font-size: 15px;
     line-height: 18px;
   }
@@ -25,4 +25,9 @@
     line-height: 1.2;
     padding: 7px 16px 7px 16px;
   }
+}
+
+.turbina__music-link:hover {
+  font-style: italic;
+    /* cursor: pointer; */
 }
