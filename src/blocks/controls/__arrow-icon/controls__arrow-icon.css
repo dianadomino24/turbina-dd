@@ -9,8 +9,12 @@
     }
 }
 
+<<<<<<< HEAD
 .controls__arrow-icon :hover {
     transform: scale(1.02);
     transition: all 0.5s ease;
+=======
+.controls__arrow-icon:hover {
+>>>>>>> afb978eec61617987f919ea08f3f6516a9b709e1
     cursor: pointer;
 }

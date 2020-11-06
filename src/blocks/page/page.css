@@ -1,7 +1,6 @@
 .page {
     background-image: url(../../images/IMG_1-min.png);
     background-repeat: no-repeat;
-    background-position: top;
     background-position: fixed;
     background-size: 100vw 100vh;
     overflow: hidden;
@@ -12,6 +11,13 @@
     align-items: center;
     color: #ffffff;
     padding: 0 10px;
+}
+
+@media screen and (max-width: 1653px) {
+    .page {
+        background-position: top;
+        background-size: 1653px 1158px;
+    }
 }
 
 /* .page {

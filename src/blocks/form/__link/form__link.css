@@ -5,6 +5,7 @@
 }
 
 .form__link:hover {
+    font-style: italic;
     text-decoration: none;
     cursor: pointer;
 }

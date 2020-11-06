@@ -11,7 +11,11 @@
 }
 
 .controls__cross-icon:hover {
+<<<<<<< HEAD
     transform: scale(1.02);
     transition: all 0.5s ease;
     cursor: pointer;
+=======
+  cursor: pointer;
+>>>>>>> afb978eec61617987f919ea08f3f6516a9b709e1
 }
