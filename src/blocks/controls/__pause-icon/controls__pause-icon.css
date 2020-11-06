@@ -1,0 +1,19 @@
+.controls__pause-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin-top: 4px;
+    transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
+        visibility 0.5s ease-in-out;
+}
+
+@media screen and (max-width: 600px) {
+    .controls__pause-icon {
+        width: 11px;
+        height: 12px;
+    }
+}
+
+.controls__pause-icon:hover {
+    cursor: pointer;
+}

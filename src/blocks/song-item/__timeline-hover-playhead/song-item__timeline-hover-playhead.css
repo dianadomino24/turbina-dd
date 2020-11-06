@@ -1,0 +1,17 @@
+/* при наведении на ползунок */
+.song-item__timeline-hover-playhead {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  width: 210px;
+  /* opacity: 0; */
+  height: 2px;
+  background-color: #fff;
+  opacity: 0.6;
+  transition: opacity 0.3s;
+}
+@media all and (max-width: 600px) {
+  .song-item__timeline-hover-playhead {
+    height: 3px;
+  }
+}

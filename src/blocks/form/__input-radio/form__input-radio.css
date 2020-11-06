@@ -1,0 +1,28 @@
+.form__input-radio {
+    vertical-align: middle;
+    appearance: none;
+    background-image: url(../../../images/Ellipse.svg);
+    height: 28px;
+    width: 28px;
+    margin-right: 20px;
+}
+
+@media all and (max-width: 320px) {
+    .form__input-radio {
+        margin-right: 12px;
+    }
+}
+
+.form__input-radio:hover {
+    transform: scale(1.02);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
+.form__input-radio:focus {
+    outline: none;
+}
+
+.form__input-radio:checked {
+    background-image: url(../../../images/Ellipse\ active.svg);
+}

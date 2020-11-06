@@ -1,0 +1,15 @@
+.controls__play-icon {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding: 0;
+    transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
+        visibility 0.5s ease-in-out;
+}
+
+@media all and (max-width: 600px) {
+    .controls__play-icon {
+        width: 13px;
+        height: 16px;
+    }
+}

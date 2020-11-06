@@ -1,0 +1,27 @@
+.footer__subtitle {
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 22px;
+    text-align: right;
+    margin: 20px 5px 20px 0;
+    padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+    .footer__subtitle {
+        font-size: 15px;
+    }
+}
+
+@media all and (max-width: 550px) {
+    .footer__subtitle {
+        font-size: 12px;
+        margin: 5px auto 20px auto;
+    }
+    
+    .footer__subtitle:first-of-type {
+        margin-top: 20px;
+        margin-bottom: 0;
+    }    
+}
+

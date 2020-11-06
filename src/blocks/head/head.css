@@ -1,0 +1,7 @@
+.head{
+  position: relative;
+  height: calc(100vh - 10px);
+  width: 100%;
+  max-width: 1280px;
+  
+}

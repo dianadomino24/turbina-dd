@@ -1,0 +1,11 @@
+.form__link {
+    text-decoration: none;
+    color: #000;
+    text-decoration-line: underline;
+}
+
+.form__link:hover {
+    font-style: italic;
+    text-decoration: none;
+    cursor: pointer;
+}
