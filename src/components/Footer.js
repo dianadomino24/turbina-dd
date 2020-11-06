@@ -2,7 +2,7 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer classNameName="footer">
+    <footer className="footer">
       <p className="footer__subtitle">&#169; Маршак, 2020.</p>
       <p className="footer__subtitle">
         Сделано студентами&nbsp;
