@@ -5,7 +5,8 @@
     height: 20px;
     outline: none;
     background: none;
-    transition: 0.2s linear;
+    transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
+        visibility 0.5s ease-in-out;
 }
 
 @media all and (max-width: 1024px) {
@@ -23,7 +24,7 @@
 }
 
 .controls__play-button:hover {
-  transform: scale(1.02);
-  transition: all 0.5s ease;
-  cursor: pointer;
+    transform: scale(1.02);
+    transition: all 0.5s ease;
+    cursor: pointer;
 }

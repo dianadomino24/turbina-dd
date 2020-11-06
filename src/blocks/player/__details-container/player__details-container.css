@@ -6,7 +6,18 @@
     margin-right: 38px;
     margin-top: 30px;
     margin-bottom: 8px;
+    transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
+        visibility 0.5s ease-in-out;
+    /* visibility: visible;
+    opacity: 1; */
 }
+/* .player:hover .player__details-container {
+    opacity: 0;
+    max-height: 0;
+    overflow: hidden;
+    visibility: hidden;
+} */
+
 .player__details-container::-webkit-scrollbar {
     width: 3px;
     background: rgba(243, 243, 243, 0.1);
