@@ -11,3 +11,9 @@
     height: 309px;
   }
 }
+
+  
+.form__input:hover {
+  transform: scale(1.02);
+  transition: all 0.5s ease;
+}
