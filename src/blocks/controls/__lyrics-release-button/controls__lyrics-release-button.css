@@ -35,10 +35,5 @@
 }
 
 .controls__lyrics-release-button:hover {
-<<<<<<< HEAD
-    transform: scale(1.02);
-    transition: all 0.1s linear;
-=======
->>>>>>> afb978eec61617987f919ea08f3f6516a9b709e1
     cursor: pointer;
 }
