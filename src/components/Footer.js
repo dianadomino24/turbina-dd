@@ -2,11 +2,11 @@ import React from 'react'
 
 function Footer() {
   return (
-    <footer class="footer">
-      <p class="footer__subtitle">&#169; Маршак, 2020.</p>
-      <p class="footer__subtitle">
+    <footer classNameName="footer">
+      <p className="footer__subtitle">&#169; Маршак, 2020.</p>
+      <p className="footer__subtitle">
         Сделано студентами&nbsp;
-        <a href="#" class="footer__link">
+        <a href="/#" className="footer__link">
           Яндекс.Практикум
         </a>
       </p>

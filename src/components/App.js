@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React from 'react'
 // import api from '../utils/api'
 import Main from './Main'
 import Footer from './Footer'
@@ -8,10 +8,11 @@ function App() {
 
   return (
     <body>
-      <div class="page">
+      <div className="page">
+        {/* <div className="cover"></div> */}
         <Main />
         <Footer />
-      </div>
+       </div>
     </body>
   )
 }

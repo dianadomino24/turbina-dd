@@ -10,7 +10,7 @@ function Main() {
       <div className="head">
         <section className="turbina">
           <div className="turbina__links">
-            <a href="https://marshakbooks.ru/" target="_blank">
+            <a href="https://marshakbooks.ru/" target="/_blank">
               <img src={headerLogo} alt="Маршак" className="turbina__logo" />
             </a>
             <LinksMenu/>
@@ -137,7 +137,7 @@ function Main() {
               required
             />
             Согласен с&nbsp;
-            <a href="#" className="form__link form__label">
+            <a href="/#" className="form__link form__label">
             офертой
             </a>
           </label>
