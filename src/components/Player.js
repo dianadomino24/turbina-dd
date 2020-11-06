@@ -109,7 +109,7 @@ function Player() {
                     <ul className="details__songs-list">
                         <li className="details__song-item">
                             <a
-                                href="#"
+                                href="/#"
                                 className="song-item__name-wrap song-item__name-wrap_type_release"
                             >
                                 Поезия &mdash; Мукулатура feat. Саша Петров
@@ -117,7 +117,7 @@ function Player() {
                         </li>
                         <li className="details__song-item">
                             <a
-                                href="#"
+                                href="/#"
                                 className="song-item__name-wrap song-item__name-wrap_type_release"
                             >
                                 Поезия &mdash; Мукулатура feat. Саша Петров
@@ -125,7 +125,7 @@ function Player() {
                         </li>
                         <li className="details__song-item">
                             <a
-                                href="#"
+                                href="/#"
                                 className="song-item__name-wrap song-item__name-wrap_type_release"
                             >
                                 Поезия &mdash; Мукулатура feat. Саша Петров
@@ -133,7 +133,7 @@ function Player() {
                         </li>
                         <li className="details__song-item">
                             <a
-                                href="#"
+                                href="/#"
                                 className="song-item__name-wrap song-item__name-wrap_type_release"
                             >
                                 Поезия &mdash; Мукулатура feat. Саша Петров

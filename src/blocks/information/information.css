@@ -6,4 +6,23 @@
     background-color: #FFFFFF;
     color: #000000;
     border-radius: 10px;
+    padding-bottom: 110px;
+}
+
+@media screen and (max-width: 1024px) {
+    .information {
+        padding-bottom: 120px;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .information {
+        padding-bottom: 100px;
+    }
+}
+
+@media all and (max-width: 550px) {
+    .information {
+        padding-bottom: 80px;
+    }
 }

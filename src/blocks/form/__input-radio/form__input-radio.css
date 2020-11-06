@@ -13,6 +13,12 @@
     }
 }
 
+.form__input-radio:hover {
+    transform: scale(1.02);
+    transition: all 0.5s ease;
+    cursor: pointer;
+}
+
 .form__input-radio:focus {
     outline: none;
 }
