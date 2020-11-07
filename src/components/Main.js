@@ -146,7 +146,7 @@ function Main() {
                     <span className="form__error" id="">
                         Какая-то ошибка*
                     </span>
-                    <label for="offer" className="form__label">
+                    <label htmlFor="offer" className="form__label">
                         <input
                             type="radio"
                             className="form__input-radio"

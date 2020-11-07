@@ -53,6 +53,7 @@
 @import url(./blocks/details/__songs-list/details__songs-list.css);
 @import url(./blocks/details/__song-text/details__song-text.css);
 @import url(./blocks/details/__title/details__title.css);
+@import url(./blocks/display-linebreak/display-linebreak.css);
 @import url(./blocks/form/__input-radio/form__input-radio.css);
 @import url(./blocks/form/__label/form__label.css);
 @import url(./blocks/form/__link/form__link.css);
