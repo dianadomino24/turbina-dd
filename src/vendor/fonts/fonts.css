@@ -9,29 +9,29 @@
 
 @font-face {
     font-family: 'Inter';
-    font-style:  italic;
+    font-style: italic;
     font-weight: 400;
     font-display: swap;
-    src: url("Inter-Italic.woff2?v=3.13") format("woff2"),
-         url("Inter-Italic.woff?v=3.13") format("woff");
-  }
+    src: url('Inter-Italic.woff2?v=3.13') format('woff2'),
+        url('Inter-Italic.woff?v=3.13') format('woff');
+}
 
-  @font-face {
+@font-face {
     font-family: 'Inter';
-    font-style:  normal;
+    font-style: normal;
     font-weight: 500;
     font-display: swap;
-    src: url("Inter-Medium.woff2?v=3.13") format("woff2"),
-         url("Inter-Medium.woff?v=3.13") format("woff");
-  }
-  @font-face {
+    src: url('Inter-Medium.woff2?v=3.13') format('woff2'),
+        url('Inter-Medium.woff?v=3.13') format('woff');
+}
+@font-face {
     font-family: 'Inter';
-    font-style:  italic;
+    font-style: italic;
     font-weight: 500;
     font-display: swap;
-    src: url("Inter-MediumItalic.woff2?v=3.13") format("woff2"),
-         url("Inter-MediumItalic.woff?v=3.13") format("woff");
-  }
+    src: url('Inter-MediumItalic.woff2?v=3.13') format('woff2'),
+        url('Inter-MediumItalic.woff?v=3.13') format('woff');
+}
 
 @font-face {
     font-family: 'Inter';
@@ -44,13 +44,12 @@
 
 @font-face {
     font-family: 'Inter';
-    font-style:  italic;
+    font-style: italic;
     font-weight: 700;
     font-display: swap;
-    src: url("Inter-BoldItalic.woff2?v=3.13") format("woff2"),
-         url("Inter-BoldItalic.woff?v=3.13") format("woff");
-  }
-  
+    src: url('Inter-BoldItalic.woff2?v=3.13') format('woff2'),
+        url('Inter-BoldItalic.woff?v=3.13') format('woff');
+}
 
 @font-face {
     font-family: 'Inter';
@@ -63,10 +62,9 @@
 
 @font-face {
     font-family: 'Inter';
-    font-style:  italic;
+    font-style: italic;
     font-weight: 900;
     font-display: swap;
-    src: url("Inter-BlackItalic.woff2?v=3.13") format("woff2"),
-         url("Inter-BlackItalic.woff?v=3.13") format("woff");
-  }
-
+    src: url('Inter-BlackItalic.woff2?v=3.13') format('woff2'),
+        url('Inter-BlackItalic.woff?v=3.13') format('woff');
+}

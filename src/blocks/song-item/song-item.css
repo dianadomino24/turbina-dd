@@ -5,12 +5,6 @@
     padding: 0 20px 0 20px;
     box-sizing: border-box;
 }
-@media all and (max-width: 1024px) {
-    .song-item {
-        /* width: 100%; */
-        /* max-width: calc(100% - 185px); */
-    }
-}
 
 @media all and (max-width: 600px) {
     .song-item {
