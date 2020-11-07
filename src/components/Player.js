@@ -42,6 +42,10 @@ function Player() {
         //     console.log(`Загрузка песен: ${err}`)
         // })
     }, [])
+    function handleReleaseClick(track) {
+        setCurrentSong(track)
+        
+    }
     //  const currentSongData= React.useContext(CurrentSongContext)
     //  console.log(currentSong.text)
     // console.log(releaseList)
@@ -95,11 +99,11 @@ function Player() {
                     </button>
                     <div className="song-item">
                         <div className="song-item__wrap">
-                            <div className="song-item__name-wrap song-item__name-wrap_type_current">
-                                {currentSong.name}&mdash;{currentSong.author}
+                            <div className="song-item__name-wrap">
+                                {currentSong.name}&mdash;{currentSong.author}  gggggggggggggggggggggggggggggggggggggggggggggggggggggg
                             </div>
                             <div className="song-item__timer">
-                                <span aria-label="timer">00:00</span>
+                                <span aria-label="timer">{currentSong.duration}</span>
                             </div>
                         </div>
                         <div className="song-item__timeline">
@@ -179,6 +183,7 @@ function Player() {
                             <Release
                                 key={release._id}
                                 release={release}
+                                handleReleaseClick={handleReleaseClick}
                                 {...release}
                             />
                         ))}
