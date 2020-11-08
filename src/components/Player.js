@@ -36,19 +36,26 @@ function Player() {
         }))
         setCurrentSong(items[0])
         setReleaseList(items.slice(1))
-
         // })
         // .catch((err) => {
         //     console.log(`Загрузка песен: ${err}`)
         // })
     }, [])
+
     function handleReleaseClick(track) {
+        // находим в списке релизов тот, на который кликнули, удаляем его
+        const list = releaseList.filter(function (obj) {
+            return obj._id !== track._id
+        })
+        // добавляем в конец релизов текущую песню
+        list.push(currentSong)
+        // обновляем список релизов и песню
+        setReleaseList(list)
         setCurrentSong(track)
-        
     }
+
     //  const currentSongData= React.useContext(CurrentSongContext)
-    //  console.log(currentSong.text)
-    // console.log(releaseList)
+
     return (
         // <CurrentSongContext.Provider value={currentSong}>
         <div className="player">
@@ -100,10 +107,13 @@ function Player() {
                     <div className="song-item">
                         <div className="song-item__wrap">
                             <div className="song-item__name-wrap">
-                                {currentSong.name}&mdash;{currentSong.author}  gggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                                {currentSong.name}&mdash;{currentSong.author}{' '}
+                                gggggggggggggggggggggggggggggggggggggggggggggggggggggg
                             </div>
                             <div className="song-item__timer">
-                                <span aria-label="timer">{currentSong.duration}</span>
+                                <span aria-label="timer">
+                                    {currentSong.duration}
+                                </span>
                             </div>
                         </div>
                         <div className="song-item__timeline">
