@@ -30,10 +30,10 @@ function Player() {
         //     .then((data) => {
         //         const serverSongs = data
         const items = serverSongs.map((item) => ({
-            name: item.name,
+            title: item.title,
             author: item.author,
-            audio: item.audio,
-            _id: item._id,
+            audioFile: item.audioFile,
+            id: item.id,
             duration: item.duration,
             color: item.color,
             text: item.text,
@@ -53,7 +53,7 @@ function Player() {
     function handleReleaseClick(track) {
         // находим в списке релизов тот, на который кликнули, удаляем его
         const list = releaseList.filter(function (obj) {
-            return obj._id !== track._id
+            return obj.id !== track.id
         })
         // добавляем в конец релизов текущую песню
         list.push(currentSong)
@@ -120,7 +120,7 @@ function Player() {
                     <div className="song-item">
                         <div className="song-item__wrap">
                             <div className="song-item__name-wrap">
-                                {currentSong.name}&mdash;{currentSong.author}
+                                {currentSong.title}&mdash;{currentSong.author}
                                 gggggggggggggggggggggggggggggggggggggggggggggggggggggg
                             </div>
                             <div className="song-item__timer">
@@ -203,7 +203,7 @@ function Player() {
                     <ul className={showRelease? "details__songs-list" : "details__songs-list disabled"}>
                         {releaseList.map((release) => (
                             <Release
-                                key={release._id}
+                                key={release.id}
                                 release={release}
                                 handleReleaseClick={handleReleaseClick}
                                 {...release}
