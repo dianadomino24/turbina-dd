@@ -206,7 +206,6 @@ function Player() {
                                 key={release.id}
                                 release={release}
                                 handleReleaseClick={handleReleaseClick}
-                                {...release}
                             />
                         ))}
                     </ul>
