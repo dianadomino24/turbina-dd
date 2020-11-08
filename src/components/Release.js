@@ -1,8 +1,7 @@
 import React, { useEffect, useState } from 'react'
 
-export default function Release({release, handleReleaseClick}) {
-    console.log(handleReleaseClick)
-    function handleClick(){
+export default function Release({ release, handleReleaseClick }) {
+    function handleClick() {
         handleReleaseClick(release)
     }
     return (
