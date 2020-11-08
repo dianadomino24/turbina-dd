@@ -8,6 +8,9 @@ function Player() {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false)
     const [releaseList, setReleaseList] = useState([])
     const [currentSong, setCurrentSong] = useState({})
+    const [showRelease, setShowRelease] = useState(true)
+    const [onlyOneRelease, setOnlyOneRelease] = useState(false)
+
     function handleDetailsOpen() {
         setIsDetailsOpen(true)
     }
@@ -20,6 +23,7 @@ function Player() {
     function handleTrackPause() {
         setIsTrackPlaying(false)
     }
+
 
     useEffect(() => {
         //  Promise(api.getItems('songs'))
@@ -35,6 +39,10 @@ function Player() {
             text: item.text,
         }))
         setCurrentSong(items[0])
+        if (items.length === 1) {
+             setShowRelease(false)
+            setOnlyOneRelease(true)
+        }
         setReleaseList(items.slice(1))
         // })
         // .catch((err) => {
@@ -52,6 +60,11 @@ function Player() {
         // обновляем список релизов и песню
         setReleaseList(list)
         setCurrentSong(track)
+    }
+    function handleLyricsReleaseClick() {
+        if (showRelease) {
+            setShowRelease(false)
+        } else setShowRelease(true)
     }
 
     //  const currentSongData= React.useContext(CurrentSongContext)
@@ -107,7 +120,7 @@ function Player() {
                     <div className="song-item">
                         <div className="song-item__wrap">
                             <div className="song-item__name-wrap">
-                                {currentSong.name}&mdash;{currentSong.author}{' '}
+                                {currentSong.name}&mdash;{currentSong.author}
                                 gggggggggggggggggggggggggggggggggggggggggggggggggggggg
                             </div>
                             <div className="song-item__timer">
@@ -130,8 +143,9 @@ function Player() {
                                 ? 'controls__lyrics-release-button'
                                 : 'controls__lyrics-release-button disabled'
                         }
+                        onClick={handleLyricsReleaseClick}
                     >
-                        {isDetailsOpen ? 'Текст песни' : ''}
+                        {showRelease ? 'Текст песни' : 'Релизы'}
                     </button>
                     <button className="controls__open-details-button">
                         <svg
@@ -180,15 +194,13 @@ function Player() {
                     }
                 >
                     <p
-                        className={
-                            isDetailsOpen
-                                ? 'details__title'
-                                : 'details__title disabled'
-                        }
+                        className="details__title"
+                    
                     >
-                        {isDetailsOpen ? 'Релизы:' : ''}
+                        { !showRelease ? 'Текст песни:' : onlyOneRelease? 'Пока что у нас только 1 релиз.' : 'Релизы:'}
                     </p>
-                    <ul className="details__songs-list">
+
+                    <ul className={showRelease? "details__songs-list" : "details__songs-list disabled"}>
                         {releaseList.map((release) => (
                             <Release
                                 key={release._id}
@@ -198,7 +210,7 @@ function Player() {
                             />
                         ))}
                     </ul>
-                    <div className="details__song-text display-linebreak">
+                    <div className={showRelease? "details__song-text display-linebreak disabled" : "details__song-text display-linebreak"}>
                         {currentSong.text}
                     </div>
                 </div>
