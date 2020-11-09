@@ -1,6 +1,12 @@
 import React, { useEffect, useState } from 'react'
 import { serverSongs } from '../utils/song-list'
 import Release from './Release'
+import { maincolor } from '../utils/utils'
+import SvgPauseButton from './SvgPauseButton'
+import SvgPlayButton from './SvgPlayButton'
+import SvgCrossButton from './SvgCrossButton'
+import SvgArrowButton from './SvgArrowButton'
+
 import { CurrentSongContext } from '../contexts/CurrentSongContext'
 
 function Player() {
@@ -24,7 +30,6 @@ function Player() {
         setIsTrackPlaying(false)
     }
 
-
     useEffect(() => {
         //  Promise(api.getItems('songs'))
         //     .then((data) => {
@@ -40,7 +45,7 @@ function Player() {
         // }))
         setCurrentSong(serverSongs[0])
         if (serverSongs.length === 1) {
-             setShowRelease(false)
+            setShowRelease(false)
             setOnlyOneRelease(true)
         }
         setReleaseList(serverSongs.slice(1))
@@ -71,7 +76,7 @@ function Player() {
 
     return (
         // <CurrentSongContext.Provider value={currentSong}>
-          <section className="player">
+        <section className="player">
             <div className="player__container">
                 <audio className="player__audio" controls>
                     <source
@@ -87,35 +92,17 @@ function Player() {
                         aria-label="play pause toggle"
                         // onClick={handleTrackPlay}
                     >
-                        <svg
-                            className={
-                                isTrackPlaying
-                                    ? 'controls__svg controls__play-icon disabled'
-                                    : 'controls__svg controls__play-icon'
-                            }
-                            width="16"
-                            height="20"
-                            viewBox="0 0 16 20"
-                            xmlns="http://www.w3.org/2000/svg"
-                            onClick={handleTrackPlay}
-                        >
-                            <path d="M15.2578 8.62536C16.2474 9.27629 16.2474 10.7237 15.2578 11.3746L2.56208 19.725C1.46363 20.4475 -8.59461e-07 19.6622 -8.02119e-07 18.3503L-7.21088e-08 1.64966C-1.47664e-08 0.337816 1.46363 -0.447463 2.56208 0.275023L15.2578 8.62536Z" />
-                        </svg>
-                        <svg
-                            className={
-                                isTrackPlaying
-                                    ? 'controls__svg controls__pause-icon'
-                                    : 'controls__svg controls__pause-icon disabled'
-                            }
-                            width="16"
-                            height="16"
-                            viewBox="0 0 16 16"
-                            xmlns="http://www.w3.org/2000/svg"
-                            onClick={handleTrackPause}
-                        >
-                            <rect x="2" width="4" height="16" rx="1" />
-                            <rect x="11" width="4" height="16" rx="1" />
-                        </svg>
+                        {isTrackPlaying ? (
+                            <SvgPauseButton
+                                maincolor={maincolor}
+                                onClick={handleTrackPause}
+                            ></SvgPauseButton>
+                        ) : (
+                            <SvgPlayButton
+                                maincolor={maincolor}
+                                onClick={handleTrackPlay}
+                            ></SvgPlayButton>
+                        )}
                     </button>
                     <div className="song-item">
                         <div className="song-item__wrap">
@@ -148,42 +135,17 @@ function Player() {
                         {showRelease ? 'Текст песни' : 'Релизы'}
                     </button>
                     <button className="controls__open-details-button">
-                        <svg
-                            onClick={handleDetailsOpen}
-                            className={
-                                isDetailsOpen
-                                    ? 'controls__svg controls__arrow-icon disabled'
-                                    : 'controls__svg controls__arrow-icon'
-                            }
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M12 24C18.6274 24 24 18.6274 24 12C24 5.37258 18.6274 0 12 0C5.37258 0 0 5.37258 0 12C0 18.6274 5.37258 24 12 24ZM12.6402 8.23178L12 7.69829L11.3598 8.23178L5.35982 13.2318L6.64018 14.7682L12 10.3017L17.3598 14.7682L18.6402 13.2318L12.6402 8.23178Z"
+                        {isDetailsOpen ? (
+                            <SvgCrossButton
+                                maincolor={maincolor}
+                                onClick={handleDetailsClose}
                             />
-                        </svg>
-                        <svg
-                            className={
-                                isDetailsOpen
-                                    ? 'controls__svg controls__cross-icon'
-                                    : 'controls__svg controls__cross-icon disabled'
-                            }
-                            onClick={handleDetailsClose}
-                            width="24"
-                            height="24"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                clipRule="evenodd"
-                                d="M24 12C24 18.6274 18.6274 24 12 24C5.37258 24 0 18.6274 0 12C0 5.37258 5.37258 0 12 0C18.6274 0 24 5.37258 24 12ZM10.5867 12L7.05116 8.46447L8.46537 7.05025L12.0009 10.5858L15.5364 7.05025L16.9507 8.46447L13.4151 12L16.9507 15.5355L15.5364 16.9497L12.0009 13.4142L8.46537 16.9497L7.05116 15.5355L10.5867 12Z"
+                        ) : (
+                            <SvgArrowButton
+                                maincolor={maincolor}
+                                onClick={handleDetailsOpen}
                             />
-                        </svg>
+                        )}
                     </button>
                 </div>
                 <div
@@ -193,14 +155,21 @@ function Player() {
                             : 'player__details-container disabled'
                     }
                 >
-                    <p
-                        className="details__title"
-                    
-                    >
-                        { !showRelease ? 'Текст песни:' : onlyOneRelease? 'Пока что у нас только 1 релиз.' : 'Релизы:'}
+                    <p className="details__title">
+                        {!showRelease
+                            ? 'Текст песни:'
+                            : onlyOneRelease
+                            ? 'Пока что у нас только 1 релиз.'
+                            : 'Релизы:'}
                     </p>
 
-                    <ul className={showRelease? "details__songs-list" : "details__songs-list disabled"}>
+                    <ul
+                        className={
+                            showRelease
+                                ? 'details__songs-list'
+                                : 'details__songs-list disabled'
+                        }
+                    >
                         {releaseList.map((release) => (
                             <Release
                                 key={release.id}
@@ -209,7 +178,13 @@ function Player() {
                             />
                         ))}
                     </ul>
-                    <div className={showRelease? "details__song-text display-linebreak disabled" : "details__song-text display-linebreak"}>
+                    <div
+                        className={
+                            showRelease
+                                ? 'details__song-text display-linebreak disabled'
+                                : 'details__song-text display-linebreak'
+                        }
+                    >
                         {currentSong.text}
                     </div>
                 </div>
