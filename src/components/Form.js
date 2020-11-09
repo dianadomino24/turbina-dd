@@ -1,6 +1,6 @@
 import React from 'react'
 
-function Form() {
+function Form(props) {
     return (
 <form className="form">
                     <h2 className="form__title">ФОРМА</h2>

@@ -7,7 +7,7 @@ export default function Release({ release, handleReleaseClick }) {
     return (
         <li className="details__song-item" onClick={handleClick}>
             <div className="song-item__name-wrap song-item__name-wrap_type_release">
-                {release.name} &mdash; {release.author}
+                {release.title} &mdash; {release.author}
             </div>
         </li>
     )

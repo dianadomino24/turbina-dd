@@ -23,7 +23,7 @@ function App() {
         < body >
         <div className="page">
             {/* <div className="cover"></div> */}
-            <Main value={nameUser} onChange={handelInputChange} />
+            <Main />
             <Footer />
         </div>
         </ body>

@@ -4,6 +4,7 @@ import LinksMenu from './LinksMenu'
 import headerLogo from '../images/logo.svg'
 import turbina from '../images/Турбина.svg'
 import Form from './Form'
+// import { maincolor } from '../utils/utils'
 
 function Main() {
     return (
@@ -11,7 +12,7 @@ function Main() {
             <div className="head">
                 <section className="turbina">
                     <div className="turbina__links">
-                        <a href="https://marshakbooks.ru/" target="/_blank">
+                        <a href="https://marshakbooks.ru/" target="blank">
                             <img
                                 src={headerLogo}
                                 alt="Маршак"
@@ -28,9 +29,8 @@ function Main() {
                         />
                     </h1>
                 </section>
-                <section className="player">
-                    <Player></Player>
-                </section>
+
+                <Player />
             </div>
             <section className="information">
                 <ul className="description">
