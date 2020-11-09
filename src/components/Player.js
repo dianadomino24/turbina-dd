@@ -23,11 +23,10 @@ function Player() {
 
     const audioEl = useRef(null)
 
-    const [timer, setTimer] = useState('00:00')
+    // const [timer, setTimer] = useState('00:00')
 
-    function handleTimer() {
+    function countRemainingTime () {
         let sec_num = (currentSongDuration - currentSongPlayed); 
-        console.log(currentSongDuration, currentSongPlayed);
         let minutes = Math.floor(sec_num / 60); 
         let seconds = Math.round(sec_num - (minutes * 60)); 
      
@@ -42,6 +41,7 @@ function Player() {
     function handleDetailsClose() {
         setIsDetailsOpen(false)
     }
+
     function handleTrackPlay() {
         setIsTrackPlaying(true)
         audioEl.current.play()
@@ -145,7 +145,7 @@ function Player() {
                             </div>
                             <div className="song-item__timer">
                                 <span aria-label="timer">
-                                    {handleTimer()}
+                                    {countRemainingTime()}
                                     {/* {((currentSongDuration - currentSongPlayed)/60)}
                                     {console.log(currentSong.duration, currentSongDuration, currentSongPlayed)} */}
                                 </span>
