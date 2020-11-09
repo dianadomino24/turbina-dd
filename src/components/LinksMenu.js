@@ -5,7 +5,6 @@ function LinksMenu(props) {
   const dropdownMenuBtnRef = React.useRef(null);
 
   const [isLinksMenuOpened, setIsLinksMenuOpened] = React.useState(false);
-  const [buttonText, setButtonText] = React.useState("Стриминги");
 
   const onClick = () => {
     setIsLinksMenuOpened(!isLinksMenuOpened);

@@ -8,7 +8,7 @@ import SvgPlayButton from "./icons/play/SvgPlayButton";
 import SvgCrossButton from "./icons/cross/SvgCrossButton";
 import SvgArrowButton from "./icons/arrow/SvgArrowButton";
 
-import { CurrentSongContext } from "../contexts/CurrentSongContext";
+// import { CurrentSongContext } from "../contexts/CurrentSongContext";
 
 function Player() {
   const [isTrackPlaying, setIsTrackPlaying] = useState(false);
@@ -19,6 +19,7 @@ function Player() {
   const [onlyOneRelease, setOnlyOneRelease] = useState(false);
   const [currentSongDuration, setCurrentSongDuration] = useState(0);
   const [currentSongPlayed, setCurrentSongPlayed] = useState(0);
+  const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0);
   const [clickedTime, setClickedTime] = useState();
 
   const audioEl = useRef(null);
@@ -74,24 +75,27 @@ function Player() {
     // .catch((err) => {
     //     console.log(`Загрузка песен: ${err}`)
     // })
+  }, []);
 
+
+  useEffect(() => {
     // Gets audio file duration
     audioEl.current.addEventListener(
-      "canplaythrough",
-      function () {
-        console.log("here1234", audioEl.current.duration);
-        setCurrentSongDuration(audioEl.current.duration);
-      },
-      false
-    );
-
-    audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
-
-    if (clickedTime && clickedTime !== audioEl.current.duration) {
-      audioEl.current.duration = clickedTime;
-      setClickedTime(null);
-    }
-  }, []);
+        "canplaythrough",
+        function () {
+          console.log("here1234", audioEl.current.duration);
+          setCurrentSongDuration(audioEl.current.duration);
+        },
+        false
+      );
+  
+      audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
+  
+      if (clickedTime && clickedTime !== audioEl.current.duration) {
+        audioEl.current.duration = clickedTime;
+        setClickedTime(null);
+      }
+  },[clickedTime])
 
   function handleReleaseClick(track) {
     // находим в списке релизов тот, на который кликнули, удаляем его
@@ -104,11 +108,34 @@ function Player() {
     setReleaseList(list);
     setCurrentSong(track);
   }
+  
+  
   function handleLyricsReleaseClick() {
     if (showRelease) {
       setShowRelease(false);
     } else setShowRelease(true);
   }
+
+  //логика перемещения бегунка по таймлайн
+  function handleClickOnTimeline(event) {
+    function findTargetParent() {
+        if (event.target.classList.contains('song-item__timeline-playhead' || 'song-item__timeline-hover-playhead')) {
+            return event.target.parentElement
+        } else { return event.target }
+    }
+
+    const timeline = findTargetParent();
+
+    setCurrentSongSeekerMovedTo(
+      (event.nativeEvent.layerX / timeline.getBoundingClientRect().width) *
+        100
+    );
+  }
+
+  useEffect(() => {
+    audioEl.current.currentTime =
+      (currentSongDuration * currentSongSeekerMovedTo) / 100;
+  }, [currentSongDuration, currentSongSeekerMovedTo]);
 
   //  const currentSongData= React.useContext(CurrentSongContext)
 
@@ -154,7 +181,7 @@ function Player() {
                 </span>
               </div>
             </div>
-            <div className="song-item__timeline">
+            <div className="song-item__timeline" onClick={handleClickOnTimeline}>
               <div
                 className="song-item__timeline-playhead"
                 style={{
