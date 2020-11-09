@@ -1,5 +1,5 @@
 .turbina__music-link {
-    font-family: Inter, 'Arial', sans-serif;
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
     font-weight: normal;
     font-size: 16px;
     line-height: 19px;
@@ -24,7 +24,7 @@
     .turbina__music-link {
         font-size: 12px;
         line-height: 1.2;
-        padding: 7px 16px 7px 16px;
+        padding: 7px 16px;
     }
 }
 

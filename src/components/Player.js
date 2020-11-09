@@ -29,21 +29,21 @@ function Player() {
         //  Promise(api.getItems('songs'))
         //     .then((data) => {
         //         const serverSongs = data
-        const items = serverSongs.map((item) => ({
-            title: item.title,
-            author: item.author,
-            audioFile: item.audioFile,
-            id: item.id,
-            duration: item.duration,
-            color: item.color,
-            text: item.text,
-        }))
-        setCurrentSong(items[0])
-        if (items.length === 1) {
+        // const items = serverSongs.map((item) => ({
+        //     title: item.title,
+        //     author: item.author,
+        //     audioFile: item.audioFile,
+        //     id: item.id,
+        //     duration: item.duration,
+        //     color: item.color,
+        //     text: item.text,
+        // }))
+        setCurrentSong(serverSongs[0])
+        if (serverSongs.length === 1) {
              setShowRelease(false)
             setOnlyOneRelease(true)
         }
-        setReleaseList(items.slice(1))
+        setReleaseList(serverSongs.slice(1))
         // })
         // .catch((err) => {
         //     console.log(`Загрузка песен: ${err}`)
@@ -52,7 +52,7 @@ function Player() {
 
     function handleReleaseClick(track) {
         // находим в списке релизов тот, на который кликнули, удаляем его
-        const list = releaseList.filter(function (obj) {
+        const list = releaseList.filter((obj) => {
             return obj.id !== track.id
         })
         // добавляем в конец релизов текущую песню
@@ -71,7 +71,7 @@ function Player() {
 
     return (
         // <CurrentSongContext.Provider value={currentSong}>
-        <div className="player">
+          <section className="player">
             <div className="player__container">
                 <audio className="player__audio" controls>
                     <source
@@ -214,7 +214,7 @@ function Player() {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
         // </CurrentSongContext.Provider>
     )
 }
