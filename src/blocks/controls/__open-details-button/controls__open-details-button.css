@@ -5,8 +5,11 @@
     height: 24px;
     outline: none;
     background: none;
-    transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
-        visibility 0.5s ease-in-out, width 0.8s ease;
+    transition: opacity 0.5s ease-in-out, visibility 0.5s ease-in-out;
+}
+
+.controls__open-details-button:hover {
+    cursor: pointer;
 }
 
 @media all and (max-width: 600px) {
@@ -15,8 +18,4 @@
         height: 16px;
         margin-left: 11px;
     }
-}
-
-.controls__open-details-button:hover {
-    cursor: pointer;
 }

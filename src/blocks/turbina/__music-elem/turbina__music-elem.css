@@ -1,8 +1,9 @@
 .turbina__music-elem {
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
     font-weight: normal;
     font-size: 18px;
     line-height: 22px;
-    color: #ffffff;
+    color: #fff;
     list-style-type: none;
     margin-top: 8px;
 }

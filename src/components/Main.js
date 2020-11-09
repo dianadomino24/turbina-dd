@@ -10,7 +10,7 @@ function Main() {
             <div className="head">
                 <section className="turbina">
                     <div className="turbina__links">
-                        <a href="https://marshakbooks.ru/" target="/_blank">
+                        <a href="https://marshakbooks.ru/" target="_blank">
                             <img
                                 src={headerLogo}
                                 alt="Маршак"
@@ -27,9 +27,9 @@ function Main() {
                         />
                     </h1>
                 </section>
-                <section className="player">
-                    <Player></Player>
-                </section>
+              
+                    <Player/>
+                
             </div>
             <section className="information">
                 <ul className="description">
