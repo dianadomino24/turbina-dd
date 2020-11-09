@@ -3,10 +3,7 @@ import classnames from 'classnames'
 import { serverSongs } from '../utils/song-list'
 import Release from './Release'
 import { maincolor } from '../utils/utils'
-import SvgPauseButton from './icons/pause/SvgPauseButton'
-import SvgPlayButton from './icons/play/SvgPlayButton'
-import SvgCrossButton from './icons/cross/SvgCrossButton'
-import SvgArrowButton from './icons/arrow/SvgArrowButton'
+import Icons from './icons/Icons'
 
 import { CurrentSongContext } from '../contexts/CurrentSongContext'
 
@@ -94,15 +91,17 @@ function Player() {
                         // onClick={handleTrackPlay}
                     >
                         {isTrackPlaying ? (
-                            <SvgPauseButton
+                            <Icons.SvgPauseButton
+                                className="controls__pause-icon"
                                 maincolor={maincolor}
                                 onClick={handleTrackPause}
-                            ></SvgPauseButton>
+                            ></Icons.SvgPauseButton>
                         ) : (
-                            <SvgPlayButton
+                            <Icons.SvgPlayButton
+                                className="controls__play-icon"
                                 maincolor={maincolor}
                                 onClick={handleTrackPlay}
-                            ></SvgPlayButton>
+                            ></Icons.SvgPlayButton>
                         )}
                     </button>
                     <div className="song-item">
@@ -126,7 +125,10 @@ function Player() {
                         </div>
                     </div>
                     <button
-                        className={classnames('controls__lyrics-release-button', {'disabled': !isDetailsOpen})}
+                        className={classnames(
+                            'controls__lyrics-release-button',
+                            { disabled: !isDetailsOpen }
+                        )}
                         //     isDetailsOpen
                         //         ? 'controls__lyrics-release-button'
                         //         : 'controls__lyrics-release-button disabled'
@@ -137,12 +139,14 @@ function Player() {
                     </button>
                     <button className="controls__open-details-button">
                         {isDetailsOpen ? (
-                            <SvgCrossButton
+                            <Icons.SvgCrossButton
+                                className="controls__cross-icon"
                                 maincolor={maincolor}
                                 onClick={handleDetailsClose}
                             />
                         ) : (
-                            <SvgArrowButton
+                            <Icons.SvgArrowButton
+                                className="controls__arrow-icon"
                                 maincolor={maincolor}
                                 onClick={handleDetailsOpen}
                             />
@@ -150,7 +154,9 @@ function Player() {
                     </button>
                 </div>
                 <div
-                    className={classnames('player__details-container', {'disabled': !isDetailsOpen})}
+                    className={classnames('player__details-container', {
+                        disabled: !isDetailsOpen,
+                    })}
                     //     isDetailsOpen
                     //         ? 'player__details-container'
                     //         : 'player__details-container disabled'

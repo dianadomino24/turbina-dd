@@ -3,7 +3,7 @@ import * as React from 'react'
 function SvgArrowButton(props) {
     return (
         <svg
-            className="controls__arrow-icon"
+            className={props.className}
             width="24px"
             height="24px"
             viewBox="0 0 24 24"
