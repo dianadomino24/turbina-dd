@@ -6,7 +6,7 @@ import turbina from '../images/Турбина.svg'
 import Form from './Form'
 // import { maincolor } from '../utils/utils'
 
-function Main() {
+function Main(props) {
     return (
         <main className="content">
             <div className="head">
@@ -102,7 +102,11 @@ function Main() {
                         </ul>
                     </li>
                 </ul>
-                <Form />
+                <Form value={props.value} 
+                onChange={props.onChange} 
+                onError={props.onError} 
+                onDirty={props.onDirty} 
+                onBlur={props.onBlur} />
             </section>
         </main>
     )

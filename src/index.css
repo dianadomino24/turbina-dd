@@ -60,6 +60,7 @@
 @import url(./blocks/form/__link/form__link.css);
 @import url(./blocks/form/__submit/form__submit.css);
 @import url(./blocks/form/__error/form__error.css);
+@import url(./blocks/form/__error/_visible/form__error_visible.css);
 @import url(./blocks/footer/footer.css);
 @import url(./blocks/footer/__subtitle/footer__subtitle.css);
 @import url(./blocks/footer/__link/footer__link.css);
