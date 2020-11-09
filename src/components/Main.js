@@ -110,40 +110,36 @@ function Main() {
                         type="text"
                         placeholder="Имя и фамилия автора"
                         className="form__input"
-                        id=""
                         required
                     />
-                    <span className="form__error" id="">
+                    <span className="form__error">
                         Какая-то ошибка*
                     </span>
                     <input
                         type="tel"
                         placeholder="Телефон"
                         className="form__input"
-                        id=""
                         required
                     />
-                    <span className="form__error" id="">
+                    <span className="form__error">
                         Какая-то ошибка*
                     </span>
                     <input
-                        type="e-mail"
+                        type="email"
                         placeholder="Почта"
                         className="form__input"
-                        id=""
                         required
                     />
-                    <span className="form__error" id="">
+                    <span className="form__error">
                         Какая-то ошибка*
                     </span>
                     <input
                         type="text"
                         placeholder="Стихи"
                         className="form__input"
-                        id=""
                         required
                     />
-                    <span className="form__error" id="">
+                    <span className="form__error">
                         Какая-то ошибка*
                     </span>
                     <label htmlFor="offer" className="form__label">
