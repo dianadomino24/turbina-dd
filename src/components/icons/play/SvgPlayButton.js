@@ -3,6 +3,7 @@ import * as React from 'react'
 function SvgPlayButton(props) {
     return (
         <svg
+            className={props.className}
             width="16px"
             height="20px"
             viewBox="0 0 16 20"

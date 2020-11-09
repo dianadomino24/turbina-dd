@@ -7,6 +7,13 @@
         visibility 0.5s ease-in-out;
 }
 
+@media all and (max-width: 1024px) {
+    .controls__play-icon {
+        width: 15px;
+        height: 18px;
+    }
+}
+
 @media all and (max-width: 600px) {
     .controls__play-icon {
         width: 13px;
