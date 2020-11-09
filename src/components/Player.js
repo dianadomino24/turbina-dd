@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react'
+import React, { useEffect, useState, useCallback, useRef } from 'react'
 import { serverSongs } from '../utils/song-list'
 import Release from './Release'
 import { CurrentSongContext } from '../contexts/CurrentSongContext'
@@ -8,6 +8,27 @@ function Player() {
     const [isDetailsOpen, setIsDetailsOpen] = useState(false)
     const [releaseList, setReleaseList] = useState([])
     const [currentSong, setCurrentSong] = useState({})
+    const audioEl = useRef(null)
+
+    const [currentSongDuration, setCurrentSongDuration] = useState(0);
+    const [currentSongPlayed, setCurrentSongPlayed] = useState(0);
+
+    const [clickedTime, setClickedTime] = useState();
+    const [timer, setTimer] = useState('00:00')
+
+    function handleTimer() {
+        let sec_num = (currentSongDuration - currentSongPlayed); 
+        console.log(currentSongDuration, currentSongPlayed);
+        let minutes = Math.floor(sec_num / 60); 
+        let seconds = Math.round(sec_num - (minutes * 60)); 
+     
+        if (minutes < 10) {minutes = "0"+minutes}
+        if (seconds < 10) {seconds = "0"+seconds}
+        return minutes + ':' + seconds;
+    }
+
+
+    
     function handleDetailsOpen() {
         setIsDetailsOpen(true)
     }
@@ -16,9 +37,15 @@ function Player() {
     }
     function handleTrackPlay() {
         setIsTrackPlaying(true)
+        audioEl.current.play()
     }
     function handleTrackPause() {
         setIsTrackPlaying(false)
+        audioEl.current.pause()
+    }
+
+    function handleTimeUpdate() {
+        setCurrentSongPlayed(audioEl.current.currentTime)
     }
 
     useEffect(() => {
@@ -36,11 +63,29 @@ function Player() {
         }))
         setCurrentSong(items[0])
         setReleaseList(items.slice(1))
+
+
         // })
         // .catch((err) => {
         //     console.log(`Загрузка песен: ${err}`)
         // })
+
+        // Gets audio file duration
+        audioEl.current.addEventListener("canplaythrough", function () {
+            console.log('here1234', audioEl.current.duration)
+            setCurrentSongDuration(audioEl.current.duration)
+        }, false)
+    
+        audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
+
+        if (clickedTime && clickedTime !== audioEl.current.duration) {
+            audioEl.current.duration = clickedTime;
+            setClickedTime(null);
+          }
+    
     }, [])
+
+    
 
     function handleReleaseClick(track) {
         // находим в списке релизов тот, на который кликнули, удаляем его
@@ -60,7 +105,7 @@ function Player() {
         // <CurrentSongContext.Provider value={currentSong}>
         <div className="player">
             <div className="player__container">
-                <audio className="player__audio" controls>
+                <audio className="player__audio" ref={audioEl} controls>
                     <source
                         src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
                         type="audio/mp3"
@@ -112,16 +157,19 @@ function Player() {
                             </div>
                             <div className="song-item__timer">
                                 <span aria-label="timer">
-                                    {currentSong.duration}
+                                    {handleTimer()}
+                                    {/* {((currentSongDuration - currentSongPlayed)/60)}
+                                    {console.log(currentSong.duration, currentSongDuration, currentSongPlayed)} */}
                                 </span>
                             </div>
                         </div>
                         <div className="song-item__timeline">
-                            <div className="song-item__timeline-playhead"></div>
-                            <div
+                        
+                            <div className="song-item__timeline-playhead" style={{width: (currentSongPlayed / currentSongDuration * 100) + '%'}}></div>
+                            {/* <div
                                 className="song-item__timeline-hover-playhead"
                                 data-content="1:00"
-                            ></div>
+                            ></div> */}
                         </div>
                     </div>
                     <button

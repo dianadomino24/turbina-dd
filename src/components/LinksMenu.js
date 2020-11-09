@@ -3,12 +3,12 @@ import React from 'react'
 function LinksMenu(props) {
     const dropdownMenuBtnRef = React.useRef()
 
-    const [isLinksMenuOpened, setisLinksMenuOpened] = React.useState(false)
+    const [isLinksMenuOpened, setIsLinksMenuOpened] = React.useState(false)
     const [buttonText, setButtonText] = React.useState('Стриминги')
-    console.log(buttonText)
+    
 
     const onClick = () => {
-        setisLinksMenuOpened(!isLinksMenuOpened)
+        setIsLinksMenuOpened(!isLinksMenuOpened)
         if (!isLinksMenuOpened) {
             setButtonText(' ')
         } else {
