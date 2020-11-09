@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import classnames from 'classnames'
 import { serverSongs } from '../utils/song-list'
 import Release from './Release'
 import { maincolor } from '../utils/utils'
@@ -125,11 +126,11 @@ function Player() {
                         </div>
                     </div>
                     <button
-                        className={
-                            isDetailsOpen
-                                ? 'controls__lyrics-release-button'
-                                : 'controls__lyrics-release-button disabled'
-                        }
+                        className={classnames('controls__lyrics-release-button', {'disabled': !isDetailsOpen})}
+                        //     isDetailsOpen
+                        //         ? 'controls__lyrics-release-button'
+                        //         : 'controls__lyrics-release-button disabled'
+                        // }
                         onClick={handleLyricsReleaseClick}
                     >
                         {showRelease ? 'Текст песни' : 'Релизы'}
@@ -149,11 +150,11 @@ function Player() {
                     </button>
                 </div>
                 <div
-                    className={
-                        isDetailsOpen
-                            ? 'player__details-container'
-                            : 'player__details-container disabled'
-                    }
+                    className={classnames('player__details-container', {'disabled': !isDetailsOpen})}
+                    //     isDetailsOpen
+                    //         ? 'player__details-container'
+                    //         : 'player__details-container disabled'
+                    // }
                 >
                     <p className="details__title">
                         {!showRelease
