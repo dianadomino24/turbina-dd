@@ -206,11 +206,9 @@ function Player() {
                     </p>
 
                     <ul
-                        className={
-                            showRelease
-                                ? 'details__songs-list'
-                                : 'details__songs-list disabled'
-                        }
+                        className={classnames(
+                            'details__songs-list',
+                            { disabled: !showRelease })}
                     >
                         {releaseList.map((release) => (
                             <Release
@@ -221,11 +219,9 @@ function Player() {
                         ))}
                     </ul>
                     <div
-                        className={
-                            showRelease
-                                ? 'details__song-text display-linebreak disabled'
-                                : 'details__song-text display-linebreak'
-                        }
+                        className={classnames(
+                            'details__song-text display-linebreak',
+                            { disabled: showRelease })}
                     >
                         {currentSong.text}
                     </div>
