@@ -9,6 +9,9 @@
         visibility 0.5s ease-in-out;
     position: relative;
 }
+.controls__play-button:hover {
+    cursor: pointer;
+}
 
 @media all and (max-width: 1024px) {
     .controls__play-button {
@@ -22,8 +25,4 @@
         width: 13px;
         height: 16px;
     }
-}
-
-.controls__play-button:hover {
-    cursor: pointer;
 }
