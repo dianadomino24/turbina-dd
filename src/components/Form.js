@@ -15,17 +15,19 @@ function Form() {
         name: false,
         telephone: false,
         email: false,
-        poem: false
+        poem: false,
+        radio: false
     });
-    // валидность всей формы
+    
     const [isValid, setIsValid] = React.useState(true);
+    const [formButtonText, setFormButtonText] = React.useState('Отправить форму');
+    const [submitError, setSubmitError] = React.useState('')
+    // валидность всей формы
     function validation() {
         if (!inputError.name & !inputError.telephone & !inputError.email & !inputError.poem) {
             setIsValid(false)
         } else { setIsValid(true) }
     }
-
-    const [formButtonText, setFormButtonText] = React.useState('Отправить форму')
 
     //обработчик инпута имени
     function nameHandler(e) {
@@ -61,13 +63,17 @@ function Form() {
         } else { setInputError({ ...inputError, poem: false }) }
         validation();
     }
+
+    function radioHandler() {
+        setInputValue(!radio)
+    }
 //обработка и отправка формы на сервер
     function submitForm(evt) {
         evt.preventDefault();
       api.putInfo().then(() => {
         setFormButtonText('Ура, форма отправлена!');
       }).catch(() => {
-
+        setSubmitError('Упс, что-то пошло не так и форма не отправилась, попробуйте ещё раз!')
       })
     
     }
@@ -137,6 +143,8 @@ function Form() {
                 <input
                     type="radio"
                     className="form__input-radio"
+                    checked={inputError.radio}
+                    onChange={(e) => { radioHandler(e) }}
                     required
                 />Согласен с &nbsp;
                         <a href="/#" className="form__link form__label">
@@ -147,8 +155,7 @@ function Form() {
             {formButtonText}
                     </button>
             <span className="form__error">
-                Упс, что-то пошло не так и форма не отправилась,
-                попробуйте ещё раз!
+                {submitError}
                     </span>
         </form>
     )
