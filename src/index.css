@@ -26,6 +26,7 @@
 @import url(./blocks/form/__subtitle/form__subtitle.css);
 @import url(./blocks/form/__input/form__input.css);
 @import url(./blocks/player/player.css);
+@import url(./blocks/player/__cover/player__cover.css);
 @import url(./blocks/player/__container/player__container.css);
 @import url(./blocks/player/__audio/player__audio.css);
 @import url(./blocks/player/__controls/player__controls.css);

@@ -146,6 +146,7 @@ function Player() {
     return (
         // <CurrentSongContext.Provider value={currentSong}>
         <section className="player">
+            <img className="player__cover" src={currentSong.cover} alt={currentSong.name}></img>
             <div className="player__container">
                 <audio className="player__audio" ref={audioEl} controls>
                     <source
@@ -178,7 +179,7 @@ function Player() {
                     <div className="song-item">
                         <div className="song-item__wrap">
                             <div className="song-item__name-wrap">
-                                {currentSong.title}&nbsp;&mdash;&nbsp;{currentSong.author}&nbsp;{feat}
+                                {currentSong.title}&nbsp;&mdash;&nbsp;{currentSong.author}&nbsp;{feat} ggggggggggggggggggggggggggggggggg
                                 
                             </div>
                             <div className="song-item__timer">
