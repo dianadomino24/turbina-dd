@@ -18,10 +18,9 @@ function Player() {
   const [currentSongDuration, setCurrentSongDuration] = useState(0);
   const [currentSongPlayed, setCurrentSongPlayed] = useState(0);
   const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0);
-  const [clickedTime, setClickedTime] = useState();
+  const [clickedTimeOnTimeline, setClickedTimeOnTimeline] = useState();
 
   const audioEl = useRef(null);
-
 
 //расчет оставшегося времени проигрования трека
   function countRemainingTime(duration, currentTime) {
@@ -47,6 +46,7 @@ function Player() {
 
   function handleTrackPlay() {
     setIsTrackPlaying(true);
+    debugger
     audioEl.current.play();
   }
   function handleTrackPause() {
@@ -64,10 +64,12 @@ function Player() {
     //         const serverSongs = data
 
     setCurrentSong(serverSongs[0]);
+
     if (serverSongs.length === 1) {
       setShowRelease(false);
       setOnlyOneRelease(true);
     }
+
     setReleaseList(serverSongs.slice(1));
     // })
     // .catch((err) => {
@@ -77,25 +79,23 @@ function Player() {
 
 
   useEffect(() => {
-
-     const changeCurrentSongDuration = () => {
-        setCurrentSongDuration(audioEl.current.duration);
-      }
+    const changeCurrentSongDuration = () => {
+      setCurrentSongDuration(audioEl.current.duration);
+    }
     // Gets audio file duration
     audioEl.current.addEventListener("canplaythrough", changeCurrentSongDuration, false );
-  
     audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
   
-      if (clickedTime && clickedTime !== audioEl.current.duration) {
-        audioEl.current.duration = clickedTime;
-        setClickedTime(null);
+      if (clickedTimeOnTimeline && clickedTimeOnTimeline !== audioEl.current.duration) {
+        audioEl.current.duration = clickedTimeOnTimeline;
+        setClickedTimeOnTimeline(null);
       }
 
       return () => {
         audioEl.current.removeEventListener("canplaythrough", changeCurrentSongDuration, false );
         audioEl.current.removeEventListener("timeupdate", handleTimeUpdate, false);
       }
-  },[clickedTime])
+  }, [clickedTimeOnTimeline])
 
   function handleReleaseClick(track) {
     // находим в списке релизов тот, на который кликнули, удаляем его
@@ -139,138 +139,137 @@ function Player() {
   }, [currentSongDuration, currentSongSeekerMovedTo]);
 
 
-    //  const currentSongData= React.useContext(CurrentSongContext)
+  return (
+      // <CurrentSongContext.Provider value={currentSong}>
+      <section className="player">
+          <div className="player__container">
+            {currentSong.audioFile}
+              <audio className="player__audio" ref={audioEl} controls>
+                  <source
+                      src={currentSong.audioFile}
+                      // src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
+                      type="audio/mp3"
+                  />
+                  Your browser does not support the audio element.
+              </audio>
+              <div className="player__controls controls">
+                  <button
+                      className="controls__play-button"
+                      data-icon="P"
+                      aria-label="play pause toggle"
+                      // onClick={handleTrackPlay}
+                  >
+                      {isTrackPlaying ? (
+                          <Icons.SvgPauseButton
+                              className="controls__pause-icon"
+                              maincolor={maincolor}
+                              onClick={handleTrackPause}
+                          ></Icons.SvgPauseButton>
+                      ) : (
+                          <Icons.SvgPlayButton
+                              className="controls__play-icon"
+                              maincolor={maincolor}
+                              onClick={handleTrackPlay}
+                          ></Icons.SvgPlayButton>
+                      )}
+                  </button>
+                  <div className="song-item">
+                      <div className="song-item__wrap">
+                          <div className="song-item__name-wrap">
+                              {currentSong.title}&mdash;{currentSong.author}
+                              gggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                          </div>
+                          <div className="song-item__timer">
+                              <span aria-label="timer">
+                              {countRemainingTime(currentSongDuration, currentSongPlayed)}
+                              </span>
+                          </div>
+                      </div>
+                      <div className="song-item__timeline" onClick={handleClickOnTimeline}>
+                      
+                      <div
+              className="song-item__timeline-playhead"
+              style={{
+                width: (currentSongPlayed / currentSongDuration) * 100 + "%",
+              }}
+            ></div>
+                          {/* <div
+                              className="song-item__timeline-hover-playhead"
+                              data-content="1:00"
+                          ></div> */}
+                      </div>
+                  </div>
+                  <button
+                      className={classnames(
+                          'controls__lyrics-release-button',
+                          { disabled: !isDetailsOpen }
+                      )}
+                      //     isDetailsOpen
+                      //         ? 'controls__lyrics-release-button'
+                      //         : 'controls__lyrics-release-button disabled'
+                      // }
+                      onClick={handleLyricsReleaseClick}
+                  >
+                      {showRelease ? 'Текст песни' : 'Релизы'}
+                  </button>
+                  <button className="controls__open-details-button">
+                      {isDetailsOpen ? (
+                          <Icons.SvgCrossButton
+                              className="controls__cross-icon"
+                              maincolor={maincolor}
+                              onClick={handleDetailsClose}
+                          />
+                      ) : (
+                          <Icons.SvgArrowButton
+                              className="controls__arrow-icon"
+                              maincolor={maincolor}
+                              onClick={handleDetailsOpen}
+                          />
+                      )}
+                  </button>
+              </div>
+              <div
+                  className={classnames('player__details-container', {
+                      disabled: !isDetailsOpen,
+                  })}
+                  //     isDetailsOpen
+                  //         ? 'player__details-container'
+                  //         : 'player__details-container disabled'
+                  // }
+              >
+                  <p className="details__title">
+                      {!showRelease
+                          ? 'Текст песни:'
+                          : onlyOneRelease
+                          ? 'Пока что у нас только 1 релиз.'
+                          : 'Релизы:'}
+                  </p>
 
-    return (
-        // <CurrentSongContext.Provider value={currentSong}>
-        <section className="player">
-            <div className="player__container">
-                <audio className="player__audio" ref={audioEl} controls>
-                    <source
-                        src={currentSong.audioFile}
-                        // src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
-                        type="audio/mp3"
-                    />
-                    Your browser does not support the audio element.
-                </audio>
-                <div className="player__controls controls">
-                    <button
-                        className="controls__play-button"
-                        data-icon="P"
-                        aria-label="play pause toggle"
-                        // onClick={handleTrackPlay}
-                    >
-                        {isTrackPlaying ? (
-                            <Icons.SvgPauseButton
-                                className="controls__pause-icon"
-                                maincolor={maincolor}
-                                onClick={handleTrackPause}
-                            ></Icons.SvgPauseButton>
-                        ) : (
-                            <Icons.SvgPlayButton
-                                className="controls__play-icon"
-                                maincolor={maincolor}
-                                onClick={handleTrackPlay}
-                            ></Icons.SvgPlayButton>
-                        )}
-                    </button>
-                    <div className="song-item">
-                        <div className="song-item__wrap">
-                            <div className="song-item__name-wrap">
-                                {currentSong.title}&mdash;{currentSong.author}
-                                gggggggggggggggggggggggggggggggggggggggggggggggggggggg
-                            </div>
-                            <div className="song-item__timer">
-                                <span aria-label="timer">
-                                {countRemainingTime(currentSongDuration, currentSongPlayed)}
-                                </span>
-                            </div>
-                        </div>
-                        <div className="song-item__timeline" onClick={handleClickOnTimeline}>
-                        
-                        <div
-                className="song-item__timeline-playhead"
-                style={{
-                  width: (currentSongPlayed / currentSongDuration) * 100 + "%",
-                }}
-              ></div>
-                            {/* <div
-                                className="song-item__timeline-hover-playhead"
-                                data-content="1:00"
-                            ></div> */}
-                        </div>
-                    </div>
-                    <button
-                        className={classnames(
-                            'controls__lyrics-release-button',
-                            { disabled: !isDetailsOpen }
-                        )}
-                        //     isDetailsOpen
-                        //         ? 'controls__lyrics-release-button'
-                        //         : 'controls__lyrics-release-button disabled'
-                        // }
-                        onClick={handleLyricsReleaseClick}
-                    >
-                        {showRelease ? 'Текст песни' : 'Релизы'}
-                    </button>
-                    <button className="controls__open-details-button">
-                        {isDetailsOpen ? (
-                            <Icons.SvgCrossButton
-                                className="controls__cross-icon"
-                                maincolor={maincolor}
-                                onClick={handleDetailsClose}
-                            />
-                        ) : (
-                            <Icons.SvgArrowButton
-                                className="controls__arrow-icon"
-                                maincolor={maincolor}
-                                onClick={handleDetailsOpen}
-                            />
-                        )}
-                    </button>
-                </div>
-                <div
-                    className={classnames('player__details-container', {
-                        disabled: !isDetailsOpen,
-                    })}
-                    //     isDetailsOpen
-                    //         ? 'player__details-container'
-                    //         : 'player__details-container disabled'
-                    // }
-                >
-                    <p className="details__title">
-                        {!showRelease
-                            ? 'Текст песни:'
-                            : onlyOneRelease
-                            ? 'Пока что у нас только 1 релиз.'
-                            : 'Релизы:'}
-                    </p>
-
-                    <ul
-                        className={classnames(
-                            'details__songs-list',
-                            { disabled: !showRelease })}
-                    >
-                        {releaseList.map((release) => (
-                            <Release
-                                key={release.id}
-                                release={release}
-                                handleReleaseClick={handleReleaseClick}
-                            />
-                        ))}
-                    </ul>
-                    <div
-                        className={classnames(
-                            'details__song-text display-linebreak',
-                            { disabled: showRelease })}
-                    >
-                        {currentSong.text}
-                    </div>
-                </div>
-            </div>
-        </section>
-        // </CurrentSongContext.Provider>
-    )
+                  <ul
+                      className={classnames(
+                          'details__songs-list',
+                          { disabled: !showRelease })}
+                  >
+                      {releaseList.map((release) => (
+                          <Release
+                              key={release.id}
+                              release={release}
+                              handleReleaseClick={handleReleaseClick}
+                          />
+                      ))}
+                  </ul>
+                  <div
+                      className={classnames(
+                          'details__song-text display-linebreak',
+                          { disabled: showRelease })}
+                  >
+                      {currentSong.text}
+                  </div>
+              </div>
+          </div>
+      </section>
+      // </CurrentSongContext.Provider>
+  )
 }
 
 
