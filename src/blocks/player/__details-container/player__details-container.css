@@ -8,6 +8,7 @@
     margin-bottom: 8px;
     transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
         visibility 0.5s ease-in-out;
+    grid-area: details;
 }
 .player__details-container::-webkit-scrollbar {
     width: 3px;

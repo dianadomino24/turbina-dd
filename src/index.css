@@ -40,6 +40,8 @@
 @import url(./blocks/controls/__arrow-icon/controls__arrow-icon.css);
 @import url(./blocks/controls/__cross-icon/controls__cross-icon.css);
 @import url(./blocks/controls/__play-icon/controls__play-icon.css);
+@import url(./blocks/controls/__video-clip-button/controls__video-clip-button.css);
+@import url(./blocks/controls/__play-clip-icon/controls__play-clip-icon.css);
 @import url(./blocks/disabled/disabled.css);
 @import url(./blocks/song-item/song-item.css);
 @import url(./blocks/song-item/__time-progress/song-item__time-progress.css);

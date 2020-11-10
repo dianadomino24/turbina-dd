@@ -1,0 +1,8 @@
+.controls__play-clip-icon {
+    /* background-image: url(../../../images/play-clip.svg); */
+    width: 11px;
+    height: 9px;
+    /* background-size: contain;
+    background-repeat: no-repeat; */
+    margin-right: 8px;
+}

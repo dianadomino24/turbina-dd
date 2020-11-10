@@ -4,6 +4,7 @@ import { serverSongs } from '../utils/song-list'
 import Release from './Release'
 import { maincolor } from '../utils/utils'
 import Icons from './icons/Icons'
+import playIcon from '../images/play-clip.svg'
 
 import { CurrentSongContext } from '../contexts/CurrentSongContext'
 
@@ -56,6 +57,10 @@ function Player() {
 
     function handleTimeUpdate() {
         setCurrentSongPlayed(audioEl.current.currentTime)
+    }
+
+    function handleShowClip() {
+
     }
 
     useEffect(() => {
@@ -146,8 +151,12 @@ function Player() {
     return (
         // <CurrentSongContext.Provider value={currentSong}>
         <section className="player">
-            <img className="player__cover" src={currentSong.cover} alt={currentSong.name}></img>
-            <div className="player__container">
+           
+            <div className="player__container" style={ {display: isDetailsOpen ? 'grid': 'block'} }>
+                 <img className={classnames(
+                            "player__cover",
+                            { disabled: !isDetailsOpen }
+                        )}   src={currentSong.cover} alt={currentSong.name}></img>
                 <audio className="player__audio" ref={audioEl} controls>
                     <source
                         src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
@@ -179,7 +188,7 @@ function Player() {
                     <div className="song-item">
                         <div className="song-item__wrap">
                             <div className="song-item__name-wrap">
-                                {currentSong.title}&nbsp;&mdash;&nbsp;{currentSong.author}&nbsp;{feat} ggggggggggggggggggggggggggggggggg
+                                {currentSong.title}&nbsp;&mdash;&nbsp;{currentSong.author}&nbsp;{feat} ggggggggggggggggggggggggggggg
                                 
                             </div>
                             <div className="song-item__timer">
@@ -211,15 +220,22 @@ function Player() {
                             ></div> */}
                         </div>
                     </div>
+                    {currentSong.video? 
+                    (<button
+                        className={classnames(
+                            'controls__video-clip-button',
+                            { disabled: !isDetailsOpen }
+                        )}
+                        onClick={handleShowClip}
+                    >
+                    <img className="controls__play-clip-icon" alt="play-clip" src={playIcon}/> Клип
+                    </button>) : ''}
+                    
                     <button
                         className={classnames(
                             'controls__lyrics-release-button',
                             { disabled: !isDetailsOpen }
                         )}
-                        //     isDetailsOpen
-                        //         ? 'controls__lyrics-release-button'
-                        //         : 'controls__lyrics-release-button disabled'
-                        // }
                         onClick={handleLyricsReleaseClick}
                     >
                         {showRelease ? 'Текст песни' : 'Релизы'}

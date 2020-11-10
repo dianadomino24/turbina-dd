@@ -7,6 +7,15 @@
     width: 100%;
     box-sizing: border-box;
     max-width: 1280px;
+    display: grid;
+    grid-template-areas:
+        'cover controls controls'
+        'cover details details';
+    grid-template-columns: 216px auto;
+    grid-template-rows: auto auto;
+    grid-gap: 0;
+    align-items: start;
+    /* display: block; */
 }
 @media all and (max-width: 400px) {
     .player__container {
