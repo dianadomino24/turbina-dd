@@ -102,11 +102,7 @@ function Main(props) {
                         </ul>
                     </li>
                 </ul>
-                <Form value={props.value} 
-                onChange={props.onChange} 
-                onError={props.onError} 
-                onDirty={props.onDirty} 
-                onBlur={props.onBlur} />
+                <Form />
             </section>
         </main>
     )
