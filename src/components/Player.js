@@ -21,8 +21,15 @@ function Player() {
     const [clickedTime, setClickedTime] = useState()
 
     const audioEl = useRef(null)
-    
-    const feat = !currentSong.originalAuthor ? "" : <span><span className="song-item__feat">feat.&nbsp;</span>{currentSong.originalAuthor}</span>
+
+    const feat = !currentSong.originalAuthor ? (
+        ''
+    ) : (
+        <span>
+            <span className="song-item__feat">feat.&nbsp;</span>
+            {currentSong.originalAuthor}
+        </span>
+    )
 
     //расчет оставшегося времени проигрования трека
     function countRemainingTime(duration, currentTime) {
@@ -59,9 +66,7 @@ function Player() {
         setCurrentSongPlayed(audioEl.current.currentTime)
     }
 
-    function handleShowClip() {
-
-    }
+    function handleShowClip() {}
 
     useEffect(() => {
         //  Promise(api.getItems('songs'))
@@ -151,12 +156,17 @@ function Player() {
     return (
         // <CurrentSongContext.Provider value={currentSong}>
         <section className="player">
-           
-            <div className="player__container" style={ {display: isDetailsOpen ? 'grid': 'block'} }>
-                 <img className={classnames(
-                            "player__cover",
-                            { disabled: !isDetailsOpen }
-                        )}   src={currentSong.cover} alt={currentSong.name}></img>
+            <div
+                className="player__container"
+                style={{ display: isDetailsOpen ? 'grid' : 'block' }}
+            >
+                <img
+                    className={classnames('player__cover', {
+                        disabled: !isDetailsOpen,
+                    })}
+                    src={currentSong.cover}
+                    alt={currentSong.name}
+                ></img>
                 <audio className="player__audio" ref={audioEl} controls>
                     <source
                         src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
@@ -188,8 +198,9 @@ function Player() {
                     <div className="song-item">
                         <div className="song-item__wrap">
                             <div className="song-item__name-wrap">
-                                {currentSong.title}&nbsp;&mdash;&nbsp;{currentSong.author}&nbsp;{feat} ggggggggggggggggggggggggggggg
-                                
+                                {currentSong.title}&nbsp;&mdash;&nbsp;
+                                {currentSong.author}&nbsp;{feat}{' '}
+                                ggggggggggggggggggggggggggggg
                             </div>
                             <div className="song-item__timer">
                                 <span aria-label="timer">
@@ -220,17 +231,25 @@ function Player() {
                             ></div> */}
                         </div>
                     </div>
-                    {currentSong.video? 
-                    (<button
-                        className={classnames(
-                            'controls__video-clip-button',
-                            { disabled: !isDetailsOpen }
-                        )}
-                        onClick={handleShowClip}
-                    >
-                    <img className="controls__play-clip-icon" alt="play-clip" src={playIcon}/> Клип
-                    </button>) : ''}
-                    
+                    {currentSong.video ? (
+                        <button
+                            className={classnames(
+                                'controls__video-clip-button',
+                                { disabled: !isDetailsOpen }
+                            )}
+                            onClick={handleShowClip}
+                        >
+                            <img
+                                className="controls__play-clip-icon"
+                                alt="play-clip"
+                                src={playIcon}
+                            />{' '}
+                            Клип
+                        </button>
+                    ) : (
+                        ''
+                    )}
+
                     <button
                         className={classnames(
                             'controls__lyrics-release-button',
@@ -260,8 +279,7 @@ function Player() {
                     className={classnames('player__details-container', {
                         disabled: !isDetailsOpen,
                     })}
-
-                    style={ {overflowY: onlyOneRelease ? 'hidden': 'scroll'} }
+                    style={{ overflowY: onlyOneRelease ? 'hidden' : 'scroll' }}
                 >
                     <p className="details__title">
                         {!showRelease
