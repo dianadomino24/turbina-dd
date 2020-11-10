@@ -1,82 +1,82 @@
-import React, { useEffect, useState, useRef } from "react";
-import classnames from "classnames";
-import { serverSongs } from "../utils/song-list";
-import Release from "./Release";
-import { maincolor, countRemainingTime } from "../utils/utils";
-import Icons from "./icons/Icons";
+import React, { useEffect, useState, useRef } from 'react'
+import classnames from 'classnames'
+import { serverSongs } from '../utils/song-list'
+import Release from './Release'
+import { maincolor, countRemainingTime } from '../utils/utils'
+import Icons from './icons/Icons'
 
 function Player() {
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
-  const [releaseList, setReleaseList] = useState([]);
-  const [currentSong, setCurrentSong] = useState({});
-  const [showRelease, setShowRelease] = useState(true);
-  const [onlyOneRelease, setOnlyOneRelease] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false)
+  const [releaseList, setReleaseList] = useState([])
+  const [currentSong, setCurrentSong] = useState({})
+  const [showRelease, setShowRelease] = useState(true)
+  const [onlyOneRelease, setOnlyOneRelease] = useState(false)
 
-  const [isTrackPlaying, setIsTrackPlaying] = useState(false);
-  const [currentSongDuration, setCurrentSongDuration] = useState(0);
-  const [currentSongPlayed, setCurrentSongPlayed] = useState(0);
-  const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0);
+  const [isTrackPlaying, setIsTrackPlaying] = useState(false)
+  const [currentSongDuration, setCurrentSongDuration] = useState(0)
+  const [currentSongPlayed, setCurrentSongPlayed] = useState(0)
+  const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0)
 
-  const audioEl = useRef(null);
+  const audioEl = useRef(null)
 
   function handleTrackPlay() {
-    setIsTrackPlaying(true);
-    audioEl.current.play();
+    setIsTrackPlaying(true)
+    audioEl.current.play()
   }
 
   function handleTrackPause() {
-    setIsTrackPlaying(false);
-    audioEl.current.pause();
+    setIsTrackPlaying(false)
+    audioEl.current.pause()
   }
 
   useEffect(() => {
-    setCurrentSong(serverSongs[0]);
+    setCurrentSong(serverSongs[0])
 
     if (serverSongs.length === 1) {
-      setShowRelease(false);
-      setOnlyOneRelease(true);
+      setShowRelease(false)
+      setOnlyOneRelease(true)
     }
 
-    setReleaseList(serverSongs.slice(1));
-  }, []);
+    setReleaseList(serverSongs.slice(1))
+  }, [])
 
   function handleReleaseClick(track) {
     // находим в списке релизов тот, на который кликнули, удаляем его
     const list = releaseList.filter((obj) => {
-      return obj.id !== track.id;
-    });
+      return obj.id !== track.id
+    })
     // добавляем в конец релизов текущую песню
-    list.push(currentSong);
+    list.push(currentSong)
     // обновляем список релизов и песню
-    setIsTrackPlaying(false);
-    setReleaseList(list);
-    setCurrentSong(track);
+    setIsTrackPlaying(false)
+    setReleaseList(list)
+    setCurrentSong(track)
   }
 
   function handleLyricsReleaseClick() {
     if (showRelease) {
-      setShowRelease(false);
-    } else setShowRelease(true);
+      setShowRelease(false)
+    } else setShowRelease(true)
   }
 
   //логика перемещения бегунка по таймлайн
   function handleClickOnTimeline(event) {
     function findTargetParent() {
-      if (event.target.classList.contains("song-item__timeline-playhead" || "song-item__timeline-hover-playhead")) {
-        return event.target.parentElement;
+      if (event.target.classList.contains('song-item__timeline-playhead' || 'song-item__timeline-hover-playhead')) {
+        return event.target.parentElement
       } else {
-        return event.target;
+        return event.target
       }
     }
 
-    const timeline = findTargetParent();
+    const timeline = findTargetParent()
 
-    setCurrentSongSeekerMovedTo((event.nativeEvent.layerX / timeline.getBoundingClientRect().width) * 100);
+    setCurrentSongSeekerMovedTo((event.nativeEvent.layerX / timeline.getBoundingClientRect().width) * 100)
   }
 
   useEffect(() => {
-    audioEl.current.currentTime = (currentSongDuration * currentSongSeekerMovedTo) / 100;
-  }, [currentSongSeekerMovedTo]);
+    audioEl.current.currentTime = (currentSongDuration * currentSongSeekerMovedTo) / 100
+  }, [currentSongSeekerMovedTo])
 
   return (
     <section className="player">
@@ -86,10 +86,10 @@ function Player() {
           ref={audioEl}
           src={currentSong.audioFile}
           onLoadedData={() => {
-            setCurrentSongDuration(audioEl.current.duration);
+            setCurrentSongDuration(audioEl.current.duration)
           }}
           onTimeUpdate={() => {
-            setCurrentSongPlayed(audioEl.current.currentTime);
+            setCurrentSongPlayed(audioEl.current.currentTime)
           }}
         >
           Your browser does not support the audio element.
@@ -124,13 +124,13 @@ function Player() {
               <div
                 className="song-item__timeline-playhead"
                 style={{
-                  width: (currentSongPlayed / currentSongDuration) * 100 + "%",
+                  width: (currentSongPlayed / currentSongDuration) * 100 + '%',
                 }}
               ></div>
             </div>
           </div>
           <button
-            className={classnames("controls__lyrics-release-button", {
+            className={classnames('controls__lyrics-release-button', {
               disabled: !isDetailsOpen,
             })}
             //     isDetailsOpen
@@ -139,7 +139,7 @@ function Player() {
             // }
             onClick={handleLyricsReleaseClick}
           >
-            {showRelease ? "Текст песни" : "Релизы"}
+            {showRelease ? 'Текст песни' : 'Релизы'}
           </button>
           <button className="controls__open-details-button">
             {isDetailsOpen ? (
@@ -147,7 +147,7 @@ function Player() {
                 className="controls__cross-icon"
                 maincolor={maincolor}
                 onClick={() => {
-                  setIsDetailsOpen(false);
+                  setIsDetailsOpen(false)
                 }}
               />
             ) : (
@@ -155,23 +155,23 @@ function Player() {
                 className="controls__arrow-icon"
                 maincolor={maincolor}
                 onClick={() => {
-                  setIsDetailsOpen(true);
+                  setIsDetailsOpen(true)
                 }}
               />
             )}
           </button>
         </div>
         <div
-          className={classnames("player__details-container", {
+          className={classnames('player__details-container', {
             disabled: !isDetailsOpen,
           })}
         >
           <p className="details__title">
-            {!showRelease ? "Текст песни:" : onlyOneRelease ? "Пока что у нас только 1 релиз." : "Релизы:"}
+            {!showRelease ? 'Текст песни:' : onlyOneRelease ? 'Пока что у нас только 1 релиз.' : 'Релизы:'}
           </p>
 
           <ul
-            className={classnames("details__songs-list", {
+            className={classnames('details__songs-list', {
               disabled: !showRelease,
             })}
           >
@@ -180,7 +180,7 @@ function Player() {
             ))}
           </ul>
           <div
-            className={classnames("details__song-text display-linebreak", {
+            className={classnames('details__song-text display-linebreak', {
               disabled: showRelease,
             })}
           >
@@ -189,7 +189,7 @@ function Player() {
         </div>
       </div>
     </section>
-  );
+  )
 }
 
-export default Player;
+export default Player
