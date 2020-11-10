@@ -1,24 +1,24 @@
 import React, { useEffect, useState, useRef } from "react";
-import { classnames } from "classnames";
+import classnames from "classnames";
 import { serverSongs } from "../utils/song-list";
 import Release from "./Release";
-import { maincolor, countRemainingTime } from "../utils/utils";
+import { maincolor } from "../utils/utils";
 import Icons from "./icons/Icons";
 
 
-// function countRemainingTime(duration, currentTime) {
-//   let sec_num = duration - currentTime;
-//   let minutes = Math.floor(sec_num / 60);
-//   let seconds = Math.round(sec_num - minutes * 60);
+function countRemainingTime(duration, currentTime) {
+  let sec_num = duration - currentTime;
+  let minutes = Math.floor(sec_num / 60);
+  let seconds = Math.round(sec_num - minutes * 60);
 
-//   if (minutes < 10) {
-//     minutes = "0" + minutes;
-//   }
-//   if (seconds < 10) {
-//     seconds = "0" + seconds;
-//   }
-//   return minutes + ":" + seconds;
-// }
+  if (minutes < 10) {
+    minutes = "0" + minutes;
+  }
+  if (seconds < 10) {
+    seconds = "0" + seconds;
+  }
+  return minutes + ":" + seconds;
+}
 
 function Player() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
@@ -33,6 +33,8 @@ function Player() {
   const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0);
 
   const audioEl = useRef(null);
+
+console.log(countRemainingTime)
 
   function handleTrackPlay() {
     setIsTrackPlaying(true);
@@ -91,7 +93,7 @@ function Player() {
 
   useEffect(() => {
     audioEl.current.currentTime = (currentSongDuration * currentSongSeekerMovedTo) / 100;
-  }, [currentSongDuration, currentSongSeekerMovedTo]);
+  }, [currentSongSeekerMovedTo]);
 
   return (
     <section className="player">
