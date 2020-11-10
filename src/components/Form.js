@@ -1,6 +1,8 @@
 import React from 'react'
+import api from '../utils/Api'
 
 function Form() {
+    //значения инпутов
     const [inputValue, setInputValue] = React.useState(
         {
             name: '',
@@ -8,33 +10,33 @@ function Form() {
             email: '',
             poem: ''
         });
-
+    // наличие ошибки при вводе данных
     const [inputError, setInputError] = React.useState({
         name: false,
         telephone: false,
         email: false,
         poem: false
     });
-
+    // валидность всей формы
     const [isValid, setIsValid] = React.useState(true);
-function validation() {
-    if (!inputError.name & !inputError.telephone & !inputError.email & !inputError.poem) {
-        setIsValid(false)
-    } else {setIsValid(true)}
-}
+    function validation() {
+        if (!inputError.name & !inputError.telephone & !inputError.email & !inputError.poem) {
+            setIsValid(false)
+        } else { setIsValid(true) }
+    }
 
+    const [formButtonText, setFormButtonText] = React.useState('Отправить форму')
 
+    //обработчик инпута имени
     function nameHandler(e) {
-        e.preventDefault();
         setInputValue({ name: e.target.value })
         if (e.target.value.length < 3) {
             setInputError({ ...inputError, name: true })
         } else { setInputError({ ...inputError, name: false }) }
         validation();
     }
-
+    //обработчик инпута телефона
     function telephoneHandler(e) {
-        e.preventDefault();
         setInputValue({ telephone: e.target.value });
         const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
         if (!regex.test(e.target.value)) {
@@ -42,9 +44,8 @@ function validation() {
         } else { setInputError({ ...inputError, telephone: false }) }
         validation();
     }
-
+    //обработчик инпута email
     function emailHandler(e) {
-        e.preventDefault();
         setInputValue({ email: e.target.value });
         const reg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
         if (!reg.test(e.target.value)) {
@@ -52,18 +53,27 @@ function validation() {
         } else { setInputError({ ...inputError, email: false }) }
         validation();
     }
-
+    //обработчик инпута текста стихотвонения
     function poemHandler(e) {
-        e.preventDefault();
         setInputValue({ poem: e.target.value })
         if (e.target.value.length < 20) {
             setInputError({ ...inputError, poem: true })
         } else { setInputError({ ...inputError, poem: false }) }
         validation();
     }
+//обработка и отправка формы на сервер
+    function submitForm(evt) {
+        evt.preventDefault();
+      api.putInfo().then(() => {
+        setFormButtonText('Ура, форма отправлена!');
+      }).catch(() => {
+
+      })
+    
+    }
 
     return (
-        <form className="form">
+        <form className="form" onSubmit={submitForm}>
             <h2 className="form__title">ФОРМА</h2>
             <p className="form__subtitle">
                 Заполняя эту форму, вы становитесь частью проекта.
@@ -81,7 +91,6 @@ function validation() {
             />
             <span className={`form__error ${(inputError.name) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
-                {/* { console.log(inputError) } */}
             </span>
             <input
                 type="tel"
@@ -96,7 +105,6 @@ function validation() {
             />
             <span className={`form__error ${(inputError.telephone) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
-                {/* { console.log(inputError) } */}
             </span>
             <input
                 type="email"
@@ -111,14 +119,13 @@ function validation() {
             />
             <span className={`form__error ${(inputError.email) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
-                {/* { console.log(inputError) } */}
             </span>
-            <input
+            <textarea
                 type="text"
                 style={(inputError.poem) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { poemHandler(e) }}
                 placeholder="Стихи"
-                className="form__input"
+                className="form__input form__input_textarea"
                 name="poem"
                 value={inputValue.poem}
                 required
@@ -136,10 +143,10 @@ function validation() {
                     офертой
                         </a>
             </label>
-            <button type="submit" className="form__submit" disabled={isValid}>
-                Отправить форму
+            <button type="submit" className="form__submit" disabled={isValid} >
+            {formButtonText}
                     </button>
-            <span className="form__error" id="form__submit">
+            <span className="form__error">
                 Упс, что-то пошло не так и форма не отправилась,
                 попробуйте ещё раз!
                     </span>
