@@ -21,7 +21,7 @@ function Player() {
 
     const audioEl = useRef(null)
     
-    const feat = !currentSong.originalAuthor ? "" : <span><span className="song-item__feat">feat.</span>{currentSong.originalAuthor}</span>
+    const feat = !currentSong.originalAuthor ? "" : <span><span className="song-item__feat">feat.&nbsp;</span>{currentSong.originalAuthor}</span>
 
     //расчет оставшегося времени проигрования трека
     function countRemainingTime(duration, currentTime) {
@@ -243,10 +243,8 @@ function Player() {
                     className={classnames('player__details-container', {
                         disabled: !isDetailsOpen,
                     })}
-                    //     isDetailsOpen
-                    //         ? 'player__details-container'
-                    //         : 'player__details-container disabled'
-                    // }
+
+                    style={ {overflowY: onlyOneRelease ? 'hidden': 'scroll'} }
                 >
                     <p className="details__title">
                         {!showRelease
