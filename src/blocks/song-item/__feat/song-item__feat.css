@@ -1,0 +1,19 @@
+.song-item__feat {
+    font-family: 'Inter', 'Helvetica', Arial, sans-serif;
+    font-style: italic;
+    font-weight: 500;
+    font-size: 20px;
+    line-height: 1.2;
+}
+@media all and (max-width: 1024px) {
+    .song-item__feat {
+        font-size: 18px;
+    }
+}
+
+@media all and (max-width: 600px) {
+    .song-item__feat {
+        font-size: 14px;
+        line-height: 1.36;
+    }
+}

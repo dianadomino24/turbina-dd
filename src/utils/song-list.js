@@ -3,7 +3,8 @@ export const serverSongs = [
     {
         id: 0,
         title: 'Контур',
-        author: 'Хадн Дадн feat. Варя Карпова и Федя Быстров',
+        author: 'Хадн Дадн',
+        originalAuthor: 'Варя Карпова и Федя Быстров',
         color: '',
         audioFile: 'https://www.bensound.com/bensound-music/bensound-buddy.mp3',
         duration: '2:02',
@@ -14,6 +15,7 @@ export const serverSongs = [
         id: 1,
         title: 'Gentle acoustic',
         author: 'Acoustic',
+        originalAuthor: 'Варя Карпова и Федя Быстров',
         color: '',
         audioFile:
             'https://www.bensound.com//bensound-music/bensound-sunny.mp3',
@@ -25,6 +27,7 @@ export const serverSongs = [
         id: 2,
         title: 'Corporate motivational',
         author: 'Corporate',
+        originalAuthor: 'Варя Карпова и Федя Быстров',
         color: '',
         audioFile:
             'https://www.bensound.com/bensound-music/bensound-energy.mp3',
@@ -36,6 +39,7 @@ export const serverSongs = [
         id: 3,
         title: 'Slow cinematic',
         author: 'Royalty',
+        originalAuthor: 'Варя Карпова и Федя Быстров',
         color: '',
         audioFile:
             'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
@@ -47,6 +51,7 @@ export const serverSongs = [
         id: 4,
         title: 'Nice piano and ukulele',
         author: 'Royalty',
+        
         color: '',
         audioFile: 'https://www.bensound.com/bensound-music/bensound-buddy.mp3',
         duration: '2:02',

@@ -112,36 +112,28 @@ function Main() {
                         className="form__input"
                         required
                     />
-                    <span className="form__error">
-                        Какая-то ошибка*
-                    </span>
+                    <span className="form__error">Какая-то ошибка*</span>
                     <input
                         type="tel"
                         placeholder="Телефон"
                         className="form__input"
                         required
                     />
-                    <span className="form__error">
-                        Какая-то ошибка*
-                    </span>
+                    <span className="form__error">Какая-то ошибка*</span>
                     <input
                         type="email"
                         placeholder="Почта"
                         className="form__input"
                         required
                     />
-                    <span className="form__error">
-                        Какая-то ошибка*
-                    </span>
+                    <span className="form__error">Какая-то ошибка*</span>
                     <input
                         type="text"
                         placeholder="Стихи"
                         className="form__input"
                         required
                     />
-                    <span className="form__error">
-                        Какая-то ошибка*
-                    </span>
+                    <span className="form__error">Какая-то ошибка*</span>
                     <label htmlFor="offer" className="form__label">
                         <input
                             type="radio"
