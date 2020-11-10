@@ -2,23 +2,8 @@ import React, { useEffect, useState, useRef } from "react";
 import classnames from "classnames";
 import { serverSongs } from "../utils/song-list";
 import Release from "./Release";
-import { maincolor } from "../utils/utils";
+import { maincolor, countRemainingTime } from "../utils/utils";
 import Icons from "./icons/Icons";
-
-
-function countRemainingTime(duration, currentTime) {
-  let sec_num = duration - currentTime;
-  let minutes = Math.floor(sec_num / 60);
-  let seconds = Math.round(sec_num - minutes * 60);
-
-  if (minutes < 10) {
-    minutes = "0" + minutes;
-  }
-  if (seconds < 10) {
-    seconds = "0" + seconds;
-  }
-  return minutes + ":" + seconds;
-}
 
 function Player() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
