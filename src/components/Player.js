@@ -8,99 +8,133 @@ import Icons from './icons/Icons'
 import { CurrentSongContext } from '../contexts/CurrentSongContext'
 
 function Player() {
-    const [isTrackPlaying, setIsTrackPlaying] = useState(false)
-    const [isDetailsOpen, setIsDetailsOpen] = useState(false)
-    const [releaseList, setReleaseList] = useState([])
-    const [currentSong, setCurrentSong] = useState({})
-    const [showRelease, setShowRelease] = useState(true)
-    const [onlyOneRelease, setOnlyOneRelease] = useState(false)
-    const [currentSongDuration, setCurrentSongDuration] = useState(0);
-    const [currentSongPlayed, setCurrentSongPlayed] = useState(0);
-    const [clickedTime, setClickedTime] = useState();
+  const [isTrackPlaying, setIsTrackPlaying] = useState(false);
+  const [isDetailsOpen, setIsDetailsOpen] = useState(false);
+  const [releaseList, setReleaseList] = useState([]);
+  const [currentSong, setCurrentSong] = useState({});
+  const [showRelease, setShowRelease] = useState(true);
+  const [onlyOneRelease, setOnlyOneRelease] = useState(false);
+  const [currentSongDuration, setCurrentSongDuration] = useState(0);
+  const [currentSongPlayed, setCurrentSongPlayed] = useState(0);
+  const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0);
+  const [clickedTime, setClickedTime] = useState();
 
-    const audioEl = useRef(null)
+  const audioEl = useRef(null);
 
-    const [timer, setTimer] = useState('00:00')
 
-    function handleTimer() {
-        let sec_num = (currentSongDuration - currentSongPlayed); 
-        console.log(currentSongDuration, currentSongPlayed);
-        let minutes = Math.floor(sec_num / 60); 
-        let seconds = Math.round(sec_num - (minutes * 60)); 
-     
-        if (minutes < 10) {minutes = "0"+minutes}
-        if (seconds < 10) {seconds = "0"+seconds}
-        return minutes + ':' + seconds;
+//расчет оставшегося времени проигрования трека
+  function countRemainingTime(duration, currentTime) {
+    let sec_num = duration - currentTime;
+    let minutes = Math.floor(sec_num / 60);
+    let seconds = Math.round(sec_num - minutes * 60);
+
+    if (minutes < 10) {
+      minutes = "0" + minutes;
+    }
+    if (seconds < 10) {
+      seconds = "0" + seconds;
+    }
+    return minutes + ":" + seconds;
+  }
+
+  function handleDetailsOpen() {
+    setIsDetailsOpen(true);
+  }
+  function handleDetailsClose() {
+    setIsDetailsOpen(false);
+  }
+
+  function handleTrackPlay() {
+    setIsTrackPlaying(true);
+    audioEl.current.play();
+  }
+  function handleTrackPause() {
+    setIsTrackPlaying(false);
+    audioEl.current.pause();
+  }
+
+  function handleTimeUpdate() {
+    setCurrentSongPlayed(audioEl.current.currentTime);
+  }
+
+  useEffect(() => {
+    //  Promise(api.getItems('songs'))
+    //     .then((data) => {
+    //         const serverSongs = data
+
+    setCurrentSong(serverSongs[0]);
+    if (serverSongs.length === 1) {
+      setShowRelease(false);
+      setOnlyOneRelease(true);
+    }
+    setReleaseList(serverSongs.slice(1));
+    // })
+    // .catch((err) => {
+    //     console.log(`Загрузка песен: ${err}`)
+    // })
+  }, []);
+
+
+  useEffect(() => {
+    // Gets audio file duration
+    audioEl.current.addEventListener(
+        "canplaythrough",
+        function () {
+          console.log("here1234", audioEl.current.duration);
+          setCurrentSongDuration(audioEl.current.duration);
+        },
+        false
+      );
+  
+      audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
+  
+      if (clickedTime && clickedTime !== audioEl.current.duration) {
+        audioEl.current.duration = clickedTime;
+        setClickedTime(null);
+      }
+  },[clickedTime])
+
+  function handleReleaseClick(track) {
+    // находим в списке релизов тот, на который кликнули, удаляем его
+    const list = releaseList.filter((obj) => {
+      return obj.id !== track.id;
+    });
+    // добавляем в конец релизов текущую песню
+    list.push(currentSong);
+    // обновляем список релизов и песню
+    setReleaseList(list);
+    setCurrentSong(track);
+  }
+  
+  
+  function handleLyricsReleaseClick() {
+    if (showRelease) {
+      setShowRelease(false);
+    } else setShowRelease(true);
+  }
+
+
+     //логика перемещения бегунка по таймлайн
+  function handleClickOnTimeline(event) {
+    function findTargetParent() {
+        if (event.target.classList.contains('song-item__timeline-playhead' || 'song-item__timeline-hover-playhead')) {
+            return event.target.parentElement
+        } else { return event.target }
     }
 
-    function handleDetailsOpen() {
-        setIsDetailsOpen(true)
-    }
-    function handleDetailsClose() {
-        setIsDetailsOpen(false)
-    }
-    function handleTrackPlay() {
-        setIsTrackPlaying(true)
-        audioEl.current.play()
-    }
-    function handleTrackPause() {
-        setIsTrackPlaying(false)
-        audioEl.current.pause()
-    }
+    const timeline = findTargetParent();
 
-    function handleTimeUpdate() {
-        setCurrentSongPlayed(audioEl.current.currentTime)
-    }
+    setCurrentSongSeekerMovedTo(
+      (event.nativeEvent.layerX / timeline.getBoundingClientRect().width) *
+        100
+    );
+  }
 
-    useEffect(() => {
-        //  Promise(api.getItems('songs'))
-        //     .then((data) => {
-        //         const serverSongs = data
+  useEffect(() => {
+    audioEl.current.currentTime =
+      (currentSongDuration * currentSongSeekerMovedTo) / 100;
+  }, [currentSongDuration, currentSongSeekerMovedTo]);
 
-        setCurrentSong(serverSongs[0])
-        if (serverSongs.length === 1) {
-            setShowRelease(false)
-            setOnlyOneRelease(true)
-        }
-        setReleaseList(serverSongs.slice(1))
-        // })
-        // .catch((err) => {
-        //     console.log(`Загрузка песен: ${err}`)
-        // })
-
-        // Gets audio file duration
-        audioEl.current.addEventListener("canplaythrough", function () {
-            console.log('here1234', audioEl.current.duration)
-            setCurrentSongDuration(audioEl.current.duration)
-        }, false)
-    
-        audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
-
-        if (clickedTime && clickedTime !== audioEl.current.duration) {
-            audioEl.current.duration = clickedTime;
-            setClickedTime(null);
-          }
-    
-    }, [])
-
-    
-
-    function handleReleaseClick(track) {
-        // находим в списке релизов тот, на который кликнули, удаляем его
-        const list = releaseList.filter((obj) => {
-            return obj.id !== track.id
-        })
-        // добавляем в конец релизов текущую песню
-        list.push(currentSong)
-        // обновляем список релизов и песню
-        setReleaseList(list)
-        setCurrentSong(track)
-    }
-    function handleLyricsReleaseClick() {
-        if (showRelease) {
-            setShowRelease(false)
-        } else setShowRelease(true)
-    }
 
     //  const currentSongData= React.useContext(CurrentSongContext)
 
@@ -144,15 +178,18 @@ function Player() {
                             </div>
                             <div className="song-item__timer">
                                 <span aria-label="timer">
-                                    {handleTimer()}
-                                    {/* {((currentSongDuration - currentSongPlayed)/60)}
-                                    {console.log(currentSong.duration, currentSongDuration, currentSongPlayed)} */}
+                                {countRemainingTime(currentSongDuration, currentSongPlayed)}
                                 </span>
                             </div>
                         </div>
-                        <div className="song-item__timeline">
+                        <div className="song-item__timeline" onClick={handleClickOnTimeline}>
                         
-                            <div className="song-item__timeline-playhead" style={{width: (currentSongPlayed / currentSongDuration * 100) + '%'}}></div>
+                        <div
+                className="song-item__timeline-playhead"
+                style={{
+                  width: (currentSongPlayed / currentSongDuration) * 100 + "%",
+                }}
+              ></div>
                             {/* <div
                                 className="song-item__timeline-hover-playhead"
                                 data-content="1:00"
@@ -231,5 +268,7 @@ function Player() {
         // </CurrentSongContext.Provider>
     )
 }
+
+
 
 export default Player
