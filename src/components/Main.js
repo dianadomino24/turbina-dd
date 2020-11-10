@@ -3,7 +3,7 @@ import Player from './Player'
 import LinksMenu from './LinksMenu'
 import headerLogo from '../images/logo.svg'
 import turbina from '../images/Турбина.svg'
-import { maincolor } from '../utils/utils'
+import { maincolor, logoLink } from '../utils/utils'
 
 function Main() {
   return (
@@ -11,7 +11,7 @@ function Main() {
       <div className="head">
         <section className="turbina">
           <div className="turbina__links">
-            <a href="https://marshakbooks.ru/" target="blank">
+            <a href={logoLink} target="blank">
               <img src={headerLogo} alt="Маршак" className="turbina__logo" />
             </a>
             <LinksMenu />

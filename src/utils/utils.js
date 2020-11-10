@@ -35,3 +35,6 @@ export const musicResourcesLinks = [
     resourceName: 'VK Music ↗',
   },
 ]
+
+export const logoLink = 'https://marshakbooks.ru/'
+export const footerLinkOfYandex = '#'
