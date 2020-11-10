@@ -3,6 +3,7 @@ import * as React from 'react'
 function SvgPauseButton(props) {
     return (
         <svg
+            className={props.className}
             width="16px"
             height="16px"
             viewBox="0 0 16 16"
