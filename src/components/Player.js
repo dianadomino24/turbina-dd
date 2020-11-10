@@ -8,12 +8,13 @@ import Icons from './icons/Icons'
 import { CurrentSongContext } from '../contexts/CurrentSongContext'
 
 function Player() {
-  const [isTrackPlaying, setIsTrackPlaying] = useState(false);
   const [isDetailsOpen, setIsDetailsOpen] = useState(false);
   const [releaseList, setReleaseList] = useState([]);
   const [currentSong, setCurrentSong] = useState({});
   const [showRelease, setShowRelease] = useState(true);
   const [onlyOneRelease, setOnlyOneRelease] = useState(false);
+  
+  const [isTrackPlaying, setIsTrackPlaying] = useState(false);
   const [currentSongDuration, setCurrentSongDuration] = useState(0);
   const [currentSongPlayed, setCurrentSongPlayed] = useState(0);
   const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0);
@@ -76,21 +77,23 @@ function Player() {
 
 
   useEffect(() => {
+
+     const changeCurrentSongDuration = () => {
+        setCurrentSongDuration(audioEl.current.duration);
+      }
     // Gets audio file duration
-    audioEl.current.addEventListener(
-        "canplaythrough",
-        function () {
-          console.log("here1234", audioEl.current.duration);
-          setCurrentSongDuration(audioEl.current.duration);
-        },
-        false
-      );
+    audioEl.current.addEventListener("canplaythrough", changeCurrentSongDuration, false );
   
-      audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
+    audioEl.current.addEventListener("timeupdate", handleTimeUpdate, false);
   
       if (clickedTime && clickedTime !== audioEl.current.duration) {
         audioEl.current.duration = clickedTime;
         setClickedTime(null);
+      }
+
+      return () => {
+        audioEl.current.removeEventListener("canplaythrough", changeCurrentSongDuration, false );
+        audioEl.current.removeEventListener("timeupdate", handleTimeUpdate, false);
       }
   },[clickedTime])
 
@@ -144,7 +147,8 @@ function Player() {
             <div className="player__container">
                 <audio className="player__audio" ref={audioEl} controls>
                     <source
-                        src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
+                        src={currentSong.audioFile}
+                        // src="https://www.bensound.com/bensound-music/bensound-buddy.mp3"
                         type="audio/mp3"
                     />
                     Your browser does not support the audio element.
