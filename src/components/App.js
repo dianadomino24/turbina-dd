@@ -1,8 +1,8 @@
-import React from "react";
+import React from 'react'
 // import { CurrentSongContext } from '../contexts/CurrentSongContext'
 // import api from '../utils/api'
-import Main from "./Main";
-import Footer from "./Footer";
+import Main from './Main'
+import Footer from './Footer'
 
 function App() {
   return (
@@ -10,7 +10,7 @@ function App() {
       <Main />
       <Footer />
     </div>
-  );
+  )
 }
 
-export default App;
+export default App
