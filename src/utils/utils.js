@@ -15,3 +15,24 @@ export const countRemainingTime = (duration, currentTime) => {
   }
   return minutes + ":" + seconds;
 }
+
+
+//ссылки для выпадающего меню
+export const musicResourcesLinks = [
+    {
+      url: 'https://music.yandex.ru/home',
+      resourceName: 'Яндекс.Музыка ↗'
+    },
+    {
+      url: 'https://www.spotify.com/ru-ru/',
+      resourceName: 'Spotify ↗'
+    },
+    {
+      url: 'https://music.apple.com/us/browse',
+      resourceName: 'Apple Music ↗'
+    },
+    {
+      url: 'https://mp3.vkmusic.me/',
+      resourceName: 'VK Music ↗'
+    }
+]

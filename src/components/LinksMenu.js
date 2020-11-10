@@ -1,5 +1,6 @@
 import React from "react";
 import cn from "classnames";
+import { musicResourcesLinks } from "../utils/utils";
 
 function LinksMenu(props) {
   const dropdownMenuBtnRef = React.useRef(null);
@@ -27,46 +28,18 @@ function LinksMenu(props) {
           opened: isLinksMenuOpened,
         })}
       >
-        <li className="turbina__music-elem">
+        {musicResourcesLinks.map((el)=>{
+          return <li className="turbina__music-elem"> 
           <a
-            href="https://music.yandex.ru/home"
+            href={el.url}
             className="turbina__music-link"
             lang="ru"
             target="blank"
           >
-            Яндекс.Музыка ↗
+            {el.resourceName}
           </a>
         </li>
-        <li className="turbina__music-elem">
-          <a
-            href="https://www.spotify.com/ru-ru/"
-            className="turbina__music-link"
-            lang="en"
-            target="blank"
-          >
-            Spotify ↗
-          </a>
-        </li>
-        <li className="turbina__music-elem">
-          <a
-            href="https://music.apple.com/us/browse"
-            className="turbina__music-link"
-            lang="en"
-            target="blank"
-          >
-            Apple Music ↗
-          </a>
-        </li>
-        <li className="turbina__music-elem">
-          <a
-            href="https://mp3.vkmusic.me/"
-            className="turbina__music-link"
-            lang="en"
-            target="blank"
-          >
-            VK Music ↗
-          </a>
-        </li>
+        })}
       </ul>
     </div>
   );

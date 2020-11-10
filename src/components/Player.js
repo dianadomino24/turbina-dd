@@ -19,8 +19,6 @@ function Player() {
 
   const audioEl = useRef(null);
 
-console.log(countRemainingTime)
-
   function handleTrackPlay() {
     setIsTrackPlaying(true);
     audioEl.current.play();
