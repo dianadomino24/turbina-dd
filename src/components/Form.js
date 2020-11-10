@@ -6,15 +6,9 @@ function Form() {
             name: '',
             telephone: '',
             email: '',
-            poem:''
+            poem: ''
         });
-    // const [inputDirty, setInputDirty] = React.useState(
-    //     {
-    //         name: false,
-    //         telephone: false,
-    //         email: false,
-    //         poem: false
-        // });
+
     const [inputError, setInputError] = React.useState({
         name: false,
         telephone: false,
@@ -22,31 +16,21 @@ function Form() {
         poem: false
     });
 
+    const [isValid, setIsValid] = React.useState(true);
+function validation() {
+    if (!inputError.name & !inputError.telephone & !inputError.email & !inputError.poem) {
+        setIsValid(false)
+    } else {setIsValid(true)}
+}
 
-    // const blurHandler = (e) => {
-    //     switch (e.target.name) {
-    //         case 'name':
-    //             setInputDirty({ ...inputDirty, name: true })
-    //             break
-    //     };
-    //     switch (e.target.telephone) {
-    //         case 'telephone':
-    //             setInputDirty({...inputDirty, telephone: true })
-    //             break
-    //     };
-    //     switch (e.target.email) {
-    //         case 'email':
-    //             setInputDirty({ ...inputDirty, email: true })
-    //             break
-    //     };
-    // }
 
     function nameHandler(e) {
         e.preventDefault();
         setInputValue({ name: e.target.value })
         if (e.target.value.length < 3) {
-            setInputError({...inputError, name: true })
-        } else { setInputError({...inputError, name: false }) }
+            setInputError({ ...inputError, name: true })
+        } else { setInputError({ ...inputError, name: false }) }
+        validation();
     }
 
     function telephoneHandler(e) {
@@ -55,7 +39,8 @@ function Form() {
         const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/;
         if (!regex.test(e.target.value)) {
             setInputError({ ...inputError, telephone: true })
-        } else { setInputError({...inputError, telephone: false }) }
+        } else { setInputError({ ...inputError, telephone: false }) }
+        validation();
     }
 
     function emailHandler(e) {
@@ -63,16 +48,18 @@ function Form() {
         setInputValue({ email: e.target.value });
         const reg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i;
         if (!reg.test(e.target.value)) {
-            setInputError({...inputError,  email: true })
-        } else { setInputError({...inputError, email: false }) }
+            setInputError({ ...inputError, email: true })
+        } else { setInputError({ ...inputError, email: false }) }
+        validation();
     }
 
     function poemHandler(e) {
         e.preventDefault();
         setInputValue({ poem: e.target.value })
         if (e.target.value.length < 20) {
-            setInputError({...inputError, poem: true })
-        } else { setInputError({...inputError, poem: false }) }
+            setInputError({ ...inputError, poem: true })
+        } else { setInputError({ ...inputError, poem: false }) }
+        validation();
     }
 
     return (
@@ -94,8 +81,8 @@ function Form() {
             />
             <span className={`form__error ${(inputError.name) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
-                { console.log(inputError) }
-                    </span>
+                {/* { console.log(inputError) } */}
+            </span>
             <input
                 type="tel"
                 // onBlur={(e) => { blurHandler(e) }}
@@ -109,8 +96,8 @@ function Form() {
             />
             <span className={`form__error ${(inputError.telephone) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
-                { console.log(inputError) }
-                    </span>
+                {/* { console.log(inputError) } */}
+            </span>
             <input
                 type="email"
                 // onBlur={(e) => { blurHandler(e) }}
@@ -124,8 +111,8 @@ function Form() {
             />
             <span className={`form__error ${(inputError.email) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
-                { console.log(inputError) }
-                    </span>
+                {/* { console.log(inputError) } */}
+            </span>
             <input
                 type="text"
                 style={(inputError.poem) ? { color: 'red' } : { color: 'black' }}
@@ -143,15 +130,13 @@ function Form() {
                 <input
                     type="radio"
                     className="form__input-radio"
-                    id="offer"
                     required
-                />
-                        Согласен с&nbsp;
+                />Согласен с &nbsp;
                         <a href="/#" className="form__link form__label">
                     офертой
                         </a>
             </label>
-            <button type="submit" className="form__submit">
+            <button type="submit" className="form__submit" disabled={isValid}>
                 Отправить форму
                     </button>
             <span className="form__error" id="form__submit">
