@@ -1,16 +1,14 @@
 .form__input {
-  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
-  min-width: 600px;
-  min-height: 60px;
-  margin-top: 10px;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  text-align: justify;
-  color: #000000;
-  border: none;
-  border-bottom: 2px solid #000000;
-  padding: 0;
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    min-width: 600px;
+    min-height: 60px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    border: none;
+    border-bottom: 2px solid #000000;
+    padding: 0;
 }
 
 @media screen and (max-width: 1024px) {
@@ -59,9 +57,7 @@
 }
 
 .form__input:hover {
-  font-style: italic;
-  transform: scale(1.001);
-  transition: all 0.1s ease;
+    font-style: italic;
 }
 
 .form__input:focus {
