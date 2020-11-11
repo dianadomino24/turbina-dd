@@ -53,7 +53,6 @@
 @import url(./blocks/song-item/__name-wrap/song-item__name-wrap.css);
 @import url(./blocks/song-item/__feat/song-item__feat.css);
 @import url(./blocks/song-item/__name-wrap/_type_release/song-item__name-wrap_type_release.css);
-/* @import url(./blocks/song-item/__name-wrap/_type_large/song-item__name-wrap_type_large.css); */
 @import url(./blocks/details/__song-item/details__song-item.css);
 @import url(./blocks/details/__songs-list/details__songs-list.css);
 @import url(./blocks/details/__song-text/details__song-text.css);

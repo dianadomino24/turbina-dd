@@ -96,7 +96,6 @@ function Player() {
       (currentSongDuration * currentSongSeekerMovedTo) / 100
   }, [currentSongDuration, currentSongSeekerMovedTo])
 
-
   return (
     <section className="player">
       <div
@@ -110,7 +109,7 @@ function Player() {
           src={currentSong.cover}
           alt={currentSong.name}
         ></img>
-         <audio
+        <audio
           className="player__audio"
           ref={audioEl}
           src={currentSong.audioFile}
@@ -198,7 +197,7 @@ function Player() {
               <Icons.SvgCrossButton
                 className="controls__cross-icon"
                 maincolor={maincolor}
-                 onClick={() => {
+                onClick={() => {
                   setIsDetailsOpen(false)
                 }}
               />
@@ -206,7 +205,7 @@ function Player() {
               <Icons.SvgArrowButton
                 className="controls__arrow-icon"
                 maincolor={maincolor}
-                 onClick={() => {
+                onClick={() => {
                   setIsDetailsOpen(true)
                 }}
               />
