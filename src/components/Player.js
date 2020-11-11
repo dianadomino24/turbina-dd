@@ -5,6 +5,7 @@ import Release from './Release'
 import { maincolor, countRemainingTime } from '../utils/utils'
 import Icons from './icons/Icons'
 import playIcon from '../images/play-clip.svg'
+import api from '../utils/Api'
 
 function Player() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
@@ -55,6 +56,8 @@ function Player() {
   // function handleShowClip() {
 
   // }
+
+  //const serverSongs = api.getSongs()
 
   useEffect(() => {
     setCurrentSong(serverSongs[0])

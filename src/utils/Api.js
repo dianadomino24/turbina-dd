@@ -16,6 +16,25 @@ class Api {
       Promise.reject(new Error(`Ошибка: ${res.status}`))
     })
   }
+
+  getSongs() {
+    return fetch(`${this._url}`, {
+      method: 'GET',
+      headers: this._headers,
+    })
+      .then((res) => {
+        if (res.ok) {
+          return res.json()
+        }
+        return Promise.reject(`Что-то пошло не так: ${res.status}`)
+      })
+      .then((data) => {
+        return data
+      })
+      .catch((err) => {
+        console.log(err) // "Что-то пошло не так: ..."
+      })
+  }
 }
 
 const api = new Api({
@@ -25,24 +44,6 @@ const api = new Api({
     'Content-Type': 'application/json',
   },
 })
-
-// получение объекта с песнями от сервера
-
-// function getSongsList() {
-//   fetch('https://api')
-//     .then((res) => {
-//       if (res.ok) {
-//         return res.json()
-//       }
-//       return Promise.reject(`Что-то пошло не так: ${res.status}`)
-//     })
-//     .then((data) => {
-//       return data
-//     })
-//     .catch((err) => {
-//       console.log(err) // "Что-то пошло не так: ..."
-//     })
-// }
 
 // const serverSongs = getSongsList()
 
