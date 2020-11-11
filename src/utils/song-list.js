@@ -8,8 +8,8 @@ export const serverSongs = [
       'https://www.youtube.com/watch?v=JGNiMutYBm4&ab_channel=%D0%A5%D0%B0%D0%B4%D0%BD%D0%B4%D0%B0%D0%B4%D0%BD',
     originalAuthor: 'Варя Карпова и Федя Быстров',
     color: '',
-    cover:
-      'https://upload.wikimedia.org/wikipedia/ru/a/a2/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%D0%B0_%C2%AB%D0%9D%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%B3%D0%B8%D1%8F%C2%BB.jpeg',
+    // cover:
+    //   'https://upload.wikimedia.org/wikipedia/ru/a/a2/%D0%9E%D0%B1%D0%BB%D0%BE%D0%B6%D0%BA%D0%B0_%D0%B0%D0%BB%D1%8C%D0%B1%D0%BE%D0%BC%D0%B0_%C2%AB%D0%9D%D0%BE%D1%81%D1%82%D0%B0%D0%BB%D1%8C%D0%B3%D0%B8%D1%8F%C2%BB.jpeg',
     audioFile: 'https://www.bensound.com/bensound-music/bensound-buddy.mp3',
     text:
       'Мой милый милый мальчик \n Моя милая милая девочка \n Никогда не знаешь что будет дальше \n В этой гадкой зиме',

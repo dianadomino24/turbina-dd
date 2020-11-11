@@ -184,7 +184,7 @@ function Player() {
             disabled: !isDetailsOpen,
           })}
           style={{ backgroundImage: `url( ${currentSong.cover})`}}
-          ></div>
+          >{currentSong.cover? '' : 'Здесь должна была быть обложка альбома :)'}</div>
           {currentSong.video ? (
             <button
               className={classnames('controls__video-clip-button', {
