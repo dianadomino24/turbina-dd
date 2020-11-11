@@ -1,97 +1,21 @@
 .page {
-    background-image: url(../../images/IMG_1-min.png);
-    background-repeat: no-repeat;
-    background-position: fixed;
-    background-size: 100vw 100vh;
-    overflow: hidden;
-    background-attachment: fixed;
-    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    color: #fff;
-    padding: 0 10px;
+  background-image: url(../../images/IMG_1-min.png);
+  background-repeat: no-repeat;
+  background-position: fixed;
+  background-size: 100vw 100vh;
+  overflow: hidden;
+  background-attachment: fixed;
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #fff;
+  padding: 0 10px;
 }
 
 @media screen and (max-width: 1653px) {
-    .page {
-        background-position: top;
-        background-size: 1653px 1158px;
-    }
+  .page {
+    background-position: top;
+    background-size: 1653px 1158px;
+  }
 }
-
-/* .page {
-    background-size: 1653px 1158px;;
-    overflow: hidden;
-    background-attachment: fixed;
-    font-family: "Inter", "Arial", sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding: 0 10px;
-    z-index: -100;
-    margin: 0;
-    position: relative;
-	color: #fff; */
-/*   background: radial-gradient(circle, #1A2A78, #1F3C82, #1A2A78, #746679, #F8C4CC); */
-/* background: linear-gradient(-45deg, #F8C4CC, #1A2A78, #746679);
-	background-size: 400% 400%;
-	-webkit-animation: gradientBG 15s ease infinite;
-            animation: gradientBG 15s ease infinite;
-            
-} */
-
-/* .cover {
-    background-image: url(../../images/noise1.png); */
-
-/* background-image: url(../../images/noise3.png); */
-/* background-image: url(../../images/noise4.png); */
-/* background-image: url(../../images/noise5.png); */
-/* background-image: url(../../images/noise6.png); */
-/* background-position: top;
-    width: 400%;
-    height:400%;
-    position: absolute;
-    background-size: 1653px 1158px;;
-    top: 0;
-    left: 0;
-    overflow: hidden;
-    background-attachment: fixed;
-    z-index: -1;
-
-    
-}
-
-@-webkit-keyframes gradientBG {
-	0% {
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-    background-rotation: 50%;
-	}
-	100% {
-		background-position: 0% 50%;
-	}
-}
-@keyframes gradientBG {
-	0% {
-    
-	
-		background-position: 0% 50%;
-	}
-	50% {
-		background-position: 100% 50%;
-	}
-	100% {
-    
-		background-position: 0% 50%;
-	}
-}
-
-
-@media all and (max-width: 400px) {
-    .page {
-        padding: 0 5px;
-    }
-} */

@@ -1,10 +1,10 @@
 .song-item__name-wrap_type_release {
-    text-decoration: none;
-    color: #fff;
+  text-decoration: none;
+  color: #fff;
 }
 .song-item__name-wrap_type_release:hover {
-    font-style: italic;
-    cursor: pointer;
-    text-decoration: none;
-    color: #fff;
+  font-style: italic;
+  cursor: pointer;
+  text-decoration: none;
+  color: #fff;
 }

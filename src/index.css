@@ -10,7 +10,7 @@
 @import url(./blocks/turbina/__music-link/turbina__music-link.css);
 @import url(./blocks/turbina/__dropdown-menu/turbina__dropdown-menu.css);
 @import url(./blocks/turbina/__dropbtn/turbina__dropbtn.css);
-@import url(./blocks/turbina/__dropbtn-active/__dropbtn-active.css);
+@import url(./blocks/turbina/__dropbtn/_active/__dropbtn_active.css);
 @import url(./blocks/turbina/__title/turbina__title.css);
 @import url(./blocks/content/content.css);
 @import url(./blocks/turbina/__image/turbina__image.css);
@@ -26,6 +26,7 @@
 @import url(./blocks/form/__subtitle/form__subtitle.css);
 @import url(./blocks/form/__input/form__input.css);
 @import url(./blocks/player/player.css);
+@import url(./blocks/player/__cover/player__cover.css);
 @import url(./blocks/player/__container/player__container.css);
 @import url(./blocks/player/__audio/player__audio.css);
 @import url(./blocks/player/__controls/player__controls.css);
@@ -39,6 +40,8 @@
 @import url(./blocks/controls/__arrow-icon/controls__arrow-icon.css);
 @import url(./blocks/controls/__cross-icon/controls__cross-icon.css);
 @import url(./blocks/controls/__play-icon/controls__play-icon.css);
+@import url(./blocks/controls/__video-clip-button/controls__video-clip-button.css);
+@import url(./blocks/controls/__play-clip-icon/controls__play-clip-icon.css);
 @import url(./blocks/disabled/disabled.css);
 @import url(./blocks/song-item/song-item.css);
 @import url(./blocks/song-item/__time-progress/song-item__time-progress.css);
@@ -48,8 +51,8 @@
 @import url(./blocks/song-item/__timeline-playhead/song-item__timeline-playhead.css);
 @import url(./blocks/song-item/__timeline/song-item__timeline.css);
 @import url(./blocks/song-item/__name-wrap/song-item__name-wrap.css);
+@import url(./blocks/song-item/__feat/song-item__feat.css);
 @import url(./blocks/song-item/__name-wrap/_type_release/song-item__name-wrap_type_release.css);
-/* @import url(./blocks/song-item/__name-wrap/_type_large/song-item__name-wrap_type_large.css); */
 @import url(./blocks/details/__song-item/details__song-item.css);
 @import url(./blocks/details/__songs-list/details__songs-list.css);
 @import url(./blocks/details/__song-text/details__song-text.css);
