@@ -1,10 +1,16 @@
 .song-item__name-wrap_type_release {
   text-decoration: none;
   color: #fff;
+  max-width: min(100vw - 355px, 940px);
 }
 .song-item__name-wrap_type_release:hover {
   font-style: italic;
   cursor: pointer;
   text-decoration: none;
   color: #fff;
+}
+@media all and (max-width: 600px) {
+  .song-item__name-wrap_type_release {
+    max-width: 100%;
+  }
 }

@@ -23,3 +23,17 @@
 .controls__video-clip-button:hover {
   cursor: pointer;
 }
+@media all and (max-width: 1024px) {
+  .controls__video-clip-button {
+    min-width: 84px;
+  }
+}
+@media all and (max-width: 600px) {
+  .controls__video-clip-button {
+    min-width: 74px;
+    height: 31px;
+    order: 5;
+    margin-right: 5px;
+    margin-left: 15px;
+  }
+}

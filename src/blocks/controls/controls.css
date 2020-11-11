@@ -9,5 +9,6 @@
 @media all and (max-width: 600px) {
   .controls {
     flex-wrap: wrap;
+    justify-content: center;
   }
 }

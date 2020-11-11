@@ -21,14 +21,16 @@
 @media all and (max-width: 1024px) {
   .player__details-container {
     margin-top: 28px;
+    padding-left: 30px;
     max-height: 96px;
   }
 }
 
 @media all and (max-width: 600px) {
   .player__details-container {
+    width: calc(100% - 50px);
     max-height: 80px;
-    padding-left: 25px;
-    margin-right: 27px;
+    padding-left: 14px;
+    margin-right: 16px;
   }
 }
