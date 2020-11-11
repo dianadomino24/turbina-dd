@@ -5,7 +5,7 @@ export const serverSongs = [
     title: 'Контур',
     author: 'Хадн Дадн',
     video:
-      'https://www.youtube.com/watch?v=JGNiMutYBm4&ab_channel=%D0%A5%D0%B0%D0%B4%D0%BD%D0%B4%D0%B0%D0%B4%D0%BD',
+      'https://www.youtube.com/watch?v=JGNiMutYBm4&t=2s&ab_channel=%D0%A5%D0%B0%D0%B4%D0%BD%D0%B4%D0%B0%D0%B4%D0%BD',
     originalAuthor: 'Варя Карпова и Федя Быстров',
     color: '',
     cover:

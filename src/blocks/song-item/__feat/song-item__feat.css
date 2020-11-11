@@ -11,7 +11,7 @@
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 720px) {
   .song-item__feat {
     font-size: 14px;
     line-height: 1.36;
