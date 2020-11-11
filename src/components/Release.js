@@ -15,7 +15,8 @@ export default function Release({ release, handleReleaseClick }) {
   return (
     <li className="details__song-item" onClick={handleClick}>
       <div className="song-item__name-wrap song-item__name-wrap_type_release">
-        {release.title}&nbsp;&mdash;&nbsp;{release.author} {feat} ggggggggggggggggggggggggggg
+        {release.title}&nbsp;&mdash;&nbsp;{release.author} {feat}{' '}
+        ggggggggggggggggggggggggggg
       </div>
     </li>
   )
