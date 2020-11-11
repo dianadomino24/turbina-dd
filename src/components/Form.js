@@ -47,6 +47,7 @@ function Form() {
             case 'poem':
                 setInputDirty({ ...inputDirty, poem: true })
                 break
+            default: console.log('Не соответствует ни одному из вариантов')
         }
     }
     // проверка валидность всей формы
@@ -125,7 +126,7 @@ function Form() {
                 required
             />
             <span className={`form__error ${(inputError.name & inputDirty.name) ? 'form__error_visible' : ''}`}>
-                Какая-то ошибка*
+                Введите имя и фамилию
             </span>
             <input
                 type="tel"
@@ -139,7 +140,7 @@ function Form() {
                 required
             />
             <span className={`form__error ${(inputError.telephone & inputDirty.telephone) ? 'form__error_visible' : ''}`}>
-                Какая-то ошибка*
+                Введите номер телефона
             </span>
             <input
                 type="email"
@@ -153,7 +154,7 @@ function Form() {
                 required
             />
             <span className={`form__error ${(inputError.email & inputDirty.email) ? 'form__error_visible' : ''}`}>
-                Какая-то ошибка*
+                Введите e-mail
             </span>
             <textarea
                 type="text"
@@ -167,7 +168,7 @@ function Form() {
                 required
             />
             <span className={`form__error ${(inputError.poem & inputDirty.poem) ? 'form__error_visible' : ''}`}>
-                Какая-то ошибка*
+                Введите текст произведения
                     </span>
             <label htmlFor="offer" className="form__label">
                 <input
