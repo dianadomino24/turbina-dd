@@ -60,6 +60,7 @@ function Player() {
     // добавляем в конец релизов текущую песню
     list.push(currentSong)
     // обновляем список релизов и песню
+    setIsTrackPlaying(false)
     setReleaseList(list)
     setCurrentSong(track)
   }
