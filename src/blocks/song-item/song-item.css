@@ -1,14 +1,14 @@
 .song-item {
-    width: 100%;
-    max-width: 1190px;
-    padding: 0 20px;
-    box-sizing: border-box;
+  width: 100%;
+  max-width: 1190px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
 @media all and (max-width: 600px) {
-    .song-item {
-        padding: 0;
-        padding-left: 12px;
-        max-width: calc(100% - 40px);
-    }
+  .song-item {
+    padding: 0;
+    padding-left: 12px;
+    max-width: calc(100% - 40px);
+  }
 }

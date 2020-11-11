@@ -1,28 +1,28 @@
 .controls__play-button {
-    padding: 0;
-    border: none;
-    width: 16px;
-    height: 20px;
-    outline: none;
-    background: none;
-    transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
-        visibility 0.5s ease-in-out;
-    position: relative;
+  padding: 0;
+  border: none;
+  width: 16px;
+  height: 20px;
+  outline: none;
+  background: none;
+  transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
+    visibility 0.5s ease-in-out;
+  position: relative;
 }
 .controls__play-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @media all and (max-width: 1024px) {
-    .controls__play-button {
-        width: 15px;
-        height: 18px;
-    }
+  .controls__play-button {
+    width: 15px;
+    height: 18px;
+  }
 }
 
 @media all and (max-width: 600px) {
-    .controls__play-button {
-        width: 13px;
-        height: 16px;
-    }
+  .controls__play-button {
+    width: 13px;
+    height: 16px;
+  }
 }

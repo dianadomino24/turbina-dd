@@ -5,9 +5,9 @@ import SvgCrossButton from './cross/SvgCrossButton'
 import SvgArrowButton from './arrow/SvgArrowButton'
 
 const Icons = {
-    SvgPauseButton,
-    SvgPlayButton,
-    SvgCrossButton,
-    SvgArrowButton,
+  SvgPauseButton,
+  SvgPlayButton,
+  SvgCrossButton,
+  SvgArrowButton,
 }
 export default Icons
