@@ -73,6 +73,7 @@ function Player() {
     // добавляем в конец релизов текущую песню
     list.push(currentSong)
     // обновляем список релизов и песню
+    setIsTrackPlaying(false)
     setReleaseList(list)
     setCurrentSong(track)
   }
@@ -107,7 +108,7 @@ function Player() {
   useEffect(() => {
     audioEl.current.currentTime =
       (currentSongDuration * currentSongSeekerMovedTo) / 100
-  }, [currentSongDuration, currentSongSeekerMovedTo])
+  }, [currentSongSeekerMovedTo])
 
   return (
     <section className="player">

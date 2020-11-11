@@ -1,15 +1,17 @@
 .form__submit {
-  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
-  width: 600px;
-  height: 60px;
-  margin-top: 43px;
-  border: 2px solid #000000;
-  border-radius: 30px;
-  background-color: #fff;
-  font-weight: normal;
-  font-size: 16px;
-  line-height: 20px;
-  padding: 0;
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    width: 600px;
+    height: 60px;
+    margin-top: 43px;
+    border:none;
+    outline: none;
+    border: 2px solid #000000;
+    border-radius: 30px;
+    background-color: #fff;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    padding: 0;
 }
 
 @media all and (max-width: 768px) {
