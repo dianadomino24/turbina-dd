@@ -21,18 +21,22 @@ export const musicResourcesLinks = [
   {
     url: 'https://music.yandex.ru/home',
     resourceName: 'Яндекс.Музыка ↗',
+    id: 1,
   },
   {
     url: 'https://www.spotify.com/ru-ru/',
     resourceName: 'Spotify ↗',
+    id: 2,
   },
   {
     url: 'https://music.apple.com/us/browse',
     resourceName: 'Apple Music ↗',
+    id: 3,
   },
   {
     url: 'https://mp3.vkmusic.me/',
     resourceName: 'VK Music ↗',
+    id: 4,
   },
 ]
 

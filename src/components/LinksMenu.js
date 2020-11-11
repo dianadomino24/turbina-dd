@@ -30,7 +30,7 @@ function LinksMenu(props) {
       >
         {musicResourcesLinks.map((el) => {
           return (
-            <li className="turbina__music-elem">
+            <li className="turbina__music-elem" key={el.id}>
               <a
                 href={el.url}
                 className="turbina__music-link"
