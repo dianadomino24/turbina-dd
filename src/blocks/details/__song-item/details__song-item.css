@@ -7,7 +7,7 @@
 }
 
 .details__song-item:hover {
-  animation: marquee 10s linear infinite;
+  animation: marquee 13s linear infinite;
 }
 
 @keyframes marquee {
