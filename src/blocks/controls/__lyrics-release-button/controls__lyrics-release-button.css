@@ -27,13 +27,17 @@
     height: 34px;
   }
 }
-
-@media all and (max-width: 600px) {
+@media screen and (max-width: 720px) {
   .controls__lyrics-release-button {
     font-size: 12px;
+    height: 31px;
+  }
+}
+@media all and (max-width: 600px) {
+  .controls__lyrics-release-button {
     order: 6;
     width: calc(100% - 110px);
-    height: 31px;
+
     margin-right: 15px;
   }
 }

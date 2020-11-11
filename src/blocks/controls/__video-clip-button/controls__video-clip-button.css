@@ -26,12 +26,18 @@
 @media all and (max-width: 1024px) {
   .controls__video-clip-button {
     min-width: 84px;
+    font-size: 15px;
+  }
+}
+@media screen and (max-width: 720px) {
+  .controls__video-clip-button {
+    font-size: 12px;
+    min-width: 74px;
+    height: 31px;
   }
 }
 @media all and (max-width: 600px) {
   .controls__video-clip-button {
-    min-width: 74px;
-    height: 31px;
     order: 5;
     margin-right: 5px;
     margin-left: 15px;
