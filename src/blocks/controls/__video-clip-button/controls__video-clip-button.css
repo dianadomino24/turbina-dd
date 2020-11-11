@@ -4,8 +4,9 @@
   margin-right: 10px;
   background: #fff;
   border: 2px solid transparent;
-  outline: none;
+  text-decoration: none;
   border-radius: 30px;
+  box-sizing: border-box;
   font-family: Inter;
   font-family: 'Inter', Arial, Helvetica, sans-serif;
   font-weight: 500;

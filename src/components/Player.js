@@ -52,7 +52,9 @@ function Player() {
     audioEl.current.pause()
   }
 
-  function handleShowClip() {}
+  // function handleShowClip() {
+
+  // }
 
   useEffect(() => {
     setCurrentSong(serverSongs[0])
@@ -201,11 +203,12 @@ function Player() {
               : 'Здесь должна была быть обложка альбома :)'}
           </div>
           {currentSong.video ? (
-            <button
+            <a
               className={classnames('controls__video-clip-button', {
                 disabled: !isDetailsOpen,
               })}
-              onClick={handleShowClip}
+              href={currentSong.video}
+              target="_blank"
             >
               <img
                 className="controls__play-clip-icon"
@@ -213,7 +216,7 @@ function Player() {
                 src={playIcon}
               />{' '}
               Клип
-            </button>
+            </a>
           ) : (
             ''
           )}
