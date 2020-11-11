@@ -4,6 +4,7 @@ import { serverSongs } from '../utils/song-list'
 import Release from './Release'
 import { maincolor, countRemainingTime } from '../utils/utils'
 import Icons from './icons/Icons'
+import playIcon from '../images/play-clip.svg'
 
 function Player() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
@@ -19,6 +20,15 @@ function Player() {
 
   const audioEl = useRef(null)
 
+  const feat = !currentSong.originalAuthor ? (
+    ''
+  ) : (
+    <span>
+      <span className="song-item__feat">feat.&nbsp;</span>
+      {currentSong.originalAuthor}
+    </span>
+  )
+
   function handleTrackPlay() {
     setIsTrackPlaying(true)
     audioEl.current.play()
@@ -28,6 +38,8 @@ function Player() {
     setIsTrackPlaying(false)
     audioEl.current.pause()
   }
+
+  function handleShowClip() {}
 
   useEffect(() => {
     setCurrentSong(serverSongs[0])
@@ -48,7 +60,6 @@ function Player() {
     // добавляем в конец релизов текущую песню
     list.push(currentSong)
     // обновляем список релизов и песню
-    setIsTrackPlaying(false)
     setReleaseList(list)
     setCurrentSong(track)
   }
@@ -87,7 +98,17 @@ function Player() {
 
   return (
     <section className="player">
-      <div className="player__container">
+      <div
+        className="player__container"
+        style={{ display: isDetailsOpen ? 'grid' : 'block' }}
+      >
+        <img
+          className={classnames('player__cover', {
+            disabled: !isDetailsOpen,
+          })}
+          src={currentSong.cover}
+          alt={currentSong.name}
+        ></img>
         <audio
           className="player__audio"
           ref={audioEl}
@@ -124,8 +145,8 @@ function Player() {
           <div className="song-item">
             <div className="song-item__wrap">
               <div className="song-item__name-wrap">
-                {currentSong.title}&mdash;{currentSong.author}
-                gggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                {currentSong.title}&nbsp;&mdash;&nbsp;
+                {currentSong.author}&nbsp;{feat} ggggggggggggggggggggggggggggg
               </div>
               <div className="song-item__timer">
                 <span aria-label="timer">
@@ -145,14 +166,28 @@ function Player() {
               ></div>
             </div>
           </div>
+          {currentSong.video ? (
+            <button
+              className={classnames('controls__video-clip-button', {
+                disabled: !isDetailsOpen,
+              })}
+              onClick={handleShowClip}
+            >
+              <img
+                className="controls__play-clip-icon"
+                alt="play-clip"
+                src={playIcon}
+              />{' '}
+              Клип
+            </button>
+          ) : (
+            ''
+          )}
+
           <button
             className={classnames('controls__lyrics-release-button', {
               disabled: !isDetailsOpen,
             })}
-            //     isDetailsOpen
-            //         ? 'controls__lyrics-release-button'
-            //         : 'controls__lyrics-release-button disabled'
-            // }
             onClick={handleLyricsReleaseClick}
           >
             {showRelease ? 'Текст песни' : 'Релизы'}
@@ -181,6 +216,7 @@ function Player() {
           className={classnames('player__details-container', {
             disabled: !isDetailsOpen,
           })}
+          style={{ overflowY: onlyOneRelease ? 'hidden' : 'scroll' }}
         >
           <p className="details__title">
             {!showRelease

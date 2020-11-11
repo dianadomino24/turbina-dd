@@ -1,18 +1,18 @@
 .turbina__logo {
-    height: 40px;
-    width: 40px;
-    padding: 20px 0 0 20px;
+  height: 40px;
+  width: 40px;
+  padding: 20px 0 0 20px;
 }
 
 @media all and (max-width: 400px) {
-    .turbina__logo {
-        padding: 15px 0 0 15px;
-        height: 24px;
-        width: 24px;
-    }
+  .turbina__logo {
+    padding: 15px 0 0 15px;
+    height: 24px;
+    width: 24px;
+  }
 }
 
 .turbina__logo:hover {
-    transform: scale(1.02);
-    transition: all 0.3s ease;
+  transform: scale(1.02);
+  transition: all 0.3s ease;
 }

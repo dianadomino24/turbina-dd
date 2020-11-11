@@ -1,9 +1,9 @@
 .turbina__dropbtn_active {
-    width: 29px;
-    height: 29px;
-    border-radius: 50%;
-    padding: 0;
-    background-image: url('../../../../images/closeBtn.svg');
-    background-repeat: no-repeat;
-    background-position: center;
+  width: 29px;
+  height: 29px;
+  border-radius: 50%;
+  padding: 0;
+  background-image: url('../../../../images/closeBtn.svg');
+  background-repeat: no-repeat;
+  background-position: center;
 }
