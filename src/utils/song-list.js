@@ -27,16 +27,19 @@ export const serverSongs = [
     color: '',
     audioFile: 'https://www.bensound.com/bensound-music/bensound-energy.mp3',
     duration: '2:59',
-    text: 'Не существует детской и взрослой поэзии. Существует мысль и чувство, зафиксированное в ней',
+    text:
+      'Не существует детской и взрослой поэзии. Существует мысль и чувство, зафиксированное в ней',
   },
   {
     id: 3,
     title: 'Slow cinematic',
     author: 'Royalty',
     color: '',
-    audioFile: 'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
+    audioFile:
+      'https://www.bensound.com/bensound-music/bensound-slowmotion.mp3',
     duration: '3:26',
-    text: 'Мы знаем, что наши дети постоянно существуют в режиме непрекращающегося творческого процесса.',
+    text:
+      'Мы знаем, что наши дети постоянно существуют в режиме непрекращающегося творческого процесса.',
   },
   {
     id: 4,

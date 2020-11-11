@@ -62,7 +62,11 @@ function Player() {
   //логика перемещения бегунка по таймлайн
   function handleClickOnTimeline(event) {
     function findTargetParent() {
-      if (event.target.classList.contains('song-item__timeline-playhead' || 'song-item__timeline-hover-playhead')) {
+      if (
+        event.target.classList.contains(
+          'song-item__timeline-playhead' || 'song-item__timeline-hover-playhead'
+        )
+      ) {
         return event.target.parentElement
       } else {
         return event.target
@@ -71,11 +75,14 @@ function Player() {
 
     const timeline = findTargetParent()
 
-    setCurrentSongSeekerMovedTo((event.nativeEvent.layerX / timeline.getBoundingClientRect().width) * 100)
+    setCurrentSongSeekerMovedTo(
+      (event.nativeEvent.layerX / timeline.getBoundingClientRect().width) * 100
+    )
   }
 
   useEffect(() => {
-    audioEl.current.currentTime = (currentSongDuration * currentSongSeekerMovedTo) / 100
+    audioEl.current.currentTime =
+      (currentSongDuration * currentSongSeekerMovedTo) / 100
   }, [currentSongSeekerMovedTo])
 
   return (
@@ -95,7 +102,11 @@ function Player() {
           Your browser does not support the audio element.
         </audio>
         <div className="player__controls controls">
-          <button className="controls__play-button" data-icon="P" aria-label="play pause toggle">
+          <button
+            className="controls__play-button"
+            data-icon="P"
+            aria-label="play pause toggle"
+          >
             {isTrackPlaying ? (
               <Icons.SvgPauseButton
                 className="controls__pause-icon"
@@ -117,10 +128,15 @@ function Player() {
                 gggggggggggggggggggggggggggggggggggggggggggggggggggggg
               </div>
               <div className="song-item__timer">
-                <span aria-label="timer">{countRemainingTime(currentSongDuration, currentSongPlayed)}</span>
+                <span aria-label="timer">
+                  {countRemainingTime(currentSongDuration, currentSongPlayed)}
+                </span>
               </div>
             </div>
-            <div className="song-item__timeline" onClick={handleClickOnTimeline}>
+            <div
+              className="song-item__timeline"
+              onClick={handleClickOnTimeline}
+            >
               <div
                 className="song-item__timeline-playhead"
                 style={{
@@ -167,7 +183,11 @@ function Player() {
           })}
         >
           <p className="details__title">
-            {!showRelease ? 'Текст песни:' : onlyOneRelease ? 'Пока что у нас только 1 релиз.' : 'Релизы:'}
+            {!showRelease
+              ? 'Текст песни:'
+              : onlyOneRelease
+              ? 'Пока что у нас только 1 релиз.'
+              : 'Релизы:'}
           </p>
 
           <ul
@@ -176,7 +196,11 @@ function Player() {
             })}
           >
             {releaseList.map((release) => (
-              <Release key={release.id} release={release} handleReleaseClick={handleReleaseClick} />
+              <Release
+                key={release.id}
+                release={release}
+                handleReleaseClick={handleReleaseClick}
+              />
             ))}
           </ul>
           <div
