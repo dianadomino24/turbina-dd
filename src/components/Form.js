@@ -104,7 +104,6 @@ function Form() {
             setFormButtonText('Ура, форма отправлена!');
         }).catch(() => {
             setSubmitError('Упс, что-то пошло не так и форма не отправилась, попробуйте ещё раз!');
-            console.log(submitError)
         })
     }
 
@@ -117,7 +116,7 @@ function Form() {
             <input
                 type="text"
                 onBlur={(e) => { blurHandler(e) }}
-                style={(inputError.name) ? { color: 'red' } : { color: 'black' }}
+                style={(inputError.name & inputDirty.name) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { nameHandler(e) }}
                 placeholder="Имя и фамилия автора"
                 className="form__input"
@@ -131,7 +130,7 @@ function Form() {
             <input
                 type="tel"
                 onBlur={(e) => { blurHandler(e) }}
-                style={(inputError.telephone) ? { color: 'red' } : { color: 'black' }}
+                style={(inputError.telephone & inputDirty.telephone) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { telephoneHandler(e) }}
                 placeholder="Телефон"
                 className="form__input"
@@ -139,13 +138,13 @@ function Form() {
                 value={inputValue.telephone}
                 required
             />
-            <span className={`form__error ${(inputError.telephone & inputDirty.telefoner) ? 'form__error_visible' : ''}`}>
+            <span className={`form__error ${(inputError.telephone & inputDirty.telephone) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
             </span>
             <input
                 type="email"
                 onBlur={(e) => { blurHandler(e) }}
-                style={(inputError.email) ? { color: 'red' } : { color: 'black' }}
+                style={(inputError.email & inputDirty.email) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { emailHandler(e) }}
                 placeholder="Почта"
                 className="form__input"
@@ -158,7 +157,8 @@ function Form() {
             </span>
             <textarea
                 type="text"
-                style={(inputError.poem) ? { color: 'red' } : { color: 'black' }}
+                onBlur={(e) => { blurHandler(e) }}
+                style={(inputError.poem & inputDirty.poem) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { poemHandler(e) }}
                 placeholder="Стихи"
                 className="form__input form__input_textarea"
