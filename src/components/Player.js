@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
 import classnames from 'classnames'
 import { serverSongs } from '../utils/song-list'
 import Release from './Release'
@@ -19,6 +19,19 @@ function Player() {
   const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0)
 
   const audioEl = useRef(null)
+  // The current width of the viewport
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  // The width below which the mobile view should be rendered
+  const breakpoint = 600
+  // будет изменять текущую ширину экрана, чтобы переключить display для мобилки
+  useLayoutEffect(() => {
+    function updateSize() {
+      setWindowWidth(window.innerWidth)
+    }
+    window.addEventListener('resize', updateSize)
+    updateSize()
+    return () => window.removeEventListener('resize', updateSize)
+  }, [])
 
   const feat = !currentSong.originalAuthor ? (
     ''
@@ -39,7 +52,9 @@ function Player() {
     audioEl.current.pause()
   }
 
-  function handleShowClip() {}
+  // function handleShowClip() {
+
+  // }
 
   useEffect(() => {
     setCurrentSong(serverSongs[0])
@@ -101,10 +116,16 @@ function Player() {
     <section className="player">
       <div
         className="player__container"
-        style={{ display: isDetailsOpen ? 'grid' : 'block' }}
+        style={{
+          display: isDetailsOpen
+            ? windowWidth < breakpoint
+              ? 'flex'
+              : 'grid'
+            : 'block',
+        }}
       >
         <img
-          className={classnames('player__cover', {
+          className={classnames('player__cover', 'player__cover_type_screen', {
             disabled: !isDetailsOpen,
           })}
           src={currentSong.cover}
@@ -167,12 +188,27 @@ function Player() {
               ></div>
             </div>
           </div>
+          <div
+            className={classnames(
+              'player__cover',
+              'player__cover_type_mobile',
+              {
+                disabled: !isDetailsOpen,
+              }
+            )}
+            style={{ backgroundImage: `url( ${currentSong.cover})` }}
+          >
+            {currentSong.cover
+              ? ''
+              : 'Здесь должна была быть обложка альбома :)'}
+          </div>
           {currentSong.video ? (
-            <button
+            <a
               className={classnames('controls__video-clip-button', {
                 disabled: !isDetailsOpen,
               })}
-              onClick={handleShowClip}
+              href={currentSong.video}
+              target="_blank"
             >
               <img
                 className="controls__play-clip-icon"
@@ -180,7 +216,7 @@ function Player() {
                 src={playIcon}
               />{' '}
               Клип
-            </button>
+            </a>
           ) : (
             ''
           )}

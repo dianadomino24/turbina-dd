@@ -7,3 +7,18 @@
   transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
     visibility 0.5s ease-in-out;
 }
+@media all and (max-width: 1024px) {
+  .player__cover {
+    width: 164px;
+    height: 164px;
+  }
+}
+@media all and (max-width: 900px) {
+  .player__cover {
+    width: 112px;
+    height: 112px;
+    margin: 20px 0 0 32px;
+    font-size: 14px;
+    line-height: 1.36;
+  }
+}
