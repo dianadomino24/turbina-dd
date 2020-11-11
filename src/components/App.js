@@ -5,16 +5,12 @@ import Main from './Main'
 import Footer from './Footer'
 
 function App() {
-
-    return (
-        < body >
-            <div className="page">
-                {/* <div className="cover"></div> */}
-                <Main />
-                <Footer />
-            </div>
-        </ body>
-    )
+  return (
+    <div className="page">
+      <Main />
+      <Footer />
+    </div>
+  )
 }
 
 export default App

@@ -13,31 +13,32 @@ function Form() {
         });
     // наличие ошибки при вводе данных
     const [inputError, setInputError] = React.useState({
-        name: false,
-        telephone: false,
-        email: false,
-        poem: false
+        name: true,
+        telephone: true,
+        email: true,
+        poem: true,
+        radio: true
     });
-
+    //валидность формы
     const [isValid, setIsValid] = React.useState(true);
+    //состояние текста кнопки сабмита
     const [formButtonText, setFormButtonText] = React.useState('Отправить форму');
-    const [submitError, setSubmitError] = React.useState('')
-    // валидность всей формы
-    function validation() {
-        if (!inputError.name & !inputError.telephone & !inputError.email & !inputError.poem & inputValue.radio) {
+    //состояние ошибки отправки формы
+    const [submitError, setSubmitError] = React.useState('');
+    // проверка валидность всей формы
+    React.useEffect(() => {
+        if (!inputError.name & !inputError.telephone & !inputError.email & !inputError.poem & !inputError.radio) {
             setIsValid(false)
         } else { setIsValid(true) }
-    }
-    console.log(isValid)
-    console.log(inputValue.radio)
+    }, [inputError]);
+
     //обработчик инпута имени
     function nameHandler(e) {
         setInputValue({ ...inputValue, name: e.target.value })
         if (e.target.value.length < 3) {
             setInputError({ ...inputError, name: true })
         } else { setInputError({ ...inputError, name: false }) }
-        validation();
-    }
+    };
     //обработчик инпута телефона
     function telephoneHandler(e) {
         setInputValue({ ...inputValue, telephone: e.target.value });
@@ -45,8 +46,7 @@ function Form() {
         if (!regex.test(e.target.value)) {
             setInputError({ ...inputError, telephone: true })
         } else { setInputError({ ...inputError, telephone: false }) }
-        validation();
-    }
+    };
     //обработчик инпута email
     function emailHandler(e) {
         setInputValue({ ...inputValue, email: e.target.value });
@@ -54,22 +54,25 @@ function Form() {
         if (!reg.test(e.target.value)) {
             setInputError({ ...inputError, email: true })
         } else { setInputError({ ...inputError, email: false }) }
-        validation();
-    }
+    };
     //обработчик инпута текста стихотвонения
     function poemHandler(e) {
         setInputValue({ ...inputValue, poem: e.target.value })
         if (e.target.value.length < 20) {
             setInputError({ ...inputError, poem: true })
         } else { setInputError({ ...inputError, poem: false }) }
-        validation();
-    }
-
+    };
+//обработчик радиокнопки
     function radioHandler() {
-        if (inputValue.radio === false) { setInputValue({ ...inputValue, radio: true }); }
-        else { setInputValue({ ...inputValue, radio: false }); };
-    }
-
+        if (inputValue.radio === false) {
+            setInputValue({ ...inputValue, radio: true });
+            setInputError({ ...inputError, radio: false })
+        }
+        else {
+            setInputValue({ ...inputValue, radio: false });
+            setInputError({ ...inputError, radio: true })
+        };
+    };
     //обработка и отправка формы на сервер
     function submitForm(evt) {
         evt.preventDefault();
@@ -147,7 +150,7 @@ function Form() {
                     type="radio"
                     className="form__input-radio"
                     checked={inputValue.radio}
-                    onClick={(e) => { radioHandler(e) }}
+                    onClick={radioHandler}
                     required
                 />Согласен с &nbsp;
                         <a href="/#" className="form__link form__label">
@@ -156,8 +159,8 @@ function Form() {
             </label>
             <div style={{ display: "flex", flexDirection: "column" }}>
                 <button type="submit" className="form__submit" disabled={isValid} >
-                {formButtonText}
-            </button>
+                    {formButtonText}
+                </button>
                 <span className="form__error form__error_visible" style={{ textAlign: "center" }}>
                     {submitError}
                 </span>
