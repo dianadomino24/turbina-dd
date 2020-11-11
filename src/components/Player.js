@@ -4,6 +4,7 @@ import { serverSongs } from '../utils/song-list'
 import Release from './Release'
 import { maincolor, countRemainingTime } from '../utils/utils'
 import Icons from './icons/Icons'
+import playIcon from '../images/play-clip.svg'
 
 function Player() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
@@ -19,6 +20,15 @@ function Player() {
 
   const audioEl = useRef(null)
 
+  const feat = !currentSong.originalAuthor ? (
+    ''
+  ) : (
+    <span>
+      <span className="song-item__feat">feat.&nbsp;</span>
+      {currentSong.originalAuthor}
+    </span>
+  )
+
   function handleTrackPlay() {
     setIsTrackPlaying(true)
     audioEl.current.play()
@@ -28,6 +38,8 @@ function Player() {
     setIsTrackPlaying(false)
     audioEl.current.pause()
   }
+
+  function handleShowClip() {}
 
   useEffect(() => {
     setCurrentSong(serverSongs[0])
@@ -48,7 +60,6 @@ function Player() {
     // добавляем в конец релизов текущую песню
     list.push(currentSong)
     // обновляем список релизов и песню
-    setIsTrackPlaying(false)
     setReleaseList(list)
     setCurrentSong(track)
   }
@@ -62,7 +73,11 @@ function Player() {
   //логика перемещения бегунка по таймлайн
   function handleClickOnTimeline(event) {
     function findTargetParent() {
-      if (event.target.classList.contains('song-item__timeline-playhead' || 'song-item__timeline-hover-playhead')) {
+      if (
+        event.target.classList.contains(
+          'song-item__timeline-playhead' || 'song-item__timeline-hover-playhead'
+        )
+      ) {
         return event.target.parentElement
       } else {
         return event.target
@@ -71,17 +86,31 @@ function Player() {
 
     const timeline = findTargetParent()
 
-    setCurrentSongSeekerMovedTo((event.nativeEvent.layerX / timeline.getBoundingClientRect().width) * 100)
+    setCurrentSongSeekerMovedTo(
+      (event.nativeEvent.layerX / timeline.getBoundingClientRect().width) * 100
+    )
   }
 
   useEffect(() => {
-    audioEl.current.currentTime = (currentSongDuration * currentSongSeekerMovedTo) / 100
-  }, [currentSongSeekerMovedTo])
+    audioEl.current.currentTime =
+      (currentSongDuration * currentSongSeekerMovedTo) / 100
+  }, [currentSongDuration, currentSongSeekerMovedTo])
+
 
   return (
     <section className="player">
-      <div className="player__container">
-        <audio
+      <div
+        className="player__container"
+        style={{ display: isDetailsOpen ? 'grid' : 'block' }}
+      >
+        <img
+          className={classnames('player__cover', {
+            disabled: !isDetailsOpen,
+          })}
+          src={currentSong.cover}
+          alt={currentSong.name}
+        ></img>
+         <audio
           className="player__audio"
           ref={audioEl}
           src={currentSong.audioFile}
@@ -95,7 +124,11 @@ function Player() {
           Your browser does not support the audio element.
         </audio>
         <div className="player__controls controls">
-          <button className="controls__play-button" data-icon="P" aria-label="play pause toggle">
+          <button
+            className="controls__play-button"
+            data-icon="P"
+            aria-label="play pause toggle"
+          >
             {isTrackPlaying ? (
               <Icons.SvgPauseButton
                 className="controls__pause-icon"
@@ -113,14 +146,19 @@ function Player() {
           <div className="song-item">
             <div className="song-item__wrap">
               <div className="song-item__name-wrap">
-                {currentSong.title}&mdash;{currentSong.author}
-                gggggggggggggggggggggggggggggggggggggggggggggggggggggg
+                {currentSong.title}&nbsp;&mdash;&nbsp;
+                {currentSong.author}&nbsp;{feat} ggggggggggggggggggggggggggggg
               </div>
               <div className="song-item__timer">
-                <span aria-label="timer">{countRemainingTime(currentSongDuration, currentSongPlayed)}</span>
+                <span aria-label="timer">
+                  {countRemainingTime(currentSongDuration, currentSongPlayed)}
+                </span>
               </div>
             </div>
-            <div className="song-item__timeline" onClick={handleClickOnTimeline}>
+            <div
+              className="song-item__timeline"
+              onClick={handleClickOnTimeline}
+            >
               <div
                 className="song-item__timeline-playhead"
                 style={{
@@ -129,14 +167,28 @@ function Player() {
               ></div>
             </div>
           </div>
+          {currentSong.video ? (
+            <button
+              className={classnames('controls__video-clip-button', {
+                disabled: !isDetailsOpen,
+              })}
+              onClick={handleShowClip}
+            >
+              <img
+                className="controls__play-clip-icon"
+                alt="play-clip"
+                src={playIcon}
+              />{' '}
+              Клип
+            </button>
+          ) : (
+            ''
+          )}
+
           <button
             className={classnames('controls__lyrics-release-button', {
               disabled: !isDetailsOpen,
             })}
-            //     isDetailsOpen
-            //         ? 'controls__lyrics-release-button'
-            //         : 'controls__lyrics-release-button disabled'
-            // }
             onClick={handleLyricsReleaseClick}
           >
             {showRelease ? 'Текст песни' : 'Релизы'}
@@ -146,7 +198,7 @@ function Player() {
               <Icons.SvgCrossButton
                 className="controls__cross-icon"
                 maincolor={maincolor}
-                onClick={() => {
+                 onClick={() => {
                   setIsDetailsOpen(false)
                 }}
               />
@@ -154,7 +206,7 @@ function Player() {
               <Icons.SvgArrowButton
                 className="controls__arrow-icon"
                 maincolor={maincolor}
-                onClick={() => {
+                 onClick={() => {
                   setIsDetailsOpen(true)
                 }}
               />
@@ -165,9 +217,14 @@ function Player() {
           className={classnames('player__details-container', {
             disabled: !isDetailsOpen,
           })}
+          style={{ overflowY: onlyOneRelease ? 'hidden' : 'scroll' }}
         >
           <p className="details__title">
-            {!showRelease ? 'Текст песни:' : onlyOneRelease ? 'Пока что у нас только 1 релиз.' : 'Релизы:'}
+            {!showRelease
+              ? 'Текст песни:'
+              : onlyOneRelease
+              ? 'Пока что у нас только 1 релиз.'
+              : 'Релизы:'}
           </p>
 
           <ul
@@ -176,7 +233,11 @@ function Player() {
             })}
           >
             {releaseList.map((release) => (
-              <Release key={release.id} release={release} handleReleaseClick={handleReleaseClick} />
+              <Release
+                key={release.id}
+                release={release}
+                handleReleaseClick={handleReleaseClick}
+              />
             ))}
           </ul>
           <div

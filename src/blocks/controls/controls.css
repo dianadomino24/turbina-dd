@@ -1,16 +1,13 @@
 .controls {
-    display: flex;
-    width: 100%;
-    flex-wrap: nowrap;
-    justify-content: space-between;
-    align-items: flex-start;
-    box-sizing: border-box;
-    max-width: 1240px;
-    margin: 0 auto;
+  display: flex;
+  width: 100%;
+  flex-wrap: nowrap;
+  justify-content: space-between;
+  align-items: flex-start;
 }
 
 @media all and (max-width: 600px) {
-    .controls {
-        flex-wrap: wrap;
-    }
+  .controls {
+    flex-wrap: wrap;
+  }
 }

@@ -1,43 +1,43 @@
 .turbina__image {
-    max-width: 720px;
-    max-height: 226px;
+  max-width: 720px;
+  max-height: 226px;
 }
 
 @media screen and (max-width: 1024px) {
-    .turbina__image {
-        max-width: 600px;
-        max-height: 186px;
-    }
+  .turbina__image {
+    max-width: 600px;
+    max-height: 186px;
+  }
 }
 
 @media all and (max-width: 786px) {
-    .turbina__image {
-        max-width: 620px;
-        max-height: 192px;
-    }
+  .turbina__image {
+    max-width: 620px;
+    max-height: 192px;
+  }
 }
 
 @media all and (max-width: 686px) {
-    .turbina__image {
-        max-width: 520px;
-    }
+  .turbina__image {
+    max-width: 520px;
+  }
 }
 
 @media all and (max-width: 600px) {
-    .turbina__image {
-        max-width: 450px;
-    }
+  .turbina__image {
+    max-width: 450px;
+  }
 }
 
 @media all and (max-width: 550px) {
-    .turbina__image {
-        max-height: 122px;
-    }
+  .turbina__image {
+    max-height: 122px;
+  }
 }
 
 @media all and (max-width: 400px) {
-    .turbina__image {
-        max-width: 270px;
-        max-height: 82px;
-    }
+  .turbina__image {
+    max-width: 270px;
+    max-height: 82px;
+  }
 }

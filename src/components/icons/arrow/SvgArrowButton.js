@@ -2,7 +2,14 @@ import * as React from 'react'
 
 function SvgArrowButton(props) {
   return (
-    <svg className={props.className} width="24px" height="24px" viewBox="0 0 24 24" fill={props.maincolor} {...props}>
+    <svg
+      className={props.className}
+      width="24px"
+      height="24px"
+      viewBox="0 0 24 24"
+      fill={props.maincolor}
+      {...props}
+    >
       <path
         fillRule="evenodd"
         clipRule="evenodd"

@@ -1,23 +1,23 @@
 .turbina__music-elem {
-    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
-    font-weight: normal;
-    font-size: 18px;
-    line-height: 22px;
-    color: #fff;
-    list-style-type: none;
-    margin-top: 8px;
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  font-size: 18px;
+  line-height: 22px;
+  color: #fff;
+  list-style-type: none;
+  margin-top: 8px;
 }
 
 @media screen and (max-width: 1024px) {
-    .turbina__music-elem {
-        margin-top: 7px;
-    }
+  .turbina__music-elem {
+    margin-top: 7px;
+  }
 }
 
 .turbina__music-elem:first-of-type {
-    margin-top: 0;
+  margin-top: 0;
 }
 
 .turbina__music-elem:hover {
-    cursor: pointer;
+  cursor: pointer;
 }

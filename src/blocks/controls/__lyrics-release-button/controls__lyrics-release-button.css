@@ -1,40 +1,39 @@
 .controls__lyrics-release-button {
-    min-width: 135px;
-    height: 35px;
-    outline: none;
-    background: none;
-    border: 2px solid #fff;
-    border-radius: 30px;
-    transition: 0.2s linear;
-    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
-    font-weight: 400;
-    font-size: 16px;
-    line-height: 1.19px;
-    color: #fff;
-    box-sizing: border-box;
-    margin-right: 20px;
-    padding: 0;
-    transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
-        visibility 0.5s ease-in-out, width 0.8s ease;
+  min-width: 135px;
+  height: 35px;
+  outline: none;
+  background: none;
+  border: 2px solid #fff;
+  border-radius: 30px;
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 1.19px;
+  color: #fff;
+  box-sizing: border-box;
+  margin-right: 20px;
+  padding: 0;
+  transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
+    visibility 0.5s ease-in-out, width 0.8s ease;
 }
 .controls__lyrics-release-button:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
 
 @media all and (max-width: 1024px) {
-    .controls__lyrics-release-button {
-        font-size: 15px;
-        min-width: 125px;
-        height: 34px;
-    }
+  .controls__lyrics-release-button {
+    font-size: 15px;
+    min-width: 125px;
+    height: 34px;
+  }
 }
 
 @media all and (max-width: 600px) {
-    .controls__lyrics-release-button {
-        font-size: 12px;
-        order: 5;
-        width: calc(100% - 50px);
-        margin: 0 auto;
-        margin-top: 21px;
-    }
+  .controls__lyrics-release-button {
+    font-size: 12px;
+    order: 5;
+    width: calc(100% - 50px);
+    margin: 0 auto;
+    margin-top: 21px;
+  }
 }
