@@ -19,12 +19,36 @@ function Form() {
         poem: true,
         radio: true
     });
+    //состояние посещения инпута
+    const [inputDirty, setInputDirty] = React.useState({
+        name: false,
+        telephone: false,
+        email: false,
+        poem: false
+    });
     //валидность формы
     const [isValid, setIsValid] = React.useState(true);
     //состояние текста кнопки сабмита
     const [formButtonText, setFormButtonText] = React.useState('Отправить форму');
     //состояние ошибки отправки формы
     const [submitError, setSubmitError] = React.useState('');
+
+    function blurHandler(e) {
+        switch (e.target.name) {
+            case 'name':
+                setInputDirty({ ...inputDirty, name: true })
+                break
+            case 'telephone':
+                setInputDirty({ ...inputDirty, telephone: true })
+                break
+            case 'email':
+                setInputDirty({ ...inputDirty, email: true })
+                break
+            case 'poem':
+                setInputDirty({ ...inputDirty, poem: true })
+                break
+        }
+    }
     // проверка валидность всей формы
     React.useEffect(() => {
         if (!inputError.name & !inputError.telephone & !inputError.email & !inputError.poem & !inputError.radio) {
@@ -62,7 +86,7 @@ function Form() {
             setInputError({ ...inputError, poem: true })
         } else { setInputError({ ...inputError, poem: false }) }
     };
-//обработчик радиокнопки
+    //обработчик радиокнопки
     function radioHandler() {
         if (inputValue.radio === false) {
             setInputValue({ ...inputValue, radio: true });
@@ -92,7 +116,7 @@ function Form() {
                     </p>
             <input
                 type="text"
-                // onBlur={(e) => { blurHandler(e) }}
+                onBlur={(e) => { blurHandler(e) }}
                 style={(inputError.name) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { nameHandler(e) }}
                 placeholder="Имя и фамилия автора"
@@ -101,12 +125,12 @@ function Form() {
                 value={inputValue.name}
                 required
             />
-            <span className={`form__error ${(inputError.name) ? 'form__error_visible' : ''}`}>
+            <span className={`form__error ${(inputError.name & inputDirty.name) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
             </span>
             <input
                 type="tel"
-                // onBlur={(e) => { blurHandler(e) }}
+                onBlur={(e) => { blurHandler(e) }}
                 style={(inputError.telephone) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { telephoneHandler(e) }}
                 placeholder="Телефон"
@@ -115,12 +139,12 @@ function Form() {
                 value={inputValue.telephone}
                 required
             />
-            <span className={`form__error ${(inputError.telephone) ? 'form__error_visible' : ''}`}>
+            <span className={`form__error ${(inputError.telephone & inputDirty.telefoner) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
             </span>
             <input
                 type="email"
-                // onBlur={(e) => { blurHandler(e) }}
+                onBlur={(e) => { blurHandler(e) }}
                 style={(inputError.email) ? { color: 'red' } : { color: 'black' }}
                 onChange={(e) => { emailHandler(e) }}
                 placeholder="Почта"
@@ -129,7 +153,7 @@ function Form() {
                 value={inputValue.email}
                 required
             />
-            <span className={`form__error ${(inputError.email) ? 'form__error_visible' : ''}`}>
+            <span className={`form__error ${(inputError.email & inputDirty.email) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
             </span>
             <textarea
@@ -142,7 +166,7 @@ function Form() {
                 value={inputValue.poem}
                 required
             />
-            <span className={`form__error ${(inputError.poem) ? 'form__error_visible' : ''}`}>
+            <span className={`form__error ${(inputError.poem & inputDirty.poem) ? 'form__error_visible' : ''}`}>
                 Какая-то ошибка*
                     </span>
             <label htmlFor="offer" className="form__label">
