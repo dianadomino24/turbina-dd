@@ -6,3 +6,15 @@
   margin-top: 43px;
   justify-items: center;
 }
+
+@media all and (max-width: 786px) {
+  .form__label {
+    font-size: 15px;
+  }
+}
+
+@media all and (max-width: 400px) {
+  .form__label {
+    font-size: 12px;
+  }
+}
