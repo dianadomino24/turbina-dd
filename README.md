@@ -26,14 +26,14 @@ git clone https://github.com/dianadomino24/turbina-dd.git
 npm install
 ```
 
-````
+```
 3. Доступные сценарии:
+
     * режим разработки:
-      ```
+
       npm start
-      ```
+
     * создание production версии приложения:
-      ```
+
       npm build
-      ```
-````
+```
