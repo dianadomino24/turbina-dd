@@ -5,11 +5,8 @@ import headerLogo from '../images/logo.svg'
 import turbina from '../images/Турбина.svg'
 import { maincolor, logoLink } from '../utils/utils'
 import Form from './Form'
-<<<<<<< HEAD
-import fon from '../images/IMG_1-min.jpg'
-=======
 import classnames from 'classnames'
->>>>>>> 96541ccba81c4a7d801c919a973fb63290eccf19
+import fon from '../images/IMG_1-min.jpg'
 
 function Main() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
