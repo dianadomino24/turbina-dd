@@ -3,7 +3,7 @@ import Player from './Player'
 import LinksMenu from './LinksMenu'
 import headerLogo from '../images/logo.svg'
 import turbina from '../images/Турбина.svg'
-import { maincolor, logoLink } from '../utils/utils'
+import { logoLink } from '../utils/utils'
 import Form from './Form'
 import classnames from 'classnames'
 import fon from '../images/IMG_1-min.jpg'
@@ -31,7 +31,7 @@ function Main() {
 
   return (
     <>
-    <img className="image" src={fon}/>
+    <img className="image" src={fon} alt="Фон"/>
     <main className="content">
       <div className="head">
         <section
