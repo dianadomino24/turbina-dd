@@ -175,7 +175,7 @@ function Player({
           </button>
           <div
             className="song-item"
-            style={{ marginBottom: windowHeight < 380 && '20px' }}
+            style={{ marginBottom: windowHeight < 460 && '20px' }}
           >
             <div className="song-item__wrap">
               <marquee
@@ -216,7 +216,7 @@ function Player({
               {
                 disabled: !isDetailsOpen,
               },
-              { disabled: windowHeight < 380 }
+              { disabled: windowHeight < 460 }
             )}
             style={{
               backgroundImage: `url( ${currentSong.cover})`,
