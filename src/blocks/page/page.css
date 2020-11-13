@@ -1,9 +1,4 @@
 .page {
-  /* background-image: url(../../images/IMG_1-min.jpg);
-  background-position: center;
-  background-size: cover;
-  overflow: hidden;
-  background-attachment: fixed; */
   font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
   display: flex;
   flex-direction: column;

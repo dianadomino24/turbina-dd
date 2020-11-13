@@ -31,7 +31,7 @@ function Main() {
 
   return (
     <>
-    <img src={fon} style={{ position: 'fixed', zIndex:'-1', overflow:'hidden' }}/>
+    <img className="image" src={fon}/>
     <main className="content">
       <div className="head">
         <section
