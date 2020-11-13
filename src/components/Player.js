@@ -167,7 +167,16 @@ function Player({
           </button>
           <div className="song-item">
             <div className="song-item__wrap">
-              <marquee className="song-item__name-wrap">
+              <marquee
+                className="song-item__name-wrap"
+                style={{
+                  maxWidth: !isDetailsOpen
+                    ? windowWidth > 900
+                      ? 'calc(100vw - 130px)'
+                      : 'calc(100vw - 150px)'
+                    : '',
+                }}
+              >
                 {currentSong.title}&nbsp;&mdash;&nbsp;
                 {currentSong.author}&nbsp;{feat}
               </marquee>

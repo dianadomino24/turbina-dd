@@ -7,7 +7,7 @@
   white-space: nowrap;
   text-overflow: ellipsis;
   width: 100%;
-  max-width: min(100vw - 669px, 626px);
+  max-width: min(100vw - 600px, 626px);
 }
 
 /* .song-item__name-wrap:hover {
@@ -30,7 +30,7 @@
 }
 @media all and (max-width: 900px) {
   .song-item__name-wrap {
-    max-width: min(100vw - 430px, 626px);
+    max-width: min(100vw - 400px, 626px);
   }
 }
 @media all and (max-width: 720px) {
