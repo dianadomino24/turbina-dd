@@ -7,7 +7,12 @@ import Icons from './icons/Icons'
 import playIcon from '../images/play-clip.svg'
 import api from '../utils/Api'
 
-function Player({isDetailsOpen, handleDetailsClick, windowWidth, breakpoint}) {
+function Player({
+  isDetailsOpen,
+  handleDetailsClick,
+  windowWidth,
+  breakpoint,
+}) {
   const [releaseList, setReleaseList] = useState([])
   const [currentSong, setCurrentSong] = useState({})
   const [showRelease, setShowRelease] = useState(true)
@@ -20,11 +25,10 @@ function Player({isDetailsOpen, handleDetailsClick, windowWidth, breakpoint}) {
 
   const audioEl = useRef(null)
 
-
   function handleDetailsOpen() {
     handleDetailsClick(true)
   }
-   function handleDetailsClose() {
+  function handleDetailsClose() {
     handleDetailsClick(false)
   }
 
@@ -231,16 +235,13 @@ function Player({isDetailsOpen, handleDetailsClick, windowWidth, breakpoint}) {
               <Icons.SvgCrossButton
                 className="controls__cross-icon"
                 maincolor={maincolor}
-                onClick={
-                  handleDetailsClose}
+                onClick={handleDetailsClose}
               />
             ) : (
               <Icons.SvgArrowButton
                 className="controls__arrow-icon"
                 maincolor={maincolor}
-                onClick= {
-                  handleDetailsOpen
-                }
+                onClick={handleDetailsOpen}
               />
             )}
           </button>
@@ -249,7 +250,13 @@ function Player({isDetailsOpen, handleDetailsClick, windowWidth, breakpoint}) {
           className={classnames('player__details-container', {
             disabled: !isDetailsOpen,
           })}
-          style={{ overflowY: onlyOneRelease ? 'hidden' : releaseList.length < 2 ? 'hidden' : 'scroll' }}
+          style={{
+            overflowY: onlyOneRelease
+              ? 'hidden'
+              : releaseList.length < 2
+              ? 'hidden'
+              : 'scroll',
+          }}
         >
           <p className="details__title">
             {!showRelease

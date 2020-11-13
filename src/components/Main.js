@@ -1,4 +1,4 @@
-import React, {useState, useLayoutEffect} from 'react'
+import React, { useState, useLayoutEffect } from 'react'
 import Player from './Player'
 import LinksMenu from './LinksMenu'
 import headerLogo from '../images/logo.svg'
@@ -11,7 +11,7 @@ function Main() {
   function handleDetailsClick(state) {
     setIsDetailsOpen(state)
   }
-// The current width of the viewport
+  // The current width of the viewport
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
   // The width below which the mobile view should be rendered
   const breakpoint = 600
@@ -28,12 +28,12 @@ function Main() {
   return (
     <main className="content">
       <div className="head">
-        <section className="turbina" style={{
-          filter: isDetailsOpen &&
-            windowWidth < breakpoint &&
-               'blur(4px)'
-
-        }}>
+        <section
+          className="turbina"
+          style={{
+            filter: isDetailsOpen && windowWidth < breakpoint && 'blur(4px)',
+          }}
+        >
           <div className="turbina__links">
             <a href={logoLink} target="blank">
               <img src={headerLogo} alt="Маршак" className="turbina__logo" />
@@ -45,7 +45,12 @@ function Main() {
           </h1>
         </section>
 
-        <Player isDetailsOpen={isDetailsOpen} handleDetailsClick={handleDetailsClick} windowWidth={windowWidth} breakpoint={breakpoint}/>
+        <Player
+          isDetailsOpen={isDetailsOpen}
+          handleDetailsClick={handleDetailsClick}
+          windowWidth={windowWidth}
+          breakpoint={breakpoint}
+        />
       </div>
       <section className="information">
         <ul className="description">
