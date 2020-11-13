@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/static/css/main.850d40e9.chunk.css",
+    "main.js": "/static/js/main.6a842873.chunk.js",
+    "main.js.map": "/static/js/main.6a842873.chunk.js.map",
+    "runtime-main.js": "/static/js/runtime-main.c75d00f2.js",
+    "runtime-main.js.map": "/static/js/runtime-main.c75d00f2.js.map",
+    "static/js/2.f113848b.chunk.js": "/static/js/2.f113848b.chunk.js",
+    "static/js/2.f113848b.chunk.js.map": "/static/js/2.f113848b.chunk.js.map",
+    "static/js/3.13893816.chunk.js": "/static/js/3.13893816.chunk.js",
+    "static/js/3.13893816.chunk.js.map": "/static/js/3.13893816.chunk.js.map",
+    "index.html": "/index.html",
+    "static/css/main.850d40e9.chunk.css.map": "/static/css/main.850d40e9.chunk.css.map",
+    "static/js/2.f113848b.chunk.js.LICENSE.txt": "/static/js/2.f113848b.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/static/media/inter-900.769f5bb9.woff2",
+    "static/media/logo.9422abe3.svg": "/static/media/logo.9422abe3.svg",
+    "static/media/play-clip.8cd3ed33.svg": "/static/media/play-clip.8cd3ed33.svg",
+    "static/media/Турбина.9a288190.svg": "/static/media/Турбина.9a288190.svg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.c75d00f2.js",
+    "static/js/2.f113848b.chunk.js",
+    "static/css/main.850d40e9.chunk.css",
+    "static/js/main.6a842873.chunk.js"
+  ]
+}
