@@ -6,11 +6,11 @@
 
 **Figma**
 
-[Ссылка на макет в Figma](https://www.figma.com/file/P8rK0IWyoZtBghcwWACXcC/TURBINA_1?node-id=844%3A2){:target="\_blank"}
+[Ссылка на макет в Figma](https://www.figma.com/file/P8rK0IWyoZtBghcwWACXcC/TURBINA_1?node-id=844%3A2)
 
 **Ссылка на GitPages**
 
-[Ссылка на сайт в GitPages](https://dianadomino24.github.io/turbina-dd/){:target="\_blank"}
+[Ссылка на сайт в GitPages](https://dianadomino24.github.io/turbina-dd/)
 
 ## Инструкция по установке:
 
