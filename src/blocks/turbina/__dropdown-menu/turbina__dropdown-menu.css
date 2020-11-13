@@ -5,7 +5,7 @@
   align-items: flex-end;
 }
 
-@media all and (max-width: 400px) {
+@media all and (max-width: 600px) {
   .turbina__dropdown-menu {
     margin: 15px 8px 0 0;
   }

@@ -3,7 +3,7 @@
   max-height: 226px;
 }
 
-@media screen and (max-width: 1024px) {
+@media screen and (max-width: 1180px) {
   .turbina__image {
     max-width: 600px;
     max-height: 186px;

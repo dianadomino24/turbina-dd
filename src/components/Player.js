@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useLayoutEffect } from 'react'
+import React, { useEffect, useState, useRef } from 'react'
 import classnames from 'classnames'
 import { serverSongs } from '../utils/song-list'
 import Release from './Release'
@@ -7,8 +7,7 @@ import Icons from './icons/Icons'
 import playIcon from '../images/play-clip.svg'
 import api from '../utils/Api'
 
-function Player() {
-  const [isDetailsOpen, setIsDetailsOpen] = useState(false)
+function Player({isDetailsOpen, handleDetailsClick, windowWidth, breakpoint}) {
   const [releaseList, setReleaseList] = useState([])
   const [currentSong, setCurrentSong] = useState({})
   const [showRelease, setShowRelease] = useState(true)
@@ -20,19 +19,14 @@ function Player() {
   const [currentSongSeekerMovedTo, setCurrentSongSeekerMovedTo] = useState(0)
 
   const audioEl = useRef(null)
-  // The current width of the viewport
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth)
-  // The width below which the mobile view should be rendered
-  const breakpoint = 600
-  // будет изменять текущую ширину экрана, чтобы переключить display для мобилки
-  useLayoutEffect(() => {
-    function updateSize() {
-      setWindowWidth(window.innerWidth)
-    }
-    window.addEventListener('resize', updateSize)
-    updateSize()
-    return () => window.removeEventListener('resize', updateSize)
-  }, [])
+
+
+  function handleDetailsOpen() {
+    handleDetailsClick(true)
+  }
+   function handleDetailsClose() {
+    handleDetailsClick(false)
+  }
 
   const feat = !currentSong.originalAuthor ? (
     ''
@@ -237,17 +231,16 @@ function Player() {
               <Icons.SvgCrossButton
                 className="controls__cross-icon"
                 maincolor={maincolor}
-                onClick={() => {
-                  setIsDetailsOpen(false)
-                }}
+                onClick={
+                  handleDetailsClose}
               />
             ) : (
               <Icons.SvgArrowButton
                 className="controls__arrow-icon"
                 maincolor={maincolor}
-                onClick={() => {
-                  setIsDetailsOpen(true)
-                }}
+                onClick= {
+                  handleDetailsOpen
+                }
               />
             )}
           </button>
@@ -256,7 +249,7 @@ function Player() {
           className={classnames('player__details-container', {
             disabled: !isDetailsOpen,
           })}
-          style={{ overflowY: onlyOneRelease ? 'hidden' : 'scroll' }}
+          style={{ overflowY: onlyOneRelease ? 'hidden' : releaseList.length < 2 ? 'hidden' : 'scroll' }}
         >
           <p className="details__title">
             {!showRelease
