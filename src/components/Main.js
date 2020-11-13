@@ -56,7 +56,7 @@ function Main() {
               className={classnames('turbina__image', {
                 disabled: windowHeight < 530 && isDetailsOpen,
               })}
-              style={{ maxWidth: windowHeight < 720 && '400px' }}
+              style={{ maxWidth: windowHeight < 700 && '400px' }}
             />
           </h1>
         </section>
