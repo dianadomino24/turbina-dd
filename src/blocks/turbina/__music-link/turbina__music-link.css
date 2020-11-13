@@ -20,7 +20,7 @@
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 740px) {
   .turbina__music-link {
     font-size: 12px;
     line-height: 1.2;

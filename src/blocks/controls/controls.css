@@ -6,7 +6,7 @@
   align-items: flex-start;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .controls {
     flex-wrap: wrap;
     justify-content: center;

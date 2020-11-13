@@ -37,7 +37,7 @@
     height: 31px;
   }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .controls__video-clip-button {
     order: 5;
     margin-right: 5px;

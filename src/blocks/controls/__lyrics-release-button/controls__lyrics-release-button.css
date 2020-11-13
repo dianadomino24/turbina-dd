@@ -33,7 +33,7 @@
     height: 31px;
   }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .controls__lyrics-release-button {
     order: 6;
     width: calc(100% - 110px);

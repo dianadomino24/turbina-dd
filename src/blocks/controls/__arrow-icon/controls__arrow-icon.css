@@ -7,7 +7,7 @@
   cursor: pointer;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .controls__arrow-icon {
     width: 16px;
     height: 16px;

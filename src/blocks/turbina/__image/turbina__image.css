@@ -23,7 +23,7 @@
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .turbina__image {
     max-width: 450px;
   }
