@@ -6,7 +6,7 @@
   padding: 0;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 740px) {
   .turbina__music-links {
     padding: 6px 0px 0 0;
     top: 35px;

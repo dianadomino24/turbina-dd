@@ -9,7 +9,7 @@
   text-decoration: none;
   color: #fff;
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .song-item__name-wrap_type_release {
     max-width: 100%;
   }

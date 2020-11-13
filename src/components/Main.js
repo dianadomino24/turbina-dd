@@ -5,7 +5,11 @@ import headerLogo from '../images/logo.svg'
 import turbina from '../images/Турбина.svg'
 import { maincolor, logoLink } from '../utils/utils'
 import Form from './Form'
+<<<<<<< HEAD
 import fon from '../images/IMG_1-min.jpg'
+=======
+import classnames from 'classnames'
+>>>>>>> 96541ccba81c4a7d801c919a973fb63290eccf19
 
 function Main() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
@@ -14,12 +18,14 @@ function Main() {
   }
   // The current width of the viewport
   const [windowWidth, setWindowWidth] = useState(window.innerWidth)
+  const [windowHeight, setWindowHeight] = useState(window.innerHeight)
   // The width below which the mobile view should be rendered
-  const breakpoint = 600
+  const breakpoint = 650
   // будет изменять текущую ширину экрана, чтобы переключить display для мобилки
   useLayoutEffect(() => {
     function updateSize() {
       setWindowWidth(window.innerWidth)
+      setWindowHeight(window.innerHeight)
     }
     window.addEventListener('resize', updateSize)
     updateSize()
@@ -34,7 +40,10 @@ function Main() {
         <section
           className="turbina"
           style={{
-            filter: isDetailsOpen && windowWidth < breakpoint && 'blur(4px)',
+            filter:
+              isDetailsOpen &&
+              (windowWidth < breakpoint || windowHeight < 600) &&
+              'blur(4px)',
           }}
         >
           <div className="turbina__links">
@@ -44,7 +53,14 @@ function Main() {
             <LinksMenu />
           </div>
           <h1 className="turbina__title">
-            <img src={turbina} alt="Турбина" className="turbina__image" />
+            <img
+              src={turbina}
+              alt="Турбина"
+              className={classnames('turbina__image', {
+                disabled: windowHeight < 530 && isDetailsOpen,
+              })}
+              style={{ maxWidth: windowHeight < 720 && '400px' }}
+            />
           </h1>
         </section>
 
@@ -53,6 +69,7 @@ function Main() {
           handleDetailsClick={handleDetailsClick}
           windowWidth={windowWidth}
           breakpoint={breakpoint}
+          windowHeight={windowHeight}
         />
       </div>
       <section className="information">

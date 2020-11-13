@@ -20,7 +20,7 @@
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .controls__play-button {
     width: 13px;
     height: 16px;

@@ -40,7 +40,7 @@
   }
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .song-item__name-wrap {
     max-width: 100%;
   }

@@ -30,7 +30,7 @@
       'cover details details';
   }
 }
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .player__container {
     display: flex;
     flex-direction: column;

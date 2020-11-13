@@ -12,6 +12,7 @@ function Player({
   handleDetailsClick,
   windowWidth,
   breakpoint,
+  windowHeight,
 }) {
   const [releaseList, setReleaseList] = useState([])
   const [currentSong, setCurrentSong] = useState({})
@@ -129,6 +130,13 @@ function Player({
           className={classnames('player__cover', 'player__cover_type_screen', {
             disabled: !isDetailsOpen,
           })}
+          //   style={{
+          //   display:
+          //     (windowWidth < breakpoint && windowHeight < 380)
+          //       ? 'block'
+          //       : 'none'
+
+          // }}
           src={currentSong.cover}
           alt={currentSong.name}
         ></img>
@@ -165,7 +173,10 @@ function Player({
               ></Icons.SvgPlayButton>
             )}
           </button>
-          <div className="song-item">
+          <div
+            className="song-item"
+            style={{ marginBottom: windowHeight < 380 && '20px' }}
+          >
             <div className="song-item__wrap">
               <marquee
                 className="song-item__name-wrap"
@@ -204,9 +215,13 @@ function Player({
               'player__cover_type_mobile',
               {
                 disabled: !isDetailsOpen,
-              }
+              },
+              { disabled: windowHeight < 380 }
             )}
-            style={{ backgroundImage: `url( ${currentSong.cover})` }}
+            style={{
+              backgroundImage: `url( ${currentSong.cover})`,
+              height: windowHeight < 562 && '150px',
+            }}
           >
             {currentSong.cover
               ? ''

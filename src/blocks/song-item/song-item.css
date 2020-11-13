@@ -5,7 +5,7 @@
   box-sizing: border-box;
 }
 
-@media all and (max-width: 600px) {
+@media all and (max-width: 650px) {
   .song-item {
     padding: 0;
     padding-left: 12px;
