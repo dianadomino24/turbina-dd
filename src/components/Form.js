@@ -114,11 +114,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.name && inputDirty.name
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.name & inputDirty.name ? 'red' : 'black'}}
         onChange={(e) => {
           nameHandler(e)
         }}
@@ -129,7 +125,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${inputError.name && inputDirty.name ? 'form__error_visible' : ''
+        className={`form__error ${inputError.name & inputDirty.name ? 'form__error_visible' : ''
           }`}
       >
         Введите имя и фамилию
@@ -139,11 +135,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.telephone && inputDirty.telephone
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.telephone & inputDirty.telephone ? 'red' : 'black'}}
         onChange={(e) => {
           telephoneHandler(e)
         }}
@@ -166,11 +158,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.email && inputDirty.email
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.email & inputDirty.email ? 'red' : 'black'}}
         onChange={(e) => {
           emailHandler(e)
         }}
@@ -191,11 +179,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.poem && inputDirty.poem
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.poem & inputDirty.poem ? 'red' : 'black'}}
         onChange={(e) => {
           poemHandler(e)
         }}
