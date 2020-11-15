@@ -4,9 +4,7 @@ export default function Release({ release, handleReleaseClick }) {
   function handleClick() {
     handleReleaseClick(release)
   }
-  const feat = !release.originalAuthor ? (
-    ''
-  ) : (
+  const feat = release.originalAuthor && (
     <span>
       <span className="song-item__feat">feat.&nbsp;</span>
       {release.originalAuthor}

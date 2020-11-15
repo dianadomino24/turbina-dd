@@ -55,6 +55,13 @@ function Player({
     else return 'calc(100vw - 150px)'
   }
 
+  const defineOverflow = (onlyOneRelease, releaseList) => {
+    if (onlyOneRelease) return 'hidden'
+    if ( releaseList.length < 2 ) return 'hidden'
+    else return 'scroll'
+  }
+
+
   const lyricsReleaseButton = (showRelease, onlyOneRelease) => {
     if (!showRelease) return 'Текст песни:'
     if (onlyOneRelease) return 'Пока что у нас только 1 релиз.'
@@ -158,8 +165,8 @@ function Player({
         <div className="player__controls controls">
           <button
             className="controls__play-button"
-            data-icon="P"
-            aria-label="play pause toggle"
+            // data-icon="P"
+            // aria-label="play pause toggle"
           >
             {isTrackPlaying ? (
               <Icons.SvgPauseButton
@@ -270,11 +277,7 @@ function Player({
             disabled: !isDetailsOpen,
           })}
           style={{
-            overflowY: onlyOneRelease
-              ? 'hidden'
-              : releaseList.length < 2
-              ? 'hidden'
-              : 'scroll',
+            overflowY: defineOverflow(onlyOneRelease, releaseList)
           }}
         >
           <p className="details__title">
