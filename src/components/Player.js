@@ -165,8 +165,6 @@ function Player({
         <div className="player__controls controls">
           <button
             className="controls__play-button"
-            // data-icon="P"
-            // aria-label="play pause toggle"
           >
             {isTrackPlaying ? (
               <Icons.SvgPauseButton
