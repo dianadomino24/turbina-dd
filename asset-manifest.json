@@ -1,8 +1,8 @@
 {
   "files": {
-    "main.css": "/turbina-dd/static/css/main.5f5f95df.chunk.css",
-    "main.js": "/turbina-dd/static/js/main.3761256c.chunk.js",
-    "main.js.map": "/turbina-dd/static/js/main.3761256c.chunk.js.map",
+    "main.css": "/turbina-dd/static/css/main.2e7cf883.chunk.css",
+    "main.js": "/turbina-dd/static/js/main.4e25e313.chunk.js",
+    "main.js.map": "/turbina-dd/static/js/main.4e25e313.chunk.js.map",
     "runtime-main.js": "/turbina-dd/static/js/runtime-main.e20b2251.js",
     "runtime-main.js.map": "/turbina-dd/static/js/runtime-main.e20b2251.js.map",
     "static/js/2.4db14364.chunk.js": "/turbina-dd/static/js/2.4db14364.chunk.js",
@@ -10,7 +10,7 @@
     "static/js/3.f133de86.chunk.js": "/turbina-dd/static/js/3.f133de86.chunk.js",
     "static/js/3.f133de86.chunk.js.map": "/turbina-dd/static/js/3.f133de86.chunk.js.map",
     "index.html": "/turbina-dd/index.html",
-    "static/css/main.5f5f95df.chunk.css.map": "/turbina-dd/static/css/main.5f5f95df.chunk.css.map",
+    "static/css/main.2e7cf883.chunk.css.map": "/turbina-dd/static/css/main.2e7cf883.chunk.css.map",
     "static/js/2.4db14364.chunk.js.LICENSE.txt": "/turbina-dd/static/js/2.4db14364.chunk.js.LICENSE.txt",
     "static/media/index.css": "/turbina-dd/static/media/inter-900.769f5bb9.woff2",
     "static/media/IMG_1-min.78875f6b.jpg": "/turbina-dd/static/media/IMG_1-min.78875f6b.jpg",
@@ -21,7 +21,7 @@
   "entrypoints": [
     "static/js/runtime-main.e20b2251.js",
     "static/js/2.4db14364.chunk.js",
-    "static/css/main.5f5f95df.chunk.css",
-    "static/js/main.3761256c.chunk.js"
+    "static/css/main.2e7cf883.chunk.css",
+    "static/js/main.4e25e313.chunk.js"
   ]
 }
