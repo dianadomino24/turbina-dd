@@ -7,6 +7,7 @@ import { logoLink } from '../utils/utils'
 import Form from './Form'
 import classnames from 'classnames'
 import fon from '../images/IMG_1-min.jpg'
+const throttle = require('lodash/throttle');
 
 function Main() {
   const [isDetailsOpen, setIsDetailsOpen] = useState(false)
@@ -23,8 +24,10 @@ function Main() {
     function updateSize() {
       setWindowWidth(window.innerWidth)
       setWindowHeight(window.innerHeight)
+      console.log('resize')
     }
-    window.addEventListener('resize', updateSize)
+    // throttle функция вызывается не более одного раза в указанный период времени
+    window.addEventListener('resize', throttle(updateSize, 800));
     updateSize()
     return () => window.removeEventListener('resize', updateSize)
   }, [])
