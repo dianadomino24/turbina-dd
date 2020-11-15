@@ -1,5 +1,6 @@
 import React from 'react'
 import api from '../utils/Api'
+import cn from 'classnames'
 
 function Form() {
   //значения инпутов
@@ -125,8 +126,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${inputError.name & inputDirty.name ? 'form__error_visible' : ''
-          }`}
+        className={cn('form__error', {'form__error_visible':  inputError.name & inputDirty.name})}
       >
         Введите имя и фамилию
       </span>
@@ -146,10 +146,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${inputError.telephone && inputDirty.telephone
-          ? 'form__error_visible'
-          : ''
-          }`}
+        className={cn('form__error', {'form__error_visible':  inputError.telephone & inputDirty.telephone})}
       >
         Введите номер телефона
       </span>
@@ -169,8 +166,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${inputError.email && inputDirty.email ? 'form__error_visible' : ''
-          }`}
+        className={cn('form__error', {'form__error_visible':  inputError.email & inputDirty.email})}
       >
         Введите e-mail
       </span>
@@ -190,8 +186,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${inputError.poem && inputDirty.poem ? 'form__error_visible' : ''
-          }`}
+        className={cn('form__error', {'form__error_visible':  inputError.poem & inputDirty.poem})}
       >
         Введите текст произведения
       </span>
