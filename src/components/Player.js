@@ -42,6 +42,25 @@ function Player({
     </span>
   )
 
+  const defineDisplay = (isDetailsOpen, windowWidth, breakpoint) => {
+    if (!isDetailsOpen) return 'block'
+
+    if (windowWidth < breakpoint) return 'flex'
+    else return 'grid'
+  }
+
+  const defineSongNameWidth = (isDetailsOpen, windowWidth) => {
+    if (isDetailsOpen) return
+    if (windowWidth > 900) return 'calc(100vw - 130px)'
+    else return 'calc(100vw - 150px)'
+  }
+
+  const lyricsReleaseButton = (showRelease, onlyOneRelease) => {
+    if (!showRelease) return 'Текст песни:'
+    if (onlyOneRelease) return 'Пока что у нас только 1 релиз.'
+    else return 'Релизы:'
+  }
+
   function handleTrackPlay() {
     setIsTrackPlaying(true)
     audioEl.current.play()
@@ -51,12 +70,6 @@ function Player({
     setIsTrackPlaying(false)
     audioEl.current.pause()
   }
-
-  // function handleShowClip() {
-
-  // }
-
-  //const serverSongs = api.getSongs()
 
   useEffect(() => {
     setCurrentSong(serverSongs[0])
@@ -119,24 +132,13 @@ function Player({
       <div
         className="player__container"
         style={{
-          display: isDetailsOpen
-            ? windowWidth < breakpoint
-              ? 'flex'
-              : 'grid'
-            : 'block',
+          display: defineDisplay(isDetailsOpen, windowWidth, breakpoint),
         }}
       >
         <img
           className={classnames('player__cover', 'player__cover_type_screen', {
             disabled: !isDetailsOpen,
           })}
-          //   style={{
-          //   display:
-          //     (windowWidth < breakpoint && windowHeight < 380)
-          //       ? 'block'
-          //       : 'none'
-
-          // }}
           src={currentSong.cover}
           alt={currentSong.name}
         ></img>
@@ -181,11 +183,7 @@ function Player({
               <marquee
                 className="song-item__name-wrap"
                 style={{
-                  maxWidth: !isDetailsOpen
-                    ? windowWidth > 900
-                      ? 'calc(100vw - 130px)'
-                      : 'calc(100vw - 150px)'
-                    : '',
+                  maxWidth: defineSongNameWidth(isDetailsOpen, windowWidth),
                 }}
               >
                 {currentSong.title}&nbsp;&mdash;&nbsp;
@@ -214,9 +212,8 @@ function Player({
               'player__cover',
               'player__cover_type_mobile',
               {
-                disabled: !isDetailsOpen,
-              },
-              { disabled: windowHeight < 460 }
+                disabled: !isDetailsOpen || windowHeight < 460,
+              }
             )}
             style={{
               backgroundImage: `url( ${currentSong.cover})`,
@@ -227,7 +224,7 @@ function Player({
               ? ''
               : 'Здесь должна была быть обложка альбома :)'}
           </div>
-          {currentSong.video ? (
+          {currentSong.video && (
             <a
               className={classnames('controls__video-clip-button', {
                 disabled: !isDetailsOpen,
@@ -242,8 +239,6 @@ function Player({
               />{' '}
               Клип
             </a>
-          ) : (
-            ''
           )}
 
           <button
@@ -283,11 +278,7 @@ function Player({
           }}
         >
           <p className="details__title">
-            {!showRelease
-              ? 'Текст песни:'
-              : onlyOneRelease
-              ? 'Пока что у нас только 1 релиз.'
-              : 'Релизы:'}
+            {lyricsReleaseButton(showRelease, onlyOneRelease)}
           </p>
 
           <ul

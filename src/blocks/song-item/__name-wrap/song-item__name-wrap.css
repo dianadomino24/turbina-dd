@@ -10,19 +10,6 @@
   max-width: min(100vw - 600px, 626px);
 }
 
-/* .song-item__name-wrap:hover {
-  animation: marquee 10s linear infinite;
-}
-
-@keyframes marquee {
-  0% {
-    text-indent: 0;
-  }
-  100% {
-    text-indent: -200%;
-  }
-} */
-
 @media all and (max-width: 1024px) {
   .song-item__name-wrap {
     font-size: 18px;
