@@ -24,7 +24,6 @@ function Main() {
     function updateSize() {
       setWindowWidth(window.innerWidth)
       setWindowHeight(window.innerHeight)
-      console.log('resize')
     }
     // throttle функция вызывается не более одного раза в указанный период времени
     window.addEventListener('resize', throttle(updateSize, 800));
