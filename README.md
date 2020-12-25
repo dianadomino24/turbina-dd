@@ -1,12 +1,16 @@
-# Turbina Music Player
+# Turbina React Music Player
 
-**Web-player application for Marshak children bookshop.**
+Turbina is a voluntary promotion project for the children's bookshop [Marshak](https://marshakbooks.ru/). It's a React web application with a music player and a feedback form. All the functionality of the project works in popular browsers and on modern devices. It has adaptive layout for different resolutions.
 
-**Веб-приложение с возможностью прослушивания музыки для книжного магазина Маршак.**
+The feedback form allows users to join the project and share their children's poems. In collaboration with modern bands these poems are turned into music tracks. Input fields collect data and send it to the server for further processin as well as user-friendly validation is configured.
+
+---
+
+## :mag_right: Preview
 
 **Figma**
 
-[Ссылка на макет в Figma](https://www.figma.com/file/P8rK0IWyoZtBghcwWACXcC/TURBINA_1?node-id=844%3A2)
+[Figma project layout](https://www.figma.com/file/P8rK0IWyoZtBghcwWACXcC/TURBINA_1?node-id=844%3A2)
 
 **Ссылка на GitPages**
 
