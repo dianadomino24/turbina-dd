@@ -1,0 +1,12 @@
+.turbina {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  max-width: 1280px;
+  height: 100vh;
+  padding: 0;
+  margin: 0;
+  position: relative;
+  transition: filter 0.5s ease-in-out;
+}

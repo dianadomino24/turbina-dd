@@ -1,0 +1,11 @@
+.description {
+  padding-left: 51px;
+  padding-right: 51px;
+}
+
+@media all and (max-width: 400px) {
+  .description {
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}

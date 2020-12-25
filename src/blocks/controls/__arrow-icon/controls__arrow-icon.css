@@ -1,0 +1,15 @@
+.controls__arrow-icon {
+  padding: 0;
+  transition: opacity 0.5s ease-in-out, max-height 0.8s ease,
+    visibility 0.5s ease-in-out;
+}
+.controls__arrow-icon:hover {
+  cursor: pointer;
+}
+
+@media all and (max-width: 650px) {
+  .controls__arrow-icon {
+    width: 16px;
+    height: 16px;
+  }
+}

@@ -1,0 +1,57 @@
+.form__input {
+    font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+    min-width: 600px;
+    min-height: 60px;
+    font-weight: normal;
+    font-size: 16px;
+    line-height: 20px;
+    color: #000000;
+    border: none;
+    border-bottom: 2px solid #000000;
+    padding: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .form__input {
+    min-width: 648px;
+  }
+}
+
+@media all and (max-width: 720px) {
+  .form__input {
+    min-width: 550px;
+  }
+}
+
+@media all and (max-width: 650px) {
+  .form__input {
+    min-width: 450px;
+    min-height: 50px;
+  }
+}
+
+@media all and (max-width: 550px) {
+  .form__input {
+    min-width: 270px;
+    min-height: 20px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .form__input {
+    font-size: 14px;
+    margin-top: 6px;
+  }
+}
+
+.form__input:first-of-type {
+  margin: 0;
+}
+
+.form__input:hover {
+    font-style: italic;
+}
+
+.form__input:focus {
+  outline: none;
+}

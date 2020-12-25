@@ -1,0 +1,26 @@
+.details__song-item {
+  list-style: none;
+  margin-bottom: 16px;
+  overflow-x: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.details__song-item:hover {
+  animation: marquee 13s linear infinite;
+}
+
+@keyframes marquee {
+  0% {
+    text-indent: 0;
+  }
+  100% {
+    text-indent: -150%;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .details__song-item {
+    margin-bottom: 10px;
+  }
+}

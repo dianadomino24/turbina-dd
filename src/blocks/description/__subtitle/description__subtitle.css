@@ -1,0 +1,33 @@
+.description__subtitle {
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  font-weight: normal;
+  font-size: 16px;
+  line-height: 22px;
+  max-width: 716px;
+  margin-top: 14px;
+}
+
+@media screen and (max-width: 1024px) {
+  .description__subtitle {
+    font-size: 15px;
+    max-width: 680px;
+  }
+}
+
+@media all and (max-width: 768px) {
+  .description__subtitle {
+    max-width: 648px;
+  }
+}
+
+@media all and (max-width: 320px) {
+  .description__subtitle {
+    font-size: 12px;
+    line-height: 16px;
+    max-width: 270px;
+  }
+}
+
+.description__subtitle:first-of-type {
+  margin-top: 0;
+}

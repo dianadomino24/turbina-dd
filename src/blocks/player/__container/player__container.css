@@ -1,0 +1,42 @@
+.player__container {
+  padding: 0 15px 20px;
+  font-family: 'Inter', 'Helvetica', 'Arial', sans-serif;
+  color: #fff;
+  min-width: 280px;
+  margin: 0 auto;
+  width: 100%;
+  box-sizing: border-box;
+  max-width: 1280px;
+  display: grid;
+  grid-template-areas:
+    'cover controls controls'
+    'cover details details';
+  grid-template-columns: 216px auto;
+  grid-template-rows: auto auto;
+  grid-gap: 0;
+  align-items: start;
+}
+@media all and (max-width: 1024px) {
+  .player__container {
+    grid-template-columns: 204px auto;
+  }
+}
+@media all and (max-width: 900px) {
+  .player__container {
+    grid-template-columns: 144px auto;
+    grid-template-areas:
+      'controls controls controls'
+      'cover details details';
+  }
+}
+@media all and (max-width: 650px) {
+  .player__container {
+    display: flex;
+    flex-direction: column;
+  }
+}
+@media all and (max-width: 400px) {
+  .player__container {
+    padding: 0 13px 20px 15px;
+  }
+}
