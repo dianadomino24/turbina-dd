@@ -67,6 +67,8 @@ npm install
 
 ---
 
+**Link to the final project in production** - https://marshakbooks.ru/turbina/
+
 **Practicum by Yandex** - https://practicum.yandex.com/
 
 ## :sparkles: Thanks for watching! :sparkles:
