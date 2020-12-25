@@ -2,7 +2,7 @@
 
 Turbina is a voluntary promotion project for the children's bookshop [Marshak](https://marshakbooks.ru/). It's a React web application with a music player and a feedback form. All the functionality of the project works in popular browsers and on modern devices. It has adaptive layout for different resolutions.
 
-The feedback form allows users to join the project and share their children's poems. In collaboration with modern bands these poems are turned into music tracks. Input fields collect data and send it to the server for further processin as well as user-friendly validation is configured.
+The feedback form allows users to join the project and share their children's poems. In collaboration with modern bands these poems are turned into music tracks. Input fields collect data and send it to the server for further processing. Also user-friendly validation is configured.
 
 ---
 
@@ -67,12 +67,6 @@ npm install
 
 ---
 
-**Figma**
-
-[Figma project layout](https://www.figma.com/file/P8rK0IWyoZtBghcwWACXcC/TURBINA_1?node-id=844%3A2)
-
----
-
-## **Practicum by Yandex** - https://practicum.yandex.com/
+**Practicum by Yandex** - https://practicum.yandex.com/
 
 ## :sparkles: Thanks for watching! :sparkles:
