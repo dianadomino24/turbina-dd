@@ -17,12 +17,6 @@
   }
 }
 
-@media all and (max-width: 768px) {
-  .form__input {
-    min-width: 648px;
-  }
-}
-
 @media all and (max-width: 720px) {
   .form__input {
     min-width: 550px;
@@ -47,8 +41,6 @@
   .form__input {
     font-size: 14px;
     margin-top: 6px;
-    min-width: 270px;
-    min-height: 20px;
   }
 }
 

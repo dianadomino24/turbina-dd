@@ -1,5 +1,6 @@
 import React from 'react'
 import api from '../utils/Api'
+import cn from 'classnames'
 
 function Form() {
   //значения инпутов
@@ -35,17 +36,13 @@ function Form() {
   function blurHandler(e) {
     switch (e.target.name) {
       case 'name':
-        setInputDirty({ ...inputDirty, name: true })
-        break
+        return setInputDirty({ ...inputDirty, name: true })
       case 'telephone':
-        setInputDirty({ ...inputDirty, telephone: true })
-        break
+        return setInputDirty({ ...inputDirty, telephone: true })
       case 'email':
-        setInputDirty({ ...inputDirty, email: true })
-        break
+        return setInputDirty({ ...inputDirty, email: true })
       case 'poem':
-        setInputDirty({ ...inputDirty, poem: true })
-        break
+        return setInputDirty({ ...inputDirty, poem: true })
       default:
         console.log('Не соответствует ни одному из вариантов')
     }
@@ -53,10 +50,10 @@ function Form() {
   // проверка валидность всей формы
   React.useEffect(() => {
     if (
-      !inputError.name &
-      !inputError.telephone &
-      !inputError.email &
-      !inputError.poem &
+      !inputError.name &&
+      !inputError.telephone &&
+      !inputError.email &&
+      !inputError.poem &&
       !inputError.radio
     ) {
       setIsValid(false)
@@ -68,50 +65,29 @@ function Form() {
   //обработчик инпута имени
   function nameHandler(e) {
     setInputValue({ ...inputValue, name: e.target.value })
-    if (e.target.value.length < 3) {
-      setInputError({ ...inputError, name: true })
-    } else {
-      setInputError({ ...inputError, name: false })
-    }
+    setInputError({ ...inputError, name: e.target.value.length < 3 })
   }
   //обработчик инпута телефона
   function telephoneHandler(e) {
     setInputValue({ ...inputValue, telephone: e.target.value })
     const regex = /^(\+7|7|8)?[\s\-]?\(?[489][0-9]{2}\)?[\s\-]?[0-9]{3}[\s\-]?[0-9]{2}[\s\-]?[0-9]{2}$/
-    if (!regex.test(e.target.value)) {
-      setInputError({ ...inputError, telephone: true })
-    } else {
-      setInputError({ ...inputError, telephone: false })
-    }
+    setInputError({ ...inputError, telephone: !regex.test(e.target.value) })
   }
   //обработчик инпута email
   function emailHandler(e) {
     setInputValue({ ...inputValue, email: e.target.value })
     const reg = /^[A-Z0-9._%+-]+@[A-Z0-9-]+.+.[A-Z]{2,4}$/i
-    if (!reg.test(e.target.value)) {
-      setInputError({ ...inputError, email: true })
-    } else {
-      setInputError({ ...inputError, email: false })
-    }
+    setInputError({ ...inputError, email: !reg.test(e.target.value) })
   }
   //обработчик инпута текста стихотвонения
   function poemHandler(e) {
     setInputValue({ ...inputValue, poem: e.target.value })
-    if (e.target.value.length < 20) {
-      setInputError({ ...inputError, poem: true })
-    } else {
-      setInputError({ ...inputError, poem: false })
-    }
+    setInputError({ ...inputError, poem: e.target.value.length < 20 })
   }
   //обработчик радиокнопки
   function radioHandler() {
-    if (inputValue.radio === false) {
-      setInputValue({ ...inputValue, radio: true })
-      setInputError({ ...inputError, radio: false })
-    } else {
-      setInputValue({ ...inputValue, radio: false })
-      setInputError({ ...inputError, radio: true })
-    }
+      setInputValue({ ...inputValue, radio: !inputValue.radio })
+      setInputError({ ...inputError, radio: inputValue.radio }) 
   }
   //обработка и отправка формы на сервер
   function submitForm(evt) {
@@ -139,11 +115,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.name & inputDirty.name
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.name & inputDirty.name ? 'red' : 'black'}}
         onChange={(e) => {
           nameHandler(e)
         }}
@@ -154,9 +126,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${
-          inputError.name & inputDirty.name ? 'form__error_visible' : ''
-        }`}
+        className={cn('form__error', {'form__error_visible':  inputError.name & inputDirty.name})}
       >
         Введите имя и фамилию
       </span>
@@ -165,11 +135,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.telephone & inputDirty.telephone
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.telephone & inputDirty.telephone ? 'red' : 'black'}}
         onChange={(e) => {
           telephoneHandler(e)
         }}
@@ -180,11 +146,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${
-          inputError.telephone & inputDirty.telephone
-            ? 'form__error_visible'
-            : ''
-        }`}
+        className={cn('form__error', {'form__error_visible':  inputError.telephone & inputDirty.telephone})}
       >
         Введите номер телефона
       </span>
@@ -193,11 +155,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.email & inputDirty.email
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.email & inputDirty.email ? 'red' : 'black'}}
         onChange={(e) => {
           emailHandler(e)
         }}
@@ -208,9 +166,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${
-          inputError.email & inputDirty.email ? 'form__error_visible' : ''
-        }`}
+        className={cn('form__error', {'form__error_visible':  inputError.email & inputDirty.email})}
       >
         Введите e-mail
       </span>
@@ -219,11 +175,7 @@ function Form() {
         onBlur={(e) => {
           blurHandler(e)
         }}
-        style={
-          inputError.poem & inputDirty.poem
-            ? { color: 'red' }
-            : { color: 'black' }
-        }
+        style={{ color: inputError.poem & inputDirty.poem ? 'red' : 'black'}}
         onChange={(e) => {
           poemHandler(e)
         }}
@@ -234,9 +186,7 @@ function Form() {
         required
       />
       <span
-        className={`form__error ${
-          inputError.poem & inputDirty.poem ? 'form__error_visible' : ''
-        }`}
+        className={cn('form__error', {'form__error_visible':  inputError.poem & inputDirty.poem})}
       >
         Введите текст произведения
       </span>

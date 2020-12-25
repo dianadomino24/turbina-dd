@@ -3,13 +3,6 @@
   padding-right: 51px;
 }
 
-@media screen and (max-width: 1024px) {
-  .description {
-    padding-left: 50px;
-    padding-right: 50px;
-  }
-}
-
 @media all and (max-width: 400px) {
   .description {
     padding-left: 20px;
