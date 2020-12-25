@@ -5,7 +5,6 @@ import Release from './Release'
 import { maincolor, countRemainingTime } from '../utils/utils'
 import Icons from './icons/Icons'
 import playIcon from '../images/play-clip.svg'
-import api from '../utils/Api'
 
 function Player({
   isDetailsOpen,
@@ -57,10 +56,9 @@ function Player({
 
   const defineOverflow = (onlyOneRelease, releaseList) => {
     if (onlyOneRelease) return 'hidden'
-    if ( releaseList.length < 2 ) return 'hidden'
+    if (releaseList.length < 2) return 'hidden'
     else return 'scroll'
   }
-
 
   const lyricsReleaseButton = (showRelease, onlyOneRelease) => {
     if (!showRelease) return 'Текст песни:'
@@ -163,9 +161,7 @@ function Player({
           Your browser does not support the audio element.
         </audio>
         <div className="player__controls controls">
-          <button
-            className="controls__play-button"
-          >
+          <button className="controls__play-button">
             {isTrackPlaying ? (
               <Icons.SvgPauseButton
                 className="controls__pause-icon"
@@ -275,7 +271,7 @@ function Player({
             disabled: !isDetailsOpen,
           })}
           style={{
-            overflowY: defineOverflow(onlyOneRelease, releaseList)
+            overflowY: defineOverflow(onlyOneRelease, releaseList),
           }}
         >
           <p className="details__title">

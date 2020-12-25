@@ -8,36 +8,71 @@ The feedback form allows users to join the project and share their children's po
 
 ## :mag_right: Preview
 
-**Figma**
+![Preview](./Screenshot_1.jpg)
+![Preview](./Screenshot_2.jpg)
 
-[Figma project layout](https://www.figma.com/file/P8rK0IWyoZtBghcwWACXcC/TURBINA_1?node-id=844%3A2)
+---
 
-**Ссылка на GitPages**
+## :link: GitPages link
 
-[Ссылка на сайт в GitPages](https://dianadomino24.github.io/turbina-dd/)
+[GitPages](https://dianadomino24.github.io/turbina-dd/)
 
-## Инструкция по установке:
+---
 
-1. Клонировать репозиторий:
+## :arrow_down: How to install and test
+
+1. Clone the repository:
 
 ```
 git clone https://github.com/dianadomino24/turbina-dd.git
 ```
 
-2. Установить зависимости:
+2. Install dependencies:
 
 ```
 npm install
 ```
 
-3. Доступные сценарии:
+3. Available modes:
 
 ```
-    * режим разработки:
+    * development mode:
 
-      npm start
+      npm run start
 
-    * создание production версии приложения:
+    * creating a production version of the app:
 
-      npm build
+      npm run build
 ```
+
+---
+
+## :rocket: Technologies
+
+- **JavaScript ES6** - object-oriented programming, fetch API,
+
+- semantic **HTML5**, styles - **CSS3** including Flexbox, Grid, adaptive layout,
+- **jsx**,
+- **BEM** methodology,
+
+- **React.js** - functional and class components, Ref functions,
+- **React hooks** - useState, useEffect, useRef,
+- **Create React App** build,
+- React Validation,
+
+- **ESLint**,
+- **Figma**, **Pixel perfect**,
+
+- **Git** versions, branches, team work, peer code reviews.
+
+---
+
+**Figma**
+
+[Figma project layout](https://www.figma.com/file/P8rK0IWyoZtBghcwWACXcC/TURBINA_1?node-id=844%3A2)
+
+---
+
+## **Practicum by Yandex** - https://practicum.yandex.com/
+
+## :sparkles: Thanks for watching! :sparkles:
