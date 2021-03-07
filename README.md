@@ -15,7 +15,7 @@ The feedback form allows users to join the project and share their children's po
 
 ## :link: GitPages link
 
-[GitPages](https://dianadomino24.github.io/turbina-dd/)
+[GitPages link to try the app](https://dianadomino24.github.io/turbina-dd/)
 
 ---
 
